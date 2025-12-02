@@ -1,61 +1,60 @@
-import { GlassCard } from '@/components/ui/GlassCard';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
+import { GlassCard } from '@/components/ui/GlassCard';
+import { KaspaWidget } from '@/components/market/KaspaWidget';
+import { MarketStats } from '@/components/market/MarketStats';
+import { TopTokensList } from '@/components/market/TopTokensList';
+import { GainersLosers } from '@/components/market/GainersLosers';
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
-      <section className="text-center py-16">
+      <section className="text-center py-8 mb-8">
         <Badge variant="pro" size="md" className="mb-4">
           LIVE DATA
         </Badge>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           <span className="text-gradient-primary">KASPA-NEXUS</span>
         </h1>
-        <p className="text-xl md:text-2xl text-text-secondary mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-text-secondary mb-6 max-w-2xl mx-auto">
           The Most Accurate KRC-20 Data Platform
         </p>
-        <p className="text-text-muted mb-12 max-w-xl mx-auto">
-          Real-time market data, advanced charts, AI-powered trading signals,
-          and portfolio tools for Kaspa & KRC-20 tokens.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/tokens" size="lg">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="/tokens" size="md">
             Explore Tokens
           </Button>
-          <Button href="/register" variant="secondary" size="lg">
+          <Button href="/register" variant="secondary" size="md">
             Get Started Free
           </Button>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <GlassCard className="text-center" glow>
-            <p className="text-3xl md:text-4xl font-bold text-gradient-primary">750+</p>
-            <p className="text-text-secondary text-sm mt-1">KRC-20 Tokens</p>
-          </GlassCard>
-          <GlassCard className="text-center" glow>
-            <p className="text-3xl md:text-4xl font-bold text-gradient-primary">$2.5M+</p>
-            <p className="text-text-secondary text-sm mt-1">Total Volume 24h</p>
-          </GlassCard>
-          <GlassCard className="text-center" glow>
-            <p className="text-3xl md:text-4xl font-bold text-gradient-primary">10K+</p>
-            <p className="text-text-secondary text-sm mt-1">Active Traders</p>
-          </GlassCard>
-          <GlassCard className="text-center" glow>
-            <p className="text-3xl md:text-4xl font-bold text-gradient-primary">99.9%</p>
-            <p className="text-text-secondary text-sm mt-1">Uptime</p>
-          </GlassCard>
-        </div>
+      {/* Kaspa Widget */}
+      <section className="mb-8">
+        <KaspaWidget />
+      </section>
+
+      {/* Market Stats */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-4">KRC-20 Market Overview</h2>
+        <MarketStats />
+      </section>
+
+      {/* Top Gainers / Losers */}
+      <section className="mb-8">
+        <GainersLosers limit={5} />
+      </section>
+
+      {/* Top Tokens */}
+      <section className="mb-8">
+        <TopTokensList title="Top KRC-20 by Market Cap" limit={8} />
       </section>
 
       {/* Features Section */}
-      <section className="py-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-          Everything You Need
+      <section className="py-8">
+        <h2 className="text-2xl font-bold text-center mb-8">
+          Why KASPA-NEXUS?
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <GlassCard padding="lg">
@@ -103,12 +102,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-8">
         <GlassCard className="text-center" padding="lg" glow>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Trading Smarter?
           </h2>
-          <p className="text-text-secondary mb-8 max-w-md mx-auto">
+          <p className="text-text-secondary mb-6 max-w-md mx-auto">
             Join thousands of traders using KASPA-NEXUS to make better investment decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

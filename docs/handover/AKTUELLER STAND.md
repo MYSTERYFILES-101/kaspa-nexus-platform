@@ -15,9 +15,29 @@
 
 **Phase P1: Basis Setup**
 - [x] P1.0: Projekt initialisiert (Next.js 14, TypeScript, Tailwind)
-- [ ] P1.1: Dashboard Market Overview
+- [x] P1.1: Dashboard Market Overview ✅
 - [ ] P1.2: Token Liste
 - [ ] P1.3: Token Detail Seite
+
+## LETZTE AENDERUNGEN (P1.1)
+
+**Market Overview Dashboard implementiert:**
+- KaspaWidget: Live Kaspa Preis + Stats
+- MarketStats: KRC-20 Markt-Uebersicht (Total Tokens, MCap, Volume)
+- GainersLosers: Top 5 Gainers/Losers (24h)
+- TopTokensList: Top 8 Tokens nach Market Cap
+- TokenCard: Wiederverwendbare Token-Karte
+
+**Neue Komponenten:**
+```
+src/components/market/
+├── KaspaWidget.tsx
+├── MarketStats.tsx
+├── GainersLosers.tsx
+├── TopTokensList.tsx
+├── TokenCard.tsx
+└── index.ts
+```
 
 ## TECH STACK
 
@@ -28,6 +48,7 @@
 | Styling | TailwindCSS 3.4 | ✅ |
 | Design System | Glassmorphism | ✅ |
 | API Client | api.kaspa-nexus.io | ✅ |
+| Market Components | KaspaWidget, etc. | ✅ |
 | State | Zustand | ⏳ |
 | Charts | Recharts/TradingView | ⏳ |
 | Auth | Lucia Auth | ⏳ |
@@ -37,11 +58,17 @@
 ```
 /home/kaspa/kaspa-nexus-platform/
 ├── src/
-│   ├── app/           # Next.js App Router
-│   ├── components/    # UI Komponenten
-│   ├── config/        # Konfiguration
-│   ├── lib/           # Utilities, API Client
-│   └── types/         # TypeScript Types
+│   ├── app/
+│   │   ├── page.tsx          # Homepage mit Dashboard
+│   │   ├── layout.tsx
+│   │   └── globals.css
+│   ├── components/
+│   │   ├── layout/           # Header, Footer
+│   │   ├── ui/               # GlassCard, Button, etc.
+│   │   └── market/           # KaspaWidget, MarketStats, etc.
+│   ├── config/
+│   ├── lib/
+│   └── types/
 ├── docs/
 │   ├── ENTWICKLUNGS-REGELN.md
 │   ├── MASTERPLAN.md
@@ -49,27 +76,38 @@
 │       ├── AKTUELLER STAND.md
 │       ├── HANDOVER-INDEX.md
 │       └── protokolle/
+│           └── P1.1-PROTOKOLL.md
 └── public/
 ```
+
+## API ENDPOINTS GENUTZT
+
+| Endpoint | Komponente |
+|----------|------------|
+| `/v1/kaspa/price` | KaspaWidget |
+| `/v1/market/overview` | MarketStats |
+| `/v1/market/gainers` | GainersLosers |
+| `/v1/market/losers` | GainersLosers |
+| `/v1/krc20/tokens` | TopTokensList |
 
 ## LETZTER COMMIT
 
 ```
-2025-12-02: feat: Add base structure, design system, and API client
-- Design System mit KASPA-NEXUS Farben
-- Layout Komponenten (Header, Footer)
-- UI Komponenten (GlassCard, Button, Badge, etc.)
-- API Client fuer api.kaspa-nexus.io
-- TypeScript Types
+2025-12-02: P1.1: Market Overview Dashboard
+- KaspaWidget mit Live-Preis
+- MarketStats (Total Tokens, MCap, Volume)
+- GainersLosers (Top 5 je)
+- TopTokensList (Top 8 by MCap)
+- Homepage aktualisiert
 ```
 
 ## NAECHSTE AUFGABE
 
-**P1.1: Dashboard Market Overview**
-- Kaspa Preis Widget
-- KRC-20 Market Stats
-- Top Gainer/Loser
-- Trending Tokens
+**P1.2: Token Liste**
+- Vollstaendige Token-Liste
+- Sortierung und Filter
+- Pagination
+- Suche
 
 ---
 
