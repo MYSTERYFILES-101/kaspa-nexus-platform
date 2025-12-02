@@ -142,6 +142,27 @@
     "volume": "Volumen",
     "holders": "Halter"
   },
+  "tokens": {
+    "title": "KRC-20 Token Liste",
+    "subtitle": "{count} Tokens im Kaspa Oekosystem",
+    "liveData": "LIVE DATEN",
+    "lastUpdated": "Aktualisiert",
+    "searchPlaceholder": "Token suchen (Name oder Ticker)...",
+    "sortBy": "Sortieren nach",
+    "sortMarketCapDesc": "Marktkapitalisierung (hoch-niedrig)",
+    "sortMarketCapAsc": "Marktkapitalisierung (niedrig-hoch)",
+    "sortVolumeDesc": "Volumen (hoch-niedrig)",
+    "sortChangeDesc": "Aenderung (beste zuerst)",
+    "sortChangeAsc": "Aenderung (schlechteste zuerst)",
+    "sortHoldersDesc": "Halter (meiste zuerst)",
+    "sortNameAsc": "Name (A-Z)",
+    "previous": "Zurueck",
+    "next": "Weiter",
+    "retry": "Erneut versuchen",
+    "resultsFound": "{count} Tokens gefunden",
+    "noTokensFound": "Keine Tokens gefunden",
+    "noTokensHint": "Versuche deine Suche oder Filter anzupassen"
+  },
   "footer": {
     "tagline": "Die genaueste KRC-20 Datenplattform",
     "products": "Produkte",

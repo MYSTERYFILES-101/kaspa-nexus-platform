@@ -16,46 +16,46 @@
 **Phase P1: Basis Setup**
 - [x] P1.0: Projekt initialisiert (Next.js 14, TypeScript, Tailwind)
 - [x] P1.1: Dashboard Market Overview
-- [x] P1.1-REDESIGN: Sidebar Layout + Design System (NEU!)
+- [x] P1.1-REDESIGN: Sidebar Layout + Design System
+- [x] P1.1-FIX-2: Mock-Daten entfernt + Intro-Video
+- [x] P1.1-FIX-3: Video Anpassungen
 - [x] i18n: Internationalisierung (DE/EN)
-- [ ] P1.2: Token Liste
+- [x] P1.2: Token Liste (NEU!)
 - [ ] P1.3: Token Detail Seite
 
-## LETZTE AENDERUNGEN (P1.1-REDESIGN)
+## LETZTE AENDERUNGEN (P1.2)
 
-**Komplettes Layout Redesign:**
+**Token Liste implementiert:**
 
-1. **Sidebar Navigation (280px)**
-   - 6 Kategorien mit Submenues
-   - PRO/PRO+/UPGRADE Badges
-   - Kaspa Node Status Footer
-   - Mobile Overlay Support
+1. **KRC-20 Banner**
+   - Grafik von /root/Logo&Banner/
+   - 21:9 Aspect Ratio
+   - Gradient Overlay
 
-2. **Design System erweitert**
-   - Glasmorphism Components
-   - Glow Effects
-   - Floating Background Orbs
-   - Neue CSS Variables
+2. **Neue Token-Komponenten**
+   - TokenSearch (Debounce, Clear)
+   - TokenSort (7 Sortieroptionen)
+   - TokenPagination (Prev/Next, Page Numbers)
+   - TokenGrid (Responsive, Skeletons)
 
-3. **Dashboard Home neu**
-   - Banner mit Netzwerk-Pattern
-   - Stats Cards
-   - Feature Banners
-   - CTA Section
+3. **Token-Seite Features**
+   - Route: /krc20/tokens
+   - Live-Daten Badge
+   - Auto-Refresh (30s)
+   - Error Handling
 
 **Neue Dateien:**
-- `src/components/layout/Sidebar.tsx`
-- `src/components/layout/AppLayout.tsx`
-- `src/components/dashboard/DashboardBanner.tsx`
-- `src/components/dashboard/FeatureBanner.tsx`
-- `src/components/dashboard/StatsCard.tsx`
+- `src/app/krc20/tokens/page.tsx`
+- `src/components/tokens/TokenSearch.tsx`
+- `src/components/tokens/TokenSort.tsx`
+- `src/components/tokens/TokenPagination.tsx`
+- `src/components/tokens/TokenGrid.tsx`
+- `src/components/tokens/index.ts`
+- `public/images/banners/krc20-network.png`
 
 **Geaenderte Dateien:**
-- `src/app/globals.css` (900+ Zeilen)
-- `src/app/layout.tsx`
-- `src/app/page.tsx`
-- `messages/de.json`
-- `messages/en.json`
+- `messages/de.json` (tokens Abschnitt)
+- `messages/en.json` (tokens Abschnitt)
 
 ## TECH STACK
 
@@ -201,19 +201,20 @@
 
 ```
 Build: OK
-Route (app)           Size     First Load JS
-+-- /                5.03 kB      115 kB
-+-- /_not-found      873 B        88.1 kB
+Route (app)               Size     First Load JS
++-- /                    5.13 kB      115 kB
++-- /_not-found          873 B        88.2 kB
++-- /krc20/tokens        10.5 kB      121 kB
 ```
 
 ## NAECHSTE AUFGABE
 
-**P1.2: Token Liste**
-- Vollstaendige Token-Liste
-- Sortierung und Filter
-- Pagination
-- Suche
+**P1.3: Token Detail Seite**
+- Token-Detailansicht
+- Preis-Chart (OHLC)
+- Holder-Liste
+- Transfer-History
 
 ---
 
-*Zuletzt aktualisiert: 2025-12-02 (P1.1-REDESIGN)*
+*Zuletzt aktualisiert: 2025-12-02 (P1.2)*
