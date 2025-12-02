@@ -117,7 +117,7 @@ export default function TokensPage() {
   }, [searchQuery, sortOption]);
 
   return (
-    <div className="p-4 md:p-6 lg:p-8">
+    <div className="py-4 md:py-6 lg:py-8">
       {/* Banner */}
       <div className="relative w-full aspect-[21/9] mb-6 rounded-2xl overflow-hidden">
         <Image

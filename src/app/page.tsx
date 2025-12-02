@@ -35,7 +35,7 @@ export default function Home() {
   const t = useTranslations('dashboard');
 
   return (
-    <div className="p-4 md:p-6 lg:p-8">
+    <div className="py-4 md:py-6 lg:py-8">
       {/* Banner with Intro Video */}
       <DashboardBanner videoSrc="/videos/intro.mp4" />
 

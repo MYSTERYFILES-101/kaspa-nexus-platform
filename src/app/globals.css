@@ -53,6 +53,10 @@
   --sidebar-width: 280px;
   --sidebar-bg: rgba(10, 22, 40, 0.95);
 
+  /* Container */
+  --container-max-width: 1400px;
+  --content-max-width: 1200px;
+
   /* Fonts */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -163,6 +167,25 @@ body {
   min-height: 100vh;
   position: relative;
   z-index: 1;
+}
+
+/* Content Container - Fixed max-width */
+.content-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    padding: 0 2rem;
+  }
 }
 
 /* Mobile: Sidebar overlay */

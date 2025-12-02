@@ -57,7 +57,9 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* Main Content */}
       <main className="main-content">
-        {children}
+        <div className="content-container">
+          {children}
+        </div>
       </main>
     </div>
   );
