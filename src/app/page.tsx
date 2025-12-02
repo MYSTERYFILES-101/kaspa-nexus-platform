@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { GlassCard } from '@/components/ui/GlassCard';
@@ -7,25 +10,28 @@ import { TopTokensList } from '@/components/market/TopTokensList';
 import { GainersLosers } from '@/components/market/GainersLosers';
 
 export default function Home() {
+  const t = useTranslations('home');
+  const tFeatures = useTranslations('features');
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
       <section className="text-center py-8 mb-8">
         <Badge variant="pro" size="md" className="mb-4">
-          LIVE DATA
+          {t('badge')}
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="text-gradient-primary">KASPA-NEXUS</span>
+          <span className="text-gradient-primary">{t('title')}</span>
         </h1>
         <p className="text-lg md:text-xl text-text-secondary mb-6 max-w-2xl mx-auto">
-          The Most Accurate KRC-20 Data Platform
+          {t('subtitle')}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button href="/tokens" size="md">
-            Explore Tokens
+            {t('exploreTokens')}
           </Button>
           <Button href="/register" variant="secondary" size="md">
-            Get Started Free
+            {t('getStarted')}
           </Button>
         </div>
       </section>
@@ -37,7 +43,6 @@ export default function Home() {
 
       {/* Market Stats */}
       <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4">KRC-20 Market Overview</h2>
         <MarketStats />
       </section>
 
@@ -48,13 +53,13 @@ export default function Home() {
 
       {/* Top Tokens */}
       <section className="mb-8">
-        <TopTokensList title="Top KRC-20 by Market Cap" limit={8} />
+        <TopTokensList limit={8} />
       </section>
 
       {/* Features Section */}
       <section className="py-8">
         <h2 className="text-2xl font-bold text-center mb-8">
-          Why KASPA-NEXUS?
+          {t('whyUs')}
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <GlassCard padding="lg">
@@ -63,9 +68,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold mb-2">Real-Time Data</h3>
+            <h3 className="text-lg font-semibold mb-2">{tFeatures('realTimeData')}</h3>
             <p className="text-text-secondary text-sm">
-              Live prices, volume, and market cap for all KRC-20 tokens updated every second.
+              {tFeatures('realTimeDataDesc')}
             </p>
           </GlassCard>
 
@@ -76,11 +81,11 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold mb-2">
-              AI Signals
+              {tFeatures('aiSignals')}
               <Badge variant="pro" className="ml-2">PRO</Badge>
             </h3>
             <p className="text-text-secondary text-sm">
-              Machine learning powered trading signals with entry/exit points and confidence scores.
+              {tFeatures('aiSignalsDesc')}
             </p>
           </GlassCard>
 
@@ -91,11 +96,11 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold mb-2">
-              Portfolio
+              {tFeatures('portfolio')}
               <Badge variant="pro" className="ml-2">PRO</Badge>
             </h3>
             <p className="text-text-secondary text-sm">
-              Track your holdings, analyze performance, and get AI-powered portfolio suggestions.
+              {tFeatures('portfolioDesc')}
             </p>
           </GlassCard>
         </div>
@@ -105,17 +110,17 @@ export default function Home() {
       <section className="py-8">
         <GlassCard className="text-center" padding="lg" glow>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Start Trading Smarter?
+            {t('readyToStart')}
           </h2>
           <p className="text-text-secondary mb-6 max-w-md mx-auto">
-            Join thousands of traders using KASPA-NEXUS to make better investment decisions.
+            {t('ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/register" size="lg">
-              Create Free Account
+              {t('createAccount')}
             </Button>
             <Button href="https://api.kaspa-nexus.io/docs" variant="secondary" size="lg" external>
-              API Documentation
+              {t('apiDocs')}
             </Button>
           </div>
         </GlassCard>

@@ -15,6 +15,7 @@
 |-----|---------|--------|-----------|
 | P1.0 | Projekt Setup | ✅ | [SETUP-PROTOKOLL.md](../SETUP-PROTOKOLL.md) |
 | P1.1 | Dashboard Market Overview | ✅ | [P1.1-PROTOKOLL.md](protokolle/P1.1-PROTOKOLL.md) |
+| i18n | Internationalisierung (DE/EN) | ✅ | [I18N-PROTOKOLL.md](protokolle/I18N-PROTOKOLL.md) |
 | P1.2 | Token Liste | - | protokolle/P1.2-PROTOKOLL.md |
 | P1.3 | Token Detail | - | protokolle/P1.3-PROTOKOLL.md |
 

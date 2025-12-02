@@ -16,28 +16,37 @@
 **Phase P1: Basis Setup**
 - [x] P1.0: Projekt initialisiert (Next.js 14, TypeScript, Tailwind)
 - [x] P1.1: Dashboard Market Overview ✅
+- [x] i18n: Internationalisierung (DE/EN) ✅
 - [ ] P1.2: Token Liste
 - [ ] P1.3: Token Detail Seite
 
-## LETZTE AENDERUNGEN (P1.1)
+## LETZTE AENDERUNGEN (i18n)
 
-**Market Overview Dashboard implementiert:**
-- KaspaWidget: Live Kaspa Preis + Stats
-- MarketStats: KRC-20 Markt-Uebersicht (Total Tokens, MCap, Volume)
-- GainersLosers: Top 5 Gainers/Losers (24h)
-- TopTokensList: Top 8 Tokens nach Market Cap
-- TokenCard: Wiederverwendbare Token-Karte
+**Internationalisierung mit next-intl:**
+- DE (Deutsch) als Standard-Sprache
+- EN (English) als zweite Sprache
+- Sprachumschalter im Header (Desktop + Mobile)
+- Cookie-basierte Sprachspeicherung
+- Alle UI-Texte uebersetzt
 
-**Neue Komponenten:**
+**Neue Dateien:**
 ```
-src/components/market/
-├── KaspaWidget.tsx
-├── MarketStats.tsx
-├── GainersLosers.tsx
-├── TopTokensList.tsx
-├── TokenCard.tsx
-└── index.ts
+messages/
+├── de.json              # Deutsche Texte
+└── en.json              # Englische Texte
+
+src/i18n/
+└── request.ts           # i18n Konfiguration
+
+src/components/ui/
+└── LanguageSwitcher.tsx # Sprachumschalter
 ```
+
+**Aktualisierte Komponenten:**
+- Header.tsx (mit Sprachumschalter + Uebersetzungen)
+- page.tsx (Homepage mit Uebersetzungen)
+- KaspaWidget.tsx, MarketStats.tsx
+- GainersLosers.tsx, TopTokensList.tsx
 
 ## TECH STACK
 
@@ -47,6 +56,7 @@ src/components/market/
 | Language | TypeScript (Strict) | ✅ |
 | Styling | TailwindCSS 3.4 | ✅ |
 | Design System | Glassmorphism | ✅ |
+| i18n | next-intl (DE/EN) | ✅ |
 | API Client | api.kaspa-nexus.io | ✅ |
 | Market Components | KaspaWidget, etc. | ✅ |
 | State | Zustand | ⏳ |
@@ -93,12 +103,11 @@ src/components/market/
 ## LETZTER COMMIT
 
 ```
-2025-12-02: P1.1: Market Overview Dashboard
-- KaspaWidget mit Live-Preis
-- MarketStats (Total Tokens, MCap, Volume)
-- GainersLosers (Top 5 je)
-- TopTokensList (Top 8 by MCap)
-- Homepage aktualisiert
+2025-12-02: i18n Setup (next-intl)
+- messages/de.json + en.json
+- Sprachumschalter im Header
+- Alle Komponenten mit Uebersetzungen
+- Cookie-basierte Sprachspeicherung
 ```
 
 ## NAECHSTE AUFGABE

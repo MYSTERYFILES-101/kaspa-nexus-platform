@@ -1,0 +1,92 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error loading data",
+    "retry": "Retry",
+    "viewAll": "View all",
+    "liveData": "LIVE DATA",
+    "pro": "PRO"
+  },
+  "nav": {
+    "home": "Home",
+    "tokens": "Tokens",
+    "signals": "Signals",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "login": "Login",
+    "register": "Register",
+    "docs": "API Docs"
+  },
+  "home": {
+    "badge": "LIVE DATA",
+    "title": "KASPA-NEXUS",
+    "subtitle": "The Most Accurate KRC-20 Data Platform",
+    "exploreTokens": "Explore Tokens",
+    "getStarted": "Get Started Free",
+    "whyUs": "Why KASPA-NEXUS?",
+    "readyToStart": "Ready to Start Trading Smarter?",
+    "ctaDescription": "Join thousands of traders using KASPA-NEXUS to make better investment decisions.",
+    "createAccount": "Create Free Account",
+    "apiDocs": "API Documentation"
+  },
+  "features": {
+    "realTimeData": "Real-Time Data",
+    "realTimeDataDesc": "Live prices, volume, and market cap for all KRC-20 tokens updated every second.",
+    "aiSignals": "AI Signals",
+    "aiSignalsDesc": "Machine learning powered trading signals with entry/exit points and confidence scores.",
+    "portfolio": "Portfolio",
+    "portfolioDesc": "Track your holdings, analyze performance, and get AI-powered portfolio suggestions."
+  },
+  "kaspaWidget": {
+    "title": "Kaspa",
+    "live": "LIVE",
+    "rank": "Rank",
+    "marketCap": "Market Cap",
+    "volume24h": "24h Volume",
+    "circulatingSupply": "Circulating Supply",
+    "maxSupply": "Max Supply"
+  },
+  "marketStats": {
+    "title": "KRC-20 Market Overview",
+    "totalTokens": "Total Tokens",
+    "totalMarketCap": "Total Market Cap",
+    "volume24h": "24h Volume",
+    "activeTokens": "Active Tokens"
+  },
+  "gainersLosers": {
+    "topGainers": "Top Gainers (24h)",
+    "topLosers": "Top Losers (24h)",
+    "token": "Token",
+    "price": "Price",
+    "change": "Change"
+  },
+  "topTokens": {
+    "title": "Top KRC-20 by Market Cap",
+    "viewAll": "View All Tokens",
+    "marketCap": "MCap",
+    "volume": "Volume",
+    "holders": "Holders"
+  },
+  "footer": {
+    "tagline": "The Most Accurate KRC-20 Data Platform",
+    "products": "Products",
+    "dashboard": "Dashboard",
+    "tokens": "Token List",
+    "signals": "AI Signals",
+    "portfolio": "Portfolio",
+    "developers": "Developers",
+    "apiDocs": "API Documentation",
+    "status": "Status",
+    "github": "GitHub",
+    "company": "Company",
+    "about": "About",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "imprint": "Imprint",
+    "copyright": "© {year} KASPA-NEXUS. All rights reserved."
+  }
+}

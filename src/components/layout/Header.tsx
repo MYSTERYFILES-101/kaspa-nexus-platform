@@ -2,17 +2,19 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 
 const navItems = [
-  { label: 'Market', href: '/' },
-  { label: 'Tokens', href: '/tokens' },
-  { label: 'Signals', href: '/signals', pro: true },
-  { label: 'Portfolio', href: '/portfolio', pro: true },
-  { label: 'Team', href: '/team' },
+  { labelKey: 'home', href: '/' },
+  { labelKey: 'tokens', href: '/tokens' },
+  { labelKey: 'signals', href: '/signals', pro: true },
+  { labelKey: 'portfolio', href: '/portfolio', pro: true },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations('nav');
 
   return (
     <header className="sticky top-0 z-50 glass-card border-0 border-b border-glass-border rounded-none">
@@ -37,7 +39,7 @@ export function Header() {
                 href={item.href}
                 className="relative px-4 py-2 text-text-secondary hover:text-white transition-colors rounded-lg hover:bg-white/5"
               >
-                {item.label}
+                {t(item.labelKey)}
                 {item.pro && (
                   <span className="ml-1.5 badge-pro text-[10px]">PRO</span>
                 )}
@@ -45,19 +47,20 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Right Side - Auth Buttons */}
+          {/* Right Side - Auth Buttons + Language Switcher */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <Link
               href="/login"
               className="px-4 py-2 text-text-secondary hover:text-white transition-colors"
             >
-              Login
+              {t('login')}
             </Link>
             <Link
               href="/register"
               className="btn-primary px-4 py-2 text-sm"
             >
-              Get Started
+              {t('register')}
             </Link>
           </div>
 
@@ -103,26 +106,29 @@ export function Header() {
                   className="px-4 py-3 text-text-secondary hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                   {item.pro && (
                     <span className="ml-2 badge-pro text-[10px]">PRO</span>
                   )}
                 </Link>
               ))}
               <div className="mt-4 pt-4 border-t border-glass-border flex flex-col gap-2">
+                <div className="px-4 py-2 flex justify-center">
+                  <LanguageSwitcher />
+                </div>
                 <Link
                   href="/login"
                   className="px-4 py-3 text-center text-text-secondary hover:text-white transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Login
+                  {t('login')}
                 </Link>
                 <Link
                   href="/register"
                   className="btn-primary text-center mx-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Get Started
+                  {t('register')}
                 </Link>
               </div>
             </nav>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { formatCompact, formatNumber } from '@/lib/utils';
@@ -13,6 +14,7 @@ interface MarketStatsData {
 }
 
 export function MarketStats() {
+  const t = useTranslations('marketStats');
   const [stats, setStats] = useState<MarketStatsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,25 +41,25 @@ export function MarketStats() {
 
   const statsConfig = [
     {
-      label: 'Total Tokens',
+      labelKey: 'totalTokens',
       value: stats?.totalTokens,
       format: (v: number) => formatNumber(v, 0),
       icon: '🪙',
     },
     {
-      label: 'Total Market Cap',
+      labelKey: 'totalMarketCap',
       value: stats?.totalMarketCap,
       format: (v: number) => `$${formatCompact(v)}`,
       icon: '📊',
     },
     {
-      label: '24h Volume',
+      labelKey: 'volume24h',
       value: stats?.totalVolume24h,
       format: (v: number) => `$${formatCompact(v)}`,
       icon: '📈',
     },
     {
-      label: 'Active Tokens',
+      labelKey: 'activeTokens',
       value: stats?.activeTokens,
       format: (v: number) => formatNumber(v, 0),
       icon: '🔥',
@@ -88,10 +90,10 @@ export function MarketStats() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {statsConfig.map((stat) => (
-        <GlassCard key={stat.label} glow className="p-4 text-center">
+        <GlassCard key={stat.labelKey} glow className="p-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
             <span className="text-lg">{stat.icon}</span>
-            <p className="text-text-muted text-xs uppercase">{stat.label}</p>
+            <p className="text-text-muted text-xs uppercase">{t(stat.labelKey)}</p>
           </div>
           <p className="text-xl md:text-2xl font-bold text-gradient-primary">
             {stat.value !== undefined ? stat.format(stat.value) : '-'}

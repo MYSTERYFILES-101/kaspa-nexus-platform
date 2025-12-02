@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
 import { Skeleton } from '@/components/ui/Skeleton';
@@ -12,6 +13,8 @@ interface KaspaWidgetProps {
 }
 
 export function KaspaWidget({ initialData }: KaspaWidgetProps) {
+  const t = useTranslations('kaspaWidget');
+  const tCommon = useTranslations('common');
   const [data, setData] = useState<KaspaPrice | null>(initialData || null);
   const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState<string | null>(null);
@@ -61,7 +64,7 @@ export function KaspaWidget({ initialData }: KaspaWidgetProps) {
   if (error || !data) {
     return (
       <GlassCard className="p-6">
-        <p className="text-error text-center">{error || 'No data available'}</p>
+        <p className="text-error text-center">{error || tCommon('error')}</p>
       </GlassCard>
     );
   }
@@ -85,7 +88,7 @@ export function KaspaWidget({ initialData }: KaspaWidgetProps) {
         </div>
         {data.rank && (
           <div className="text-right">
-            <span className="text-text-muted text-xs">Rank</span>
+            <span className="text-text-muted text-xs">{t('rank')}</span>
             <p className="text-lg font-semibold">#{data.rank}</p>
           </div>
         )}
@@ -94,19 +97,19 @@ export function KaspaWidget({ initialData }: KaspaWidgetProps) {
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="glass-card p-3 text-center">
-          <p className="text-text-muted text-xs uppercase mb-1">Market Cap</p>
+          <p className="text-text-muted text-xs uppercase mb-1">{t('marketCap')}</p>
           <p className="font-semibold">{formatCompact(data.marketCap)}</p>
         </div>
         <div className="glass-card p-3 text-center">
-          <p className="text-text-muted text-xs uppercase mb-1">24h Volume</p>
+          <p className="text-text-muted text-xs uppercase mb-1">{t('volume24h')}</p>
           <p className="font-semibold">{formatCompact(data.volume24h)}</p>
         </div>
         <div className="glass-card p-3 text-center">
-          <p className="text-text-muted text-xs uppercase mb-1">Circulating</p>
+          <p className="text-text-muted text-xs uppercase mb-1">{t('circulatingSupply')}</p>
           <p className="font-semibold">{formatCompact(data.circulatingSupply)}</p>
         </div>
         <div className="glass-card p-3 text-center">
-          <p className="text-text-muted text-xs uppercase mb-1">Max Supply</p>
+          <p className="text-text-muted text-xs uppercase mb-1">{t('maxSupply')}</p>
           <p className="font-semibold">{formatCompact(data.maxSupply)}</p>
         </div>
       </div>
@@ -114,7 +117,7 @@ export function KaspaWidget({ initialData }: KaspaWidgetProps) {
       {/* Live Indicator */}
       <div className="mt-4 flex items-center justify-end gap-2 text-xs text-text-muted">
         <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-        <span>Live from api.kaspa-nexus.io</span>
+        <span>{t('live')}</span>
       </div>
     </GlassCard>
   );

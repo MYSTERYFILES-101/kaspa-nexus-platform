@@ -1,0 +1,92 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler beim Laden der Daten",
+    "retry": "Erneut versuchen",
+    "viewAll": "Alle anzeigen",
+    "liveData": "LIVE DATEN",
+    "pro": "PRO"
+  },
+  "nav": {
+    "home": "Home",
+    "tokens": "Tokens",
+    "signals": "Signale",
+    "portfolio": "Portfolio",
+    "pricing": "Preise",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "docs": "API Docs"
+  },
+  "home": {
+    "badge": "LIVE DATEN",
+    "title": "KASPA-NEXUS",
+    "subtitle": "Die genaueste KRC-20 Datenplattform",
+    "exploreTokens": "Tokens erkunden",
+    "getStarted": "Kostenlos starten",
+    "whyUs": "Warum KASPA-NEXUS?",
+    "readyToStart": "Bereit, klüger zu handeln?",
+    "ctaDescription": "Schließen Sie sich Tausenden von Händlern an, die KASPA-NEXUS nutzen, um bessere Investitionsentscheidungen zu treffen.",
+    "createAccount": "Kostenloses Konto erstellen",
+    "apiDocs": "API Dokumentation"
+  },
+  "features": {
+    "realTimeData": "Echtzeit-Daten",
+    "realTimeDataDesc": "Live-Preise, Volumen und Marktkapitalisierung für alle KRC-20 Tokens, jede Sekunde aktualisiert.",
+    "aiSignals": "KI-Signale",
+    "aiSignalsDesc": "Machine Learning gestützte Handelssignale mit Ein-/Ausstiegspunkten und Konfidenzwerten.",
+    "portfolio": "Portfolio",
+    "portfolioDesc": "Verfolgen Sie Ihre Bestände, analysieren Sie die Performance und erhalten Sie KI-gestützte Portfolio-Vorschläge."
+  },
+  "kaspaWidget": {
+    "title": "Kaspa",
+    "live": "LIVE",
+    "rank": "Rang",
+    "marketCap": "Marktkapitalisierung",
+    "volume24h": "24h Volumen",
+    "circulatingSupply": "Umlaufmenge",
+    "maxSupply": "Max. Menge"
+  },
+  "marketStats": {
+    "title": "KRC-20 Markt-Übersicht",
+    "totalTokens": "Tokens gesamt",
+    "totalMarketCap": "Marktkapitalisierung",
+    "volume24h": "24h Volumen",
+    "activeTokens": "Aktive Tokens"
+  },
+  "gainersLosers": {
+    "topGainers": "Top Gewinner (24h)",
+    "topLosers": "Top Verlierer (24h)",
+    "token": "Token",
+    "price": "Preis",
+    "change": "Änderung"
+  },
+  "topTokens": {
+    "title": "Top KRC-20 nach Marktkapitalisierung",
+    "viewAll": "Alle Tokens anzeigen",
+    "marketCap": "MCap",
+    "volume": "Volumen",
+    "holders": "Halter"
+  },
+  "footer": {
+    "tagline": "Die genaueste KRC-20 Datenplattform",
+    "products": "Produkte",
+    "dashboard": "Dashboard",
+    "tokens": "Token-Liste",
+    "signals": "KI-Signale",
+    "portfolio": "Portfolio",
+    "developers": "Entwickler",
+    "apiDocs": "API Dokumentation",
+    "status": "Status",
+    "github": "GitHub",
+    "company": "Unternehmen",
+    "about": "Über uns",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "imprint": "Impressum",
+    "copyright": "© {year} KASPA-NEXUS. Alle Rechte vorbehalten."
+  }
+}

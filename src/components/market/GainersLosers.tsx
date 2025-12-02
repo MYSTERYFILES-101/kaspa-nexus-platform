@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
 import { Skeleton } from '@/components/ui/Skeleton';
@@ -13,6 +14,7 @@ interface GainersLosersProps {
 }
 
 export function GainersLosers({ limit = 5 }: GainersLosersProps) {
+  const t = useTranslations('gainersLosers');
   const [gainers, setGainers] = useState<Krc20TokenWithPrice[]>([]);
   const [losers, setLosers] = useState<Krc20TokenWithPrice[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +55,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
       <div className="grid md:grid-cols-2 gap-6">
         <GlassCard className="p-4">
           <h3 className="font-bold mb-4 flex items-center gap-2">
-            <span className="text-positive">▲</span> Top Gainers
+            <span className="text-positive">▲</span> {t('topGainers')}
           </h3>
           {Array.from({ length: limit }).map((_, i) => (
             <div key={i} className="flex items-center gap-3 py-2 border-b border-glass-border last:border-0">
@@ -65,7 +67,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
         </GlassCard>
         <GlassCard className="p-4">
           <h3 className="font-bold mb-4 flex items-center gap-2">
-            <span className="text-negative">▼</span> Top Losers
+            <span className="text-negative">▼</span> {t('topLosers')}
           </h3>
           {Array.from({ length: limit }).map((_, i) => (
             <div key={i} className="flex items-center gap-3 py-2 border-b border-glass-border last:border-0">
@@ -92,7 +94,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
       {/* Top Gainers */}
       <GlassCard className="p-4">
         <h3 className="font-bold mb-4 flex items-center gap-2">
-          <span className="text-positive">▲</span> Top Gainers (24h)
+          <span className="text-positive">▲</span> {t('topGainers')}
         </h3>
         <div className="space-y-1">
           {gainers.length > 0 ? (
@@ -100,7 +102,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
               <TokenRow key={token.tick} token={token} rank={index + 1} />
             ))
           ) : (
-            <p className="text-text-muted text-sm text-center py-4">No data</p>
+            <p className="text-text-muted text-sm text-center py-4">-</p>
           )}
         </div>
       </GlassCard>
@@ -108,7 +110,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
       {/* Top Losers */}
       <GlassCard className="p-4">
         <h3 className="font-bold mb-4 flex items-center gap-2">
-          <span className="text-negative">▼</span> Top Losers (24h)
+          <span className="text-negative">▼</span> {t('topLosers')}
         </h3>
         <div className="space-y-1">
           {losers.length > 0 ? (
@@ -116,7 +118,7 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
               <TokenRow key={token.tick} token={token} rank={index + 1} />
             ))
           ) : (
-            <p className="text-text-muted text-sm text-center py-4">No data</p>
+            <p className="text-text-muted text-sm text-center py-4">-</p>
           )}
         </div>
       </GlassCard>
