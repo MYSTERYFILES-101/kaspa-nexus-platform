@@ -17,6 +17,41 @@
     "register": "Register",
     "docs": "API Docs"
   },
+  "sidebar": {
+    "categories": {
+      "kaspaNexus": "KASPA-NEXUS",
+      "krc20Network": "KRC-20 NETWORK",
+      "signals": "SIGNALS",
+      "investment": "INVESTMENT",
+      "team": "TEAM & SPONSORS",
+      "account": "ACCOUNT"
+    },
+    "items": {
+      "home": "Home / Overview",
+      "kaspa": "Kaspa",
+      "tokens": "Coins & Tokens",
+      "dex": "DEX",
+      "defi": "DeFi",
+      "infrastructure": "Infrastructure",
+      "signalsBoard": "Board",
+      "signalsPro": "Signals",
+      "tradingBot": "Trading Bot",
+      "investmentBoard": "Board",
+      "portfolio": "Portfolio",
+      "teamMembers": "Team",
+      "sponsors": "Sponsors",
+      "login": "Login",
+      "profile": "Profile",
+      "buyPro": "Buy Pro",
+      "buyApi": "Buy API",
+      "logout": "Logout"
+    },
+    "nodeStatus": {
+      "title": "Kaspa Node",
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    }
+  },
   "home": {
     "badge": "LIVE DATA",
     "title": "KASPA-NEXUS",
@@ -28,6 +63,44 @@
     "ctaDescription": "Join thousands of traders using KASPA-NEXUS to make better investment decisions.",
     "createAccount": "Create Free Account",
     "apiDocs": "API Documentation"
+  },
+  "dashboard": {
+    "welcome": "Welcome to",
+    "subtitle": "The Most Accurate KRC-20 Data Platform",
+    "whatIs": "What is KASPA-NEXUS?",
+    "description": "Your central platform for the Kaspa ecosystem. We offer you real-time market data, professional AI trading signals and intelligent portfolio tools - all in one place.",
+    "features": {
+      "title": "What sets us apart",
+      "threeAi": "3-AI validation for the highest signal quality",
+      "quality": "Quality over quantity - we want you to really win",
+      "honest": "No empty promises, just real data"
+    },
+    "stats": {
+      "freeUsers": "Free Users",
+      "proUsers": "Pro Users",
+      "winRate": "Win Rate"
+    },
+    "banners": {
+      "krc20": {
+        "title": "KRC-20 Network",
+        "description": "Discover the Kaspa ecosystem",
+        "cta": "Explore"
+      },
+      "signals": {
+        "title": "AI Signals",
+        "description": "Trading signals with 3-AI validation",
+        "cta": "Learn more"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "AI advice for your portfolio",
+        "cta": "Get started"
+      }
+    },
+    "cta": {
+      "register": "Register for free",
+      "discoverPro": "Discover Pro"
+    }
   },
   "features": {
     "realTimeData": "Real-Time Data",

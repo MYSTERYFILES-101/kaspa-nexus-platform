@@ -1,130 +1,149 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
+import { DashboardBanner } from '@/components/dashboard/DashboardBanner';
+import { FeatureBanner } from '@/components/dashboard/FeatureBanner';
+import { StatsCard } from '@/components/dashboard/StatsCard';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { KaspaWidget } from '@/components/market/KaspaWidget';
 import { MarketStats } from '@/components/market/MarketStats';
-import { TopTokensList } from '@/components/market/TopTokensList';
 import { GainersLosers } from '@/components/market/GainersLosers';
+import { TopTokensList } from '@/components/market/TopTokensList';
+
+// Icons for Feature Banners
+const NetworkIcon = () => (
+  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+  </svg>
+);
+
+const SignalsIcon = () => (
+  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>
+);
+
+const PortfolioIcon = () => (
+  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+  </svg>
+);
 
 export default function Home() {
-  const t = useTranslations('home');
-  const tFeatures = useTranslations('features');
+  const t = useTranslations('dashboard');
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section */}
-      <section className="text-center py-8 mb-8">
-        <Badge variant="pro" size="md" className="mb-4">
-          {t('badge')}
-        </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="text-gradient-primary">{t('title')}</span>
-        </h1>
-        <p className="text-lg md:text-xl text-text-secondary mb-6 max-w-2xl mx-auto">
-          {t('subtitle')}
+    <div className="p-4 md:p-6 lg:p-8">
+      {/* Banner */}
+      <DashboardBanner />
+
+      {/* What is KASPA-NEXUS Section */}
+      <GlassCard padding="lg" className="mb-6">
+        <h2 className="text-xl font-bold text-gradient mb-4">
+          {t('whatIs')}
+        </h2>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          {t('description')}
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button href="/tokens" size="md">
-            {t('exploreTokens')}
-          </Button>
-          <Button href="/register" variant="secondary" size="md">
-            {t('getStarted')}
-          </Button>
-        </div>
-      </section>
+
+        <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
+          {t('features.title')}:
+        </h3>
+        <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--color-primary)] mt-0.5">•</span>
+            {t('features.threeAi')}
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--color-primary)] mt-0.5">•</span>
+            {t('features.quality')}
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--color-primary)] mt-0.5">•</span>
+            {t('features.honest')}
+          </li>
+        </ul>
+      </GlassCard>
+
+      {/* Stats Row */}
+      <div className="grid grid-cols-3 gap-4 mb-6">
+        <StatsCard label={t('stats.freeUsers')} value="1,234" />
+        <StatsCard label={t('stats.proUsers')} value="567" variant="success" />
+        <StatsCard label={t('stats.winRate')} value="78.5" suffix="%" variant="warning" />
+      </div>
+
+      {/* Feature Banners */}
+      <div className="space-y-4 mb-8">
+        <FeatureBanner
+          title={t('banners.krc20.title')}
+          description={t('banners.krc20.description')}
+          stats="98 Tokens • 5 DEX • 15 Wallets"
+          cta={t('banners.krc20.cta')}
+          href="/krc20/tokens"
+          icon={<NetworkIcon />}
+          variant="primary"
+        />
+
+        <FeatureBanner
+          title={t('banners.signals.title')}
+          description={t('banners.signals.description')}
+          stats="5 aktive Signale • 78% Win-Rate"
+          cta={t('banners.signals.cta')}
+          href="/signals"
+          icon={<SignalsIcon />}
+          variant="secondary"
+        />
+
+        <FeatureBanner
+          title={t('banners.portfolio.title')}
+          description={t('banners.portfolio.description')}
+          stats="Alle Coins, nicht nur KRC-20"
+          cta={t('banners.portfolio.cta')}
+          href="/investment/portfolio"
+          icon={<PortfolioIcon />}
+          variant="gradient"
+        />
+      </div>
 
       {/* Kaspa Widget */}
-      <section className="mb-8">
+      <section className="mb-6">
         <KaspaWidget />
       </section>
 
       {/* Market Stats */}
-      <section className="mb-8">
+      <section className="mb-6">
         <MarketStats />
       </section>
 
-      {/* Top Gainers / Losers */}
-      <section className="mb-8">
+      {/* Gainers / Losers */}
+      <section className="mb-6">
         <GainersLosers limit={5} />
       </section>
 
       {/* Top Tokens */}
       <section className="mb-8">
-        <TopTokensList limit={8} />
-      </section>
-
-      {/* Features Section */}
-      <section className="py-8">
-        <h2 className="text-2xl font-bold text-center mb-8">
-          {t('whyUs')}
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <GlassCard padding="lg">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">{tFeatures('realTimeData')}</h3>
-            <p className="text-text-secondary text-sm">
-              {tFeatures('realTimeDataDesc')}
-            </p>
-          </GlassCard>
-
-          <GlassCard padding="lg">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">
-              {tFeatures('aiSignals')}
-              <Badge variant="pro" className="ml-2">PRO</Badge>
-            </h3>
-            <p className="text-text-secondary text-sm">
-              {tFeatures('aiSignalsDesc')}
-            </p>
-          </GlassCard>
-
-          <GlassCard padding="lg">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">
-              {tFeatures('portfolio')}
-              <Badge variant="pro" className="ml-2">PRO</Badge>
-            </h3>
-            <p className="text-text-secondary text-sm">
-              {tFeatures('portfolioDesc')}
-            </p>
-          </GlassCard>
-        </div>
+        <TopTokensList limit={6} />
       </section>
 
       {/* CTA Section */}
-      <section className="py-8">
-        <GlassCard className="text-center" padding="lg" glow>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {t('readyToStart')}
-          </h2>
-          <p className="text-text-secondary mb-6 max-w-md mx-auto">
-            {t('ctaDescription')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/register" size="lg">
-              {t('createAccount')}
-            </Button>
-            <Button href="https://api.kaspa-nexus.io/docs" variant="secondary" size="lg" external>
-              {t('apiDocs')}
-            </Button>
-          </div>
-        </GlassCard>
-      </section>
+      <GlassCard glow padding="lg" className="text-center">
+        <h2 className="text-2xl font-bold mb-4">
+          Bereit, klueger zu handeln?
+        </h2>
+        <p className="text-[var(--color-text-secondary)] mb-6 max-w-md mx-auto">
+          Schliesse dich Tausenden von Tradern an, die KASPA-NEXUS nutzen.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/auth/register" className="btn-primary">
+            {t('cta.register')}
+          </Link>
+          <Link href="/account/upgrade" className="btn-secondary">
+            {t('cta.discoverPro')}
+          </Link>
+        </div>
+      </GlassCard>
     </div>
   );
 }

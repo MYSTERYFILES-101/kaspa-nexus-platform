@@ -17,6 +17,41 @@
     "register": "Registrieren",
     "docs": "API Docs"
   },
+  "sidebar": {
+    "categories": {
+      "kaspaNexus": "KASPA-NEXUS",
+      "krc20Network": "KRC-20 NETWORK",
+      "signals": "SIGNALS",
+      "investment": "INVESTMENT",
+      "team": "TEAM & SPONSORS",
+      "account": "ACCOUNT"
+    },
+    "items": {
+      "home": "Home / Overview",
+      "kaspa": "Kaspa",
+      "tokens": "Coins & Tokens",
+      "dex": "DEX",
+      "defi": "DeFi",
+      "infrastructure": "Infrastructure",
+      "signalsBoard": "Board",
+      "signalsPro": "Signals",
+      "tradingBot": "Trading Bot",
+      "investmentBoard": "Board",
+      "portfolio": "Portfolio",
+      "teamMembers": "Team",
+      "sponsors": "Sponsors",
+      "login": "Login",
+      "profile": "Profile",
+      "buyPro": "Buy Pro",
+      "buyApi": "Buy API",
+      "logout": "Logout"
+    },
+    "nodeStatus": {
+      "title": "Kaspa Node",
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    }
+  },
   "home": {
     "badge": "LIVE DATEN",
     "title": "KASPA-NEXUS",
@@ -24,18 +59,56 @@
     "exploreTokens": "Tokens erkunden",
     "getStarted": "Kostenlos starten",
     "whyUs": "Warum KASPA-NEXUS?",
-    "readyToStart": "Bereit, klüger zu handeln?",
-    "ctaDescription": "Schließen Sie sich Tausenden von Händlern an, die KASPA-NEXUS nutzen, um bessere Investitionsentscheidungen zu treffen.",
+    "readyToStart": "Bereit, klueger zu handeln?",
+    "ctaDescription": "Schliessen Sie sich Tausenden von Haendlern an, die KASPA-NEXUS nutzen, um bessere Investitionsentscheidungen zu treffen.",
     "createAccount": "Kostenloses Konto erstellen",
     "apiDocs": "API Dokumentation"
   },
+  "dashboard": {
+    "welcome": "Willkommen bei",
+    "subtitle": "Die genaueste KRC-20 Datenplattform",
+    "whatIs": "Was ist KASPA-NEXUS?",
+    "description": "Deine zentrale Plattform fuer das Kaspa-Oekosystem. Wir bieten dir Echtzeit-Marktdaten, professionelle AI-Trading-Signale und intelligente Portfolio-Tools - alles an einem Ort.",
+    "features": {
+      "title": "Was uns unterscheidet",
+      "threeAi": "3-KI Validierung fuer hoechste Signal-Qualitaet",
+      "quality": "Qualitaet vor Quantitaet - wir wollen, dass du wirklich gewinnst",
+      "honest": "Keine leeren Versprechen, nur echte Daten"
+    },
+    "stats": {
+      "freeUsers": "Free Users",
+      "proUsers": "Pro Users",
+      "winRate": "Win Rate"
+    },
+    "banners": {
+      "krc20": {
+        "title": "KRC-20 Network",
+        "description": "Entdecke das Kaspa-Oekosystem",
+        "cta": "Erkunden"
+      },
+      "signals": {
+        "title": "AI Signals",
+        "description": "Trading-Signale mit 3-KI Validierung",
+        "cta": "Mehr erfahren"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "KI-Beratung fuer dein Portfolio",
+        "cta": "Starten"
+      }
+    },
+    "cta": {
+      "register": "Kostenlos registrieren",
+      "discoverPro": "Pro entdecken"
+    }
+  },
   "features": {
     "realTimeData": "Echtzeit-Daten",
-    "realTimeDataDesc": "Live-Preise, Volumen und Marktkapitalisierung für alle KRC-20 Tokens, jede Sekunde aktualisiert.",
+    "realTimeDataDesc": "Live-Preise, Volumen und Marktkapitalisierung fuer alle KRC-20 Tokens, jede Sekunde aktualisiert.",
     "aiSignals": "KI-Signale",
-    "aiSignalsDesc": "Machine Learning gestützte Handelssignale mit Ein-/Ausstiegspunkten und Konfidenzwerten.",
+    "aiSignalsDesc": "Machine Learning gestuetzte Handelssignale mit Ein-/Ausstiegspunkten und Konfidenzwerten.",
     "portfolio": "Portfolio",
-    "portfolioDesc": "Verfolgen Sie Ihre Bestände, analysieren Sie die Performance und erhalten Sie KI-gestützte Portfolio-Vorschläge."
+    "portfolioDesc": "Verfolgen Sie Ihre Bestaende, analysieren Sie die Performance und erhalten Sie KI-gestuetzte Portfolio-Vorschlaege."
   },
   "kaspaWidget": {
     "title": "Kaspa",
@@ -47,7 +120,7 @@
     "maxSupply": "Max. Menge"
   },
   "marketStats": {
-    "title": "KRC-20 Markt-Übersicht",
+    "title": "KRC-20 Markt-Uebersicht",
     "totalTokens": "Tokens gesamt",
     "totalMarketCap": "Marktkapitalisierung",
     "volume24h": "24h Volumen",
@@ -58,7 +131,7 @@
     "topLosers": "Top Verlierer (24h)",
     "token": "Token",
     "price": "Preis",
-    "change": "Änderung"
+    "change": "Aenderung"
   },
   "topTokens": {
     "title": "Top KRC-20 nach Marktkapitalisierung",
@@ -79,7 +152,7 @@
     "status": "Status",
     "github": "GitHub",
     "company": "Unternehmen",
-    "about": "Über uns",
+    "about": "Ueber uns",
     "pricing": "Preise",
     "blog": "Blog",
     "contact": "Kontakt",
