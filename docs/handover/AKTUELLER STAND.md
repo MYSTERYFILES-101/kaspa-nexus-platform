@@ -20,33 +20,15 @@
 - [ ] P1.2: Token Liste
 - [ ] P1.3: Token Detail Seite
 
-## LETZTE AENDERUNGEN (i18n)
+## LETZTE AENDERUNGEN (P1.1-FIX-1)
 
-**Internationalisierung mit next-intl:**
-- DE (Deutsch) als Standard-Sprache
-- EN (English) als zweite Sprache
-- Sprachumschalter im Header (Desktop + Mobile)
-- Cookie-basierte Sprachspeicherung
-- Alle UI-Texte uebersetzt
+**Bug-Fix: PriceChange null check**
+- Fehler: "Cannot read properties of undefined (reading 'toFixed')"
+- Fix: Null/Undefined check in PriceChange.tsx
+- Typ geaendert: `value: number` -> `value?: number | null`
 
-**Neue Dateien:**
-```
-messages/
-├── de.json              # Deutsche Texte
-└── en.json              # Englische Texte
-
-src/i18n/
-└── request.ts           # i18n Konfiguration
-
-src/components/ui/
-└── LanguageSwitcher.tsx # Sprachumschalter
-```
-
-**Aktualisierte Komponenten:**
-- Header.tsx (mit Sprachumschalter + Uebersetzungen)
-- page.tsx (Homepage mit Uebersetzungen)
-- KaspaWidget.tsx, MarketStats.tsx
-- GainersLosers.tsx, TopTokensList.tsx
+**Geaenderte Datei:**
+- `src/components/ui/PriceChange.tsx`
 
 ## TECH STACK
 
@@ -103,11 +85,9 @@ src/components/ui/
 ## LETZTER COMMIT
 
 ```
-2025-12-02: i18n Setup (next-intl)
-- messages/de.json + en.json
-- Sprachumschalter im Header
-- Alle Komponenten mit Uebersetzungen
-- Cookie-basierte Sprachspeicherung
+2025-12-02: P1.1-FIX-1: PriceChange null check
+- Null/Undefined check in PriceChange.tsx
+- Fix fuer "Cannot read properties of undefined"
 ```
 
 ## NAECHSTE AUFGABE

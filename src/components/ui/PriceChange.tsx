@@ -1,5 +1,5 @@
 interface PriceChangeProps {
-  value: number;
+  value?: number | null;
   size?: 'sm' | 'md' | 'lg';
   showIcon?: boolean;
   className?: string;
@@ -11,6 +11,11 @@ export function PriceChange({
   showIcon = true,
   className = '',
 }: PriceChangeProps) {
+  // Null/Undefined check - return nothing if no value
+  if (value === undefined || value === null) {
+    return null;
+  }
+
   const isPositive = value >= 0;
   const colorClass = isPositive ? 'text-positive' : 'text-negative';
 
