@@ -1,38 +1,29 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
 interface DashboardBannerProps {
-  title?: string;
-  subtitle?: string;
   videoSrc?: string;
   posterSrc?: string;
 }
 
 export function DashboardBanner({
-  title,
-  subtitle,
   videoSrc,
   posterSrc,
 }: DashboardBannerProps) {
-  const t = useTranslations('dashboard');
-
   return (
-    <div className="dashboard-banner">
-      {/* Video or Gradient Background */}
+    <div className="dashboard-banner-video">
+      {/* Video - 21:9 aspect ratio, sound on, no loop */}
       {videoSrc ? (
         <video
           autoPlay
-          loop
-          muted
           playsInline
+          controls
           poster={posterSrc}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-2xl"
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,212,255,0.15)] via-transparent to-[rgba(157,78,221,0.15)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,212,255,0.15)] via-transparent to-[rgba(157,78,221,0.15)] rounded-2xl">
           {/* Animated Network Pattern */}
           <svg
             className="absolute inset-0 w-full h-full opacity-20"
@@ -63,17 +54,6 @@ export function DashboardBanner({
           <div className="absolute bottom-1/4 right-1/4 w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse-glow" style={{ animationDelay: '1s' }} />
         </div>
       )}
-
-      {/* Content Overlay */}
-      <div className="dashboard-banner-content">
-        <h1 className="dashboard-title">
-          <span className="text-gradient">{title || t('welcome')}</span>
-          {!title && ' KASPA-NEXUS'}
-        </h1>
-        <p className="dashboard-subtitle">
-          {subtitle || t('subtitle')}
-        </p>
-      </div>
     </div>
   );
 }
