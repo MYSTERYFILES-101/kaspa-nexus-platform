@@ -77,6 +77,25 @@ body {
   min-height: 100vh;
   font-feature-settings: "rlig" 1, "calt" 1;
   font-family: var(--font-sans);
+  position: relative;
+}
+
+/* Network Pattern Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/backgrounds/network-pattern.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════
