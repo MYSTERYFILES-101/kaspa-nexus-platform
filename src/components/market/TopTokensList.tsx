@@ -21,7 +21,7 @@ export function TopTokensList({ limit = 8 }: TopTokensListProps) {
     async function fetchTokens() {
       try {
         const res = await fetch(
-          `https://api.kaspa-nexus.io/v1/krc20/tokens?limit=${limit}&sort=marketCap&order=desc`
+          `/api/krc20/tokens?limit=${limit}&sort=marketCap&order=desc`
         );
         if (!res.ok) throw new Error('Failed to fetch tokens');
         const json = await res.json();

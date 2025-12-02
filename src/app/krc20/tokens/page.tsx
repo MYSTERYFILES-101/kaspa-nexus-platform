@@ -11,7 +11,6 @@ import { TokenPagination } from '@/components/tokens/TokenPagination';
 import type { Krc20TokenWithPrice } from '@/types';
 
 const TOKENS_PER_PAGE = 24;
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://api.kaspa-nexus.io';
 
 export default function TokensPage() {
   const t = useTranslations('tokens');
@@ -32,7 +31,7 @@ export default function TokensPage() {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch(`${API_BASE}/v1/krc20/tokens`);
+      const response = await fetch('/api/krc20/tokens?limit=500');
 
       if (!response.ok) {
         throw new Error(`API Error: ${response.status}`);
@@ -42,7 +41,7 @@ export default function TokensPage() {
 
       if (result.success && result.data) {
         setTokens(result.data);
-        setTotalTokens(result.data.length);
+        setTotalTokens(result.total || result.data.length);
         setLastUpdated(new Date());
       } else {
         throw new Error(result.error?.message || 'Failed to fetch tokens');

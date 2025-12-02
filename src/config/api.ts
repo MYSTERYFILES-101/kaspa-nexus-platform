@@ -10,7 +10,7 @@ export const API_CONFIG = {
   version: 'v1',
 
   // Internal API Key (for server-side requests - no rate limits)
-  internalKey: process.env.KASPA_NEXUS_INTERNAL_KEY || '',
+  internalKey: process.env.INTERNAL_API_KEY || '',
 
   // WebSocket URL
   wsUrl: process.env.NEXT_PUBLIC_WS_URL || 'wss://api.kaspa-nexus.io',
@@ -54,12 +54,12 @@ export const API_ENDPOINTS = {
     trades: (tick: string) => `/krc20/tokens/${tick}/trades`,
   },
 
-  // Market
+  // Market (KRC-20 based)
   market: {
     overview: '/market/overview',
-    trending: '/market/trending',
-    gainers: '/market/gainers',
-    losers: '/market/losers',
+    trending: '/krc20/trending',
+    gainers: '/krc20/gainers',
+    losers: '/krc20/losers',
   },
 
   // Health

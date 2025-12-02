@@ -24,8 +24,8 @@ export function GainersLosers({ limit = 5 }: GainersLosersProps) {
     async function fetchData() {
       try {
         const [gainersRes, losersRes] = await Promise.all([
-          fetch(`https://api.kaspa-nexus.io/v1/market/gainers?limit=${limit}`),
-          fetch(`https://api.kaspa-nexus.io/v1/market/losers?limit=${limit}`),
+          fetch(`/api/krc20/gainers?limit=${limit}`),
+          fetch(`/api/krc20/losers?limit=${limit}`),
         ]);
 
         if (!gainersRes.ok || !losersRes.ok) {
