@@ -6,10 +6,6 @@ import { DashboardBanner } from '@/components/dashboard/DashboardBanner';
 import { FeatureBanner } from '@/components/dashboard/FeatureBanner';
 import { StatsCard } from '@/components/dashboard/StatsCard';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { KaspaWidget } from '@/components/market/KaspaWidget';
-import { MarketStats } from '@/components/market/MarketStats';
-import { GainersLosers } from '@/components/market/GainersLosers';
-import { TopTokensList } from '@/components/market/TopTokensList';
 
 // Icons for Feature Banners
 const NetworkIcon = () => (
@@ -105,26 +101,6 @@ export default function Home() {
           variant="gradient"
         />
       </div>
-
-      {/* Kaspa Widget */}
-      <section className="mb-6">
-        <KaspaWidget />
-      </section>
-
-      {/* Market Stats */}
-      <section className="mb-6">
-        <MarketStats />
-      </section>
-
-      {/* Gainers / Losers */}
-      <section className="mb-6">
-        <GainersLosers limit={5} />
-      </section>
-
-      {/* Top Tokens */}
-      <section className="mb-8">
-        <TopTokensList limit={6} />
-      </section>
 
       {/* CTA Section */}
       <GlassCard glow padding="lg" className="text-center">
