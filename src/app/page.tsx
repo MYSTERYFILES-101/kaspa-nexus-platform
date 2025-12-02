@@ -36,8 +36,8 @@ export default function Home() {
 
   return (
     <div className="p-4 md:p-6 lg:p-8">
-      {/* Banner */}
-      <DashboardBanner />
+      {/* Banner with Intro Video */}
+      <DashboardBanner videoSrc="/videos/intro.mp4" />
 
       {/* What is KASPA-NEXUS Section */}
       <GlassCard padding="lg" className="mb-6">
@@ -67,11 +67,11 @@ export default function Home() {
         </ul>
       </GlassCard>
 
-      {/* Stats Row */}
+      {/* Stats Row - Real data coming soon */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <StatsCard label={t('stats.freeUsers')} value="1,234" />
-        <StatsCard label={t('stats.proUsers')} value="567" variant="success" />
-        <StatsCard label={t('stats.winRate')} value="78.5" suffix="%" variant="warning" />
+        <StatsCard label={t('stats.freeUsers')} value="-" />
+        <StatsCard label={t('stats.proUsers')} value="-" variant="success" />
+        <StatsCard label={t('stats.winRate')} value="-" variant="warning" />
       </div>
 
       {/* Feature Banners */}
@@ -79,7 +79,7 @@ export default function Home() {
         <FeatureBanner
           title={t('banners.krc20.title')}
           description={t('banners.krc20.description')}
-          stats="98 Tokens • 5 DEX • 15 Wallets"
+          stats="- Tokens • - DEX • - Wallets"
           cta={t('banners.krc20.cta')}
           href="/krc20/tokens"
           icon={<NetworkIcon />}
@@ -89,7 +89,7 @@ export default function Home() {
         <FeatureBanner
           title={t('banners.signals.title')}
           description={t('banners.signals.description')}
-          stats="5 aktive Signale • 78% Win-Rate"
+          stats="- aktive Signale • -% Win-Rate"
           cta={t('banners.signals.cta')}
           href="/signals"
           icon={<SignalsIcon />}
@@ -99,7 +99,6 @@ export default function Home() {
         <FeatureBanner
           title={t('banners.portfolio.title')}
           description={t('banners.portfolio.description')}
-          stats="Alle Coins, nicht nur KRC-20"
           cta={t('banners.portfolio.cta')}
           href="/investment/portfolio"
           icon={<PortfolioIcon />}
@@ -130,10 +129,10 @@ export default function Home() {
       {/* CTA Section */}
       <GlassCard glow padding="lg" className="text-center">
         <h2 className="text-2xl font-bold mb-4">
-          Bereit, klueger zu handeln?
+          {t('cta.title')}
         </h2>
         <p className="text-[var(--color-text-secondary)] mb-6 max-w-md mx-auto">
-          Schliesse dich Tausenden von Tradern an, die KASPA-NEXUS nutzen.
+          {t('cta.description')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/auth/register" className="btn-primary">
