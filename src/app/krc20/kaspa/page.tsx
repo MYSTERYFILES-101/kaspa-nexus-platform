@@ -47,7 +47,7 @@ export default function KaspaPage() {
 
   return (
     <div className="py-4 md:py-6 lg:py-8">
-      {/* Banner */}
+      {/* Banner - nur Bild */}
       <div className="relative w-full aspect-[21/9] mb-6 rounded-2xl overflow-hidden">
         <Image
           src="/images/banners/kaspa-banner.png"
@@ -56,19 +56,21 @@ export default function KaspaPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-start)]/70 to-transparent" />
-        <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg">
-              <span className="text-2xl md:text-3xl font-bold text-white">K</span>
-            </div>
-            <div>
-              <h1 className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg">KASPA</h1>
-              <p className="text-white/80 text-sm md:text-base">{t('tagline')}</p>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-start)]/30 to-transparent" />
+      </div>
+
+      {/* Token Header - unter dem Banner */}
+      <GlassCard className="p-4 md:p-6 mb-6">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg flex-shrink-0">
+            <span className="text-2xl md:text-3xl font-bold text-white">K</span>
+          </div>
+          <div>
+            <h1 className="text-2xl md:text-4xl font-bold">KASPA</h1>
+            <p className="text-[var(--color-text-muted)] text-sm md:text-base">{t('tagline')}</p>
           </div>
         </div>
-      </div>
+      </GlassCard>
 
       {/* Live Data Badge */}
       <div className="flex items-center justify-end gap-3 mb-6">
