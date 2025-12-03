@@ -18,10 +18,22 @@ interface DexInfo {
 }
 
 // DEX data - static/hardcoded for now
+// ONLY verified, real DEXs with working URLs are listed here
 const DEX_LIST: DexInfo[] = [
   {
+    id: 'zealousswap',
+    name: 'ZealousSwap',
+    logo: '/images/dex/zealousswap.png',
+    url: 'https://app.zealousswap.com/swap',
+    type: 'webapp',
+    status: 'active',
+    volume24h: null,
+    pairs: 100,
+    features: ['Swaps', 'Liquidity Pools', 'Charts'],
+  },
+  {
     id: 'kspr-bot',
-    name: 'ZealousSwap - KSPR Bot',
+    name: 'KSPR Bot',
     logo: '/images/dex/kspr-bot.png',
     url: 'https://t.me/ksaborNFT_bot',
     type: 'telegram',
@@ -34,9 +46,9 @@ const DEX_LIST: DexInfo[] = [
     id: 'chainge-finance',
     name: 'Chainge Finance',
     logo: '/images/dex/chainge.png',
-    url: 'https://dapp.chainge.finance/',
+    url: 'https://www.chainge.finance/',
     type: 'webapp',
-    status: 'active',
+    status: 'offline',
     volume24h: null,
     pairs: 50,
     features: ['Cross-Chain', 'Bridge', 'Routing', 'Wallet'],
@@ -51,28 +63,6 @@ const DEX_LIST: DexInfo[] = [
     volume24h: null,
     pairs: 200,
     features: ['KRC-20 Deploy', 'Mint', 'Transfer'],
-  },
-  {
-    id: 'kaspa-dex',
-    name: 'Kaspa DEX',
-    logo: '/images/dex/kaspa-dex.png',
-    url: '#',
-    type: 'webapp',
-    status: 'beta',
-    volume24h: null,
-    pairs: 0,
-    features: ['Swaps', 'Liquidity Pools', 'Limit Orders'],
-  },
-  {
-    id: 'zing-swap',
-    name: 'ZingSwap',
-    logo: '/images/dex/zingswap.png',
-    url: '#',
-    type: 'webapp',
-    status: 'unstable',
-    volume24h: null,
-    pairs: 0,
-    features: ['Basic Swaps'],
   },
 ];
 
