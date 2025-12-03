@@ -194,6 +194,8 @@ export default function TokensPage() {
         tokens={paginatedTokens}
         isLoading={isLoading}
         startRank={startRank}
+        isSearching={!!searchQuery}
+        isIndexerSyncing={!isLoading && tokens.length === 0 && !error}
       />
 
       {/* Pagination */}

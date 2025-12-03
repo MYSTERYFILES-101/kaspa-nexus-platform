@@ -161,7 +161,10 @@
     "retry": "Erneut versuchen",
     "resultsFound": "{count} Tokens gefunden",
     "noTokensFound": "Keine Tokens gefunden",
-    "noTokensHint": "Versuche deine Suche oder Filter anzupassen"
+    "noTokensHint": "Versuche deine Suche oder Filter anzupassen",
+    "indexerSyncing": "Indexer synchronisiert",
+    "indexerSyncingDesc": "Der Indexer synchronisiert gerade historische Blockchain-Daten. Token-Informationen werden verfuegbar sein, sobald die Synchronisierung abgeschlossen ist. Dies kann einige Wochen dauern.",
+    "syncInProgress": "Synchronisierung laeuft"
   },
   "tokenDetail": {
     "backToTokens": "Zurueck zu Tokens",
