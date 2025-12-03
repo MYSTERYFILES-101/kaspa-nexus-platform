@@ -3,15 +3,43 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { formatCurrency, formatCompact } from '@/lib/utils';
-import { NetworkStats } from '@/components/kaspa/NetworkStats';
-import { MiningInfo } from '@/components/kaspa/MiningInfo';
-import { EmissionChart } from '@/components/kaspa/EmissionChart';
-import { MarketWidget } from '@/components/kaspa/MarketWidget';
 import type { KaspaPrice } from '@/types';
+
+// Dynamic imports for heavy components (Recharts)
+const NetworkStats = dynamic(() => import('@/components/kaspa/NetworkStats').then(mod => ({ default: mod.NetworkStats })), {
+  loading: () => <ChartSkeleton />,
+  ssr: false,
+});
+
+const MiningInfo = dynamic(() => import('@/components/kaspa/MiningInfo').then(mod => ({ default: mod.MiningInfo })), {
+  loading: () => <ChartSkeleton />,
+  ssr: false,
+});
+
+const EmissionChart = dynamic(() => import('@/components/kaspa/EmissionChart').then(mod => ({ default: mod.EmissionChart })), {
+  loading: () => <ChartSkeleton />,
+  ssr: false,
+});
+
+const MarketWidget = dynamic(() => import('@/components/kaspa/MarketWidget').then(mod => ({ default: mod.MarketWidget })), {
+  loading: () => <div className="glass-card p-4 animate-pulse"><Skeleton className="h-40 w-full" /></div>,
+  ssr: false,
+});
+
+// Skeleton for chart components
+function ChartSkeleton() {
+  return (
+    <div className="glass-card p-6">
+      <Skeleton className="h-6 w-40 mb-4" />
+      <Skeleton className="h-64 w-full" variant="rectangular" />
+    </div>
+  );
+}
 
 export default function KaspaPage() {
   const t = useTranslations('kaspaPage');
