@@ -7,7 +7,7 @@
 +==============================================================+
 |  Status:     IN ENTWICKLUNG                                  |
 |  Phase:      P1 - Basis Setup                                |
-|  Stand:      2025-12-02                                      |
+|  Stand:      2025-12-03                                      |
 +==============================================================+
 ```
 
@@ -20,42 +20,48 @@
 - [x] P1.1-FIX-2: Mock-Daten entfernt + Intro-Video
 - [x] P1.1-FIX-3: Video Anpassungen
 - [x] i18n: Internationalisierung (DE/EN)
-- [x] P1.2: Token Liste (NEU!)
-- [ ] P1.3: Token Detail Seite
+- [x] P1.2: Token Liste
+- [x] P1.3: Kaspa Page (NEU!)
+- [ ] P1.4: Token Detail Seite
 
-## LETZTE AENDERUNGEN (P1.2)
+## LETZTE AENDERUNGEN (P1.3)
 
-**Token Liste implementiert:**
+**Kaspa Page implementiert:**
 
-1. **KRC-20 Banner**
-   - Grafik von /root/Logo&Banner/
+1. **Kaspa Banner**
    - 21:9 Aspect Ratio
-   - Gradient Overlay
+   - Kaspa Logo mit Gradient
+   - Tagline Overlay
 
-2. **Neue Token-Komponenten**
-   - TokenSearch (Debounce, Clear)
-   - TokenSort (7 Sortieroptionen)
-   - TokenPagination (Prev/Next, Page Numbers)
-   - TokenGrid (Responsive, Skeletons)
+2. **Price Widget**
+   - Aktueller Preis mit 24h Change
+   - Market Rank
+   - 6-spaltige Stats Grid:
+     - Market Cap, 24h Volume
+     - Circulating Supply, Max Supply
+     - Block Time (1s), BPS (10)
 
-3. **Token-Seite Features**
-   - Route: /krc20/tokens
-   - Live-Daten Badge
-   - Auto-Refresh (30s)
-   - Error Handling
+3. **Chart Platzhalter**
+   - TradingView "Coming Soon"
+   - Responsive 16:9/21:9
+
+4. **Kaspa Info Sections**
+   - Was ist Kaspa?
+   - BlockDAG Technologie
+   - Feature Badges (Block Time, BPS, PoW)
+   - Feature Cards (Speed, Security, Scalability)
+
+5. **Network Statistics**
+   - Block Time, BPS, Consensus, Protocol
 
 **Neue Dateien:**
-- `src/app/krc20/tokens/page.tsx`
-- `src/components/tokens/TokenSearch.tsx`
-- `src/components/tokens/TokenSort.tsx`
-- `src/components/tokens/TokenPagination.tsx`
-- `src/components/tokens/TokenGrid.tsx`
-- `src/components/tokens/index.ts`
-- `public/images/banners/krc20-network.png`
+- `src/app/krc20/kaspa/page.tsx`
+- `public/images/banners/kaspa-banner.png`
+- `docs/handover/protokolle/P1.3-PROTOKOLL.md`
 
 **Geaenderte Dateien:**
-- `messages/de.json` (tokens Abschnitt)
-- `messages/en.json` (tokens Abschnitt)
+- `messages/de.json` (+33 kaspaPage Uebersetzungen)
+- `messages/en.json` (+33 kaspaPage Uebersetzungen)
 
 ## TECH STACK
 
@@ -82,13 +88,14 @@
 |   |   +-- page.tsx          # Homepage mit Dashboard
 |   |   +-- layout.tsx        # Root Layout mit AppLayout
 |   |   +-- globals.css       # Design System (900+ Zeilen)
+|   |   +-- krc20/
+|   |       +-- kaspa/        # NEU: Kaspa Page
+|   |       +-- tokens/       # Token Liste
 |   +-- components/
 |   |   +-- layout/
-|   |   |   +-- Sidebar.tsx   # NEU: 6-Kategorien Sidebar
-|   |   |   +-- AppLayout.tsx # NEU: Sidebar + Main Layout
-|   |   |   +-- Header.tsx    # ALT (nicht mehr verwendet)
-|   |   |   +-- Footer.tsx    # ALT (nicht mehr verwendet)
-|   |   +-- dashboard/        # NEU
+|   |   |   +-- Sidebar.tsx   # 6-Kategorien Sidebar
+|   |   |   +-- AppLayout.tsx # Sidebar + Main Layout
+|   |   +-- dashboard/
 |   |   |   +-- DashboardBanner.tsx
 |   |   |   +-- FeatureBanner.tsx
 |   |   |   +-- StatsCard.tsx
@@ -98,10 +105,15 @@
 |   |   |   +-- Badge.tsx
 |   |   |   +-- LanguageSwitcher.tsx
 |   |   +-- market/
-|   |       +-- KaspaWidget.tsx
-|   |       +-- MarketStats.tsx
-|   |       +-- GainersLosers.tsx
-|   |       +-- TopTokensList.tsx
+|   |   |   +-- KaspaWidget.tsx
+|   |   |   +-- MarketStats.tsx
+|   |   |   +-- GainersLosers.tsx
+|   |   |   +-- TopTokensList.tsx
+|   |   +-- tokens/
+|   |       +-- TokenSearch.tsx
+|   |       +-- TokenSort.tsx
+|   |       +-- TokenPagination.tsx
+|   |       +-- TokenGrid.tsx
 |   +-- config/
 |   +-- lib/
 |   +-- types/
@@ -117,7 +129,13 @@
 |       +-- protokolle/
 |           +-- P1.1-PROTOKOLL.md
 |           +-- P1.1-REDESIGN-PROTOKOLL.md
+|           +-- P1.2-PROTOKOLL.md
+|           +-- P1.3-PROTOKOLL.md  # NEU
 +-- public/
+    +-- images/
+        +-- banners/
+            +-- krc20-network.png
+            +-- kaspa-banner.png  # NEU
 ```
 
 ## SIDEBAR KATEGORIEN
@@ -132,7 +150,7 @@
 |     o Home / Overview               |
 |                                     |
 |  > KRC-20 NETWORK                   |
-|     o Kaspa                         |
+|     o Kaspa            [AKTIV]      |
 |     o Coins & Tokens                |
 |     o DEX                           |
 |     o DeFi                          |
@@ -168,11 +186,11 @@
 
 | Endpoint | Komponente |
 |----------|------------|
-| `/v1/kaspa/price` | KaspaWidget |
+| `/v1/kaspa/price` | KaspaWidget, KaspaPage |
 | `/v1/market/overview` | MarketStats |
 | `/v1/market/gainers` | GainersLosers |
 | `/v1/market/losers` | GainersLosers |
-| `/v1/krc20/tokens` | TopTokensList |
+| `/v1/krc20/tokens` | TopTokensList, TokenGrid |
 
 ## DESIGN SPECS
 
@@ -201,15 +219,16 @@
 
 ```
 Build: OK
-Route (app)               Size     First Load JS
-+-- /                    5.13 kB      115 kB
-+-- /_not-found          873 B        88.2 kB
-+-- /krc20/tokens        10.5 kB      121 kB
+Route (app)                              Size     First Load JS
++-- /                                    2.33 kB         113 kB
++-- /_not-found                          873 B          88.1 kB
++-- /krc20/kaspa                         3.31 kB         110 kB
++-- /krc20/tokens                        4.32 kB         120 kB
 ```
 
 ## NAECHSTE AUFGABE
 
-**P1.3: Token Detail Seite**
+**P1.4: Token Detail Seite**
 - Token-Detailansicht
 - Preis-Chart (OHLC)
 - Holder-Liste
@@ -217,4 +236,4 @@ Route (app)               Size     First Load JS
 
 ---
 
-*Zuletzt aktualisiert: 2025-12-02 (P1.2)*
+*Zuletzt aktualisiert: 2025-12-03 (P1.3)*
