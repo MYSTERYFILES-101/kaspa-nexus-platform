@@ -8,21 +8,7 @@ import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { formatCurrency, formatCompact } from '@/lib/utils';
-import type { Krc20TokenWithPrice, TokenHolder } from '@/types';
-
-// Mock holders data until API is ready
-const MOCK_HOLDERS: TokenHolder[] = [
-  { address: 'kaspa:qr...x7k9', balance: '1500000000', percentage: 15.0, rank: 1 },
-  { address: 'kaspa:qq...m3f2', balance: '800000000', percentage: 8.0, rank: 2 },
-  { address: 'kaspa:qp...j8n4', balance: '500000000', percentage: 5.0, rank: 3 },
-  { address: 'kaspa:qz...k2l5', balance: '350000000', percentage: 3.5, rank: 4 },
-  { address: 'kaspa:qw...p9r6', balance: '280000000', percentage: 2.8, rank: 5 },
-  { address: 'kaspa:qe...t4v7', balance: '220000000', percentage: 2.2, rank: 6 },
-  { address: 'kaspa:qt...b1c8', balance: '180000000', percentage: 1.8, rank: 7 },
-  { address: 'kaspa:qy...n5d9', balance: '150000000', percentage: 1.5, rank: 8 },
-  { address: 'kaspa:qu...f2g0', balance: '120000000', percentage: 1.2, rank: 9 },
-  { address: 'kaspa:qi...h7j1', balance: '100000000', percentage: 1.0, rank: 10 },
-];
+import type { Krc20TokenWithPrice } from '@/types';
 
 export default function TokenDetailPage() {
   const params = useParams();
@@ -31,9 +17,8 @@ export default function TokenDetailPage() {
   const tCommon = useTranslations('common');
 
   const [token, setToken] = useState<Krc20TokenWithPrice | null>(null);
-  const [holders] = useState<TokenHolder[]>(MOCK_HOLDERS);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [hasData, setHasData] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchToken = useCallback(async () => {
@@ -45,13 +30,14 @@ export default function TokenDetailPage() {
 
       if (json.success && json.data) {
         setToken(json.data);
-        setError(null);
+        setHasData(true);
         setLastUpdated(new Date());
       } else {
-        setError(json.error || 'Token not found');
+        // No error - just no data available yet
+        setHasData(false);
       }
     } catch {
-      setError('Failed to load token data');
+      setHasData(false);
     } finally {
       setLoading(false);
     }
@@ -65,12 +51,13 @@ export default function TokenDetailPage() {
 
   // Calculate mint progress
   const getMintProgress = () => {
-    if (!token) return 0;
+    if (!token) return null;
     const minted = parseFloat(token.mintedSupply || '0');
     const max = parseFloat(token.maxSupply || '1');
     return Math.min(100, (minted / max) * 100);
   };
 
+  // Initial loading state
   if (loading) {
     return (
       <div className="py-4 md:py-6 lg:py-8">
@@ -92,49 +79,15 @@ export default function TokenDetailPage() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="py-4 md:py-6 lg:py-8">
-        <GlassCard className="p-8 text-center">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-error)]/20 flex items-center justify-center">
-            <svg className="w-8 h-8 text-[var(--color-error)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h2 className="text-xl font-bold mb-2">{t('tokenNotFound')}</h2>
-          <p className="text-[var(--color-text-muted)] mb-4">{t('tokenNotFoundDesc', { ticker })}</p>
-          <Link href="/krc20/tokens" className="btn-primary inline-block">
-            {t('backToTokens')}
-          </Link>
-        </GlassCard>
-      </div>
-    );
-  }
-
-  // Use mock data if no real data
-  const displayToken = token || {
-    tick: ticker,
-    name: ticker,
-    price: 0.00123,
-    priceKas: 0.0156,
-    change24h: 5.67,
-    change7d: 12.34,
-    marketCap: 45000000,
-    volume24h: 2500000,
-    holders: 12500,
-    maxSupply: '10000000000',
-    mintedSupply: '7500000000',
-    circulatingSupply: 7500000000,
-    transfers: 156789,
-    mints: 89000,
-    deployedAt: '2024-03-15',
-    state: 'minting' as const,
-    decimal: 8,
-    deployTxId: '',
-    preMint: '0',
-    limit: '1000',
-    rank: 5,
-    logoUrl: undefined as string | undefined,
+  // Helper component for placeholder values
+  const PlaceholderValue = ({ children, showSkeleton = true }: { children?: React.ReactNode; showSkeleton?: boolean }) => {
+    if (hasData && children !== undefined && children !== null) {
+      return <>{children}</>;
+    }
+    if (showSkeleton) {
+      return <Skeleton className="h-6 w-20 inline-block" />;
+    }
+    return <span className="text-[var(--color-text-muted)]">-</span>;
   };
 
   return (
@@ -150,29 +103,59 @@ export default function TokenDetailPage() {
         {t('backToTokens')}
       </Link>
 
+      {/* Indexer Status Banner - Show when no data */}
+      {!hasData && (
+        <GlassCard className="p-4 mb-6 border border-[var(--color-warning)]/30 bg-[var(--color-warning)]/5">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-warning)]/20 flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 text-[var(--color-warning)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-semibold text-[var(--color-warning)] mb-1">{t('indexerSyncing')}</h3>
+              <p className="text-sm text-[var(--color-text-muted)]">
+                {t('indexerSyncingDesc')}
+              </p>
+              <div className="flex items-center gap-4 mt-2 text-xs text-[var(--color-text-muted)]">
+                <span className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-[var(--color-warning)] animate-pulse" />
+                  {t('syncInProgress')}
+                </span>
+              </div>
+            </div>
+          </div>
+        </GlassCard>
+      )}
+
       {/* Token Header */}
       <GlassCard className="p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           {/* Token Icon + Name */}
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center shadow-lg">
-              {displayToken.logoUrl ? (
-                <img src={displayToken.logoUrl} alt={displayToken.tick} className="w-full h-full rounded-full object-cover" />
+              {token?.logoUrl ? (
+                <img src={token.logoUrl} alt={ticker} className="w-full h-full rounded-full object-cover" />
               ) : (
-                <span className="text-2xl font-bold text-white">{displayToken.tick.slice(0, 2)}</span>
+                <span className="text-2xl font-bold text-white">{ticker.slice(0, 2)}</span>
               )}
             </div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-2xl md:text-3xl font-bold">{displayToken.tick}</h1>
-                {displayToken.rank && (
+                <h1 className="text-2xl md:text-3xl font-bold">{ticker}</h1>
+                {hasData && token?.rank && (
                   <span className="px-2 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium">
-                    #{displayToken.rank}
+                    #{token.rank}
+                  </span>
+                )}
+                {!hasData && (
+                  <span className="px-2 py-1 rounded-full bg-white/5 text-[var(--color-text-muted)] text-sm">
+                    {t('dataLoading')}
                   </span>
                 )}
               </div>
-              {displayToken.name && displayToken.name !== displayToken.tick && (
-                <p className="text-[var(--color-text-muted)]">{displayToken.name}</p>
+              {token?.name && token.name !== ticker && (
+                <p className="text-[var(--color-text-muted)]">{token.name}</p>
               )}
             </div>
           </div>
@@ -180,24 +163,35 @@ export default function TokenDetailPage() {
           {/* Price + Change */}
           <div className="md:ml-auto text-left md:text-right">
             <div className="flex items-center gap-3 md:justify-end">
-              <span className="text-2xl md:text-3xl font-bold">{formatCurrency(displayToken.price)}</span>
-              <PriceChange value={displayToken.change24h} size="md" />
+              {hasData && token?.price ? (
+                <>
+                  <span className="text-2xl md:text-3xl font-bold">{formatCurrency(token.price)}</span>
+                  <PriceChange value={token.change24h} size="md" />
+                </>
+              ) : (
+                <>
+                  <Skeleton className="h-9 w-32" />
+                  <Skeleton className="h-6 w-16" />
+                </>
+              )}
             </div>
-            {displayToken.priceKas && (
+            {hasData && token?.priceKas ? (
               <p className="text-sm text-[var(--color-text-muted)]">
-                {displayToken.priceKas.toFixed(8)} KAS
+                {token.priceKas.toFixed(8)} KAS
               </p>
+            ) : (
+              <Skeleton className="h-4 w-24 mt-1" />
             )}
           </div>
         </div>
 
         {/* Live Badge */}
         <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
-          <span className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
+          <span className={`w-2 h-2 rounded-full ${hasData ? 'bg-[var(--color-success)]' : 'bg-[var(--color-warning)]'} animate-pulse`} />
           <span className="text-xs text-[var(--color-text-muted)]">
-            {tCommon('liveData')}
+            {hasData ? tCommon('liveData') : t('waitingForData')}
           </span>
-          {lastUpdated && (
+          {lastUpdated && hasData && (
             <span className="text-xs text-[var(--color-text-muted)]">
               • {t('updated')}: {lastUpdated.toLocaleTimeString()}
             </span>
@@ -214,27 +208,39 @@ export default function TokenDetailPage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('marketCap')}</p>
-                <p className="text-lg font-bold">{formatCompact(displayToken.marketCap)}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.marketCap ? formatCompact(token.marketCap) : null}</PlaceholderValue>
+                </p>
               </div>
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('volume24h')}</p>
-                <p className="text-lg font-bold">{formatCompact(displayToken.volume24h)}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.volume24h ? formatCompact(token.volume24h) : null}</PlaceholderValue>
+                </p>
               </div>
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('holders')}</p>
-                <p className="text-lg font-bold">{formatCompact(displayToken.holders || 0)}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.holders ? formatCompact(token.holders) : null}</PlaceholderValue>
+                </p>
               </div>
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('circulatingSupply')}</p>
-                <p className="text-lg font-bold">{formatCompact(parseFloat(displayToken.mintedSupply || '0'))}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.mintedSupply ? formatCompact(parseFloat(token.mintedSupply)) : null}</PlaceholderValue>
+                </p>
               </div>
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('maxSupply')}</p>
-                <p className="text-lg font-bold">{formatCompact(parseFloat(displayToken.maxSupply || '0'))}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.maxSupply ? formatCompact(parseFloat(token.maxSupply)) : null}</PlaceholderValue>
+                </p>
               </div>
               <div className="glass-card p-4">
                 <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('transfers')}</p>
-                <p className="text-lg font-bold">{formatCompact(displayToken.transfers || 0)}</p>
+                <p className="text-lg font-bold">
+                  <PlaceholderValue>{hasData && token?.transfers ? formatCompact(token.transfers) : null}</PlaceholderValue>
+                </p>
               </div>
             </div>
           </GlassCard>
@@ -247,7 +253,9 @@ export default function TokenDetailPage() {
                 <svg className="w-12 h-12 mx-auto mb-3 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                 </svg>
-                <p className="text-[var(--color-text-muted)] font-medium">{t('chartComingSoon')}</p>
+                <p className="text-[var(--color-text-muted)] font-medium">
+                  {hasData ? t('chartComingSoon') : t('chartWaitingData')}
+                </p>
                 <p className="text-xs text-[var(--color-text-muted)] mt-1">{t('chartDescription')}</p>
               </div>
             </div>
@@ -261,49 +269,69 @@ export default function TokenDetailPage() {
               <div>
                 <div className="flex justify-between text-sm mb-2">
                   <span className="text-[var(--color-text-muted)]">{t('mintProgress')}</span>
-                  <span className="font-medium">{getMintProgress().toFixed(2)}%</span>
+                  <span className="font-medium">
+                    {getMintProgress() !== null ? `${getMintProgress()?.toFixed(2)}%` : '-'}
+                  </span>
                 </div>
                 <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-success)] transition-all duration-500"
-                    style={{ width: `${getMintProgress()}%` }}
-                  />
+                  {hasData && getMintProgress() !== null ? (
+                    <div
+                      className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-success)] transition-all duration-500"
+                      style={{ width: `${getMintProgress()}%` }}
+                    />
+                  ) : (
+                    <div className="h-full w-full bg-white/10 animate-pulse" />
+                  )}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('state')}</p>
-                  <span className={`px-2 py-1 rounded text-xs font-medium ${
-                    displayToken.state === 'finished'
-                      ? 'bg-[var(--color-success)]/20 text-[var(--color-success)]'
-                      : displayToken.state === 'minting'
-                      ? 'bg-[var(--color-warning)]/20 text-[var(--color-warning)]'
-                      : 'bg-[var(--color-primary)]/20 text-[var(--color-primary)]'
-                  }`}>
-                    {displayToken.state?.toUpperCase()}
-                  </span>
+                  {hasData && token?.state ? (
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${
+                      token.state === 'finished'
+                        ? 'bg-[var(--color-success)]/20 text-[var(--color-success)]'
+                        : token.state === 'minting'
+                        ? 'bg-[var(--color-warning)]/20 text-[var(--color-warning)]'
+                        : 'bg-[var(--color-primary)]/20 text-[var(--color-primary)]'
+                    }`}>
+                      {token.state.toUpperCase()}
+                    </span>
+                  ) : (
+                    <Skeleton className="h-6 w-20" />
+                  )}
                 </div>
                 <div>
                   <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('decimals')}</p>
-                  <p className="font-medium">{displayToken.decimal}</p>
+                  <p className="font-medium">
+                    <PlaceholderValue showSkeleton={false}>{hasData && token?.decimal}</PlaceholderValue>
+                  </p>
                 </div>
                 <div>
                   <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('mintLimit')}</p>
-                  <p className="font-medium">{formatCompact(parseFloat(displayToken.limit || '0'))}</p>
+                  <p className="font-medium">
+                    <PlaceholderValue>{hasData && token?.limit ? formatCompact(parseFloat(token.limit)) : null}</PlaceholderValue>
+                  </p>
                 </div>
                 <div>
                   <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('totalMints')}</p>
-                  <p className="font-medium">{formatCompact(displayToken.mints || 0)}</p>
+                  <p className="font-medium">
+                    <PlaceholderValue>{hasData && token?.mints ? formatCompact(token.mints) : null}</PlaceholderValue>
+                  </p>
                 </div>
               </div>
 
-              {displayToken.deployedAt && (
-                <div>
-                  <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('deployedAt')}</p>
-                  <p className="font-medium">{new Date(displayToken.deployedAt).toLocaleDateString()}</p>
-                </div>
-              )}
+              <div>
+                <p className="text-xs text-[var(--color-text-muted)] uppercase mb-1">{t('deployedAt')}</p>
+                <p className="font-medium">
+                  {hasData && token?.deployedAt ? (
+                    new Date(token.deployedAt).toLocaleDateString()
+                  ) : (
+                    <span className="text-[var(--color-text-muted)]">-</span>
+                  )}
+                </p>
+              </div>
             </div>
           </GlassCard>
         </div>
@@ -316,19 +344,35 @@ export default function TokenDetailPage() {
             <div className="space-y-3">
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-[var(--color-text-muted)]">{t('change24h')}</span>
-                <PriceChange value={displayToken.change24h} size="sm" />
+                {hasData && token?.change24h !== undefined ? (
+                  <PriceChange value={token.change24h} size="sm" />
+                ) : (
+                  <Skeleton className="h-5 w-14" />
+                )}
               </div>
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-[var(--color-text-muted)]">{t('change7d')}</span>
-                <PriceChange value={displayToken.change7d || 0} size="sm" />
+                {hasData && token?.change7d !== undefined ? (
+                  <PriceChange value={token.change7d} size="sm" />
+                ) : (
+                  <Skeleton className="h-5 w-14" />
+                )}
               </div>
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-[var(--color-text-muted)]">{t('priceInKas')}</span>
-                <span className="font-medium">{displayToken.priceKas?.toFixed(8)} KAS</span>
+                {hasData && token?.priceKas ? (
+                  <span className="font-medium">{token.priceKas.toFixed(8)} KAS</span>
+                ) : (
+                  <Skeleton className="h-5 w-24" />
+                )}
               </div>
               <div className="flex justify-between items-center py-2">
                 <span className="text-[var(--color-text-muted)]">{t('rank')}</span>
-                <span className="font-medium">#{displayToken.rank || '-'}</span>
+                {hasData && token?.rank ? (
+                  <span className="font-medium">#{token.rank}</span>
+                ) : (
+                  <span className="text-[var(--color-text-muted)]">-</span>
+                )}
               </div>
             </div>
           </GlassCard>
@@ -336,22 +380,25 @@ export default function TokenDetailPage() {
           {/* Top Holders */}
           <GlassCard className="p-6">
             <h3 className="text-lg font-bold mb-4">{t('topHolders')}</h3>
-            <div className="space-y-2">
-              {holders.slice(0, 10).map((holder) => (
-                <div key={holder.rank} className="flex items-center gap-3 py-2 border-b border-white/5 last:border-0">
-                  <span className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-xs font-medium">
-                    {holder.rank}
-                  </span>
-                  <span className="flex-1 font-mono text-xs text-[var(--color-text-muted)] truncate">
-                    {holder.address}
-                  </span>
-                  <span className="text-sm font-medium">{holder.percentage.toFixed(2)}%</span>
+            {hasData ? (
+              <>
+                <div className="space-y-2">
+                  {/* Real holder data would go here */}
+                  <p className="text-sm text-[var(--color-text-muted)] text-center py-4">
+                    {t('holdersNote')}
+                  </p>
                 </div>
-              ))}
-            </div>
-            <p className="text-xs text-[var(--color-text-muted)] mt-3 text-center">
-              {t('holdersNote')}
-            </p>
+              </>
+            ) : (
+              <div className="text-center py-6">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/5 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[var(--color-text-muted)] animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-[var(--color-text-muted)]">{t('holdersIndexing')}</p>
+              </div>
+            )}
           </GlassCard>
 
           {/* Links */}

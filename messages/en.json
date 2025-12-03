@@ -177,6 +177,7 @@
     "transfers": "Transfers",
     "priceChart": "Price Chart",
     "chartComingSoon": "TradingView Chart Coming Soon",
+    "chartWaitingData": "Chart waiting for data",
     "chartDescription": "Interactive OHLC chart will be available soon",
     "tokenInfo": "Token Information",
     "mintProgress": "Mint Progress",
@@ -192,7 +193,13 @@
     "rank": "Rank",
     "topHolders": "Top 10 Holders",
     "holdersNote": "Holder data updates every 24h",
-    "resources": "Resources"
+    "holdersIndexing": "Holder data is being indexed...",
+    "resources": "Resources",
+    "indexerSyncing": "Indexer Syncing",
+    "indexerSyncingDesc": "The indexer is currently syncing historical blockchain data. Token information will be available once synchronization is complete. This may take several weeks.",
+    "syncInProgress": "Sync in progress",
+    "dataLoading": "Loading data",
+    "waitingForData": "Waiting for data"
   },
   "kaspaPage": {
     "tagline": "The Fastest Proof-of-Work Blockchain",
