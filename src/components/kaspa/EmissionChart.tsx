@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import {
@@ -9,7 +10,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
   ReferenceLine,
 } from 'recharts';
 
@@ -19,26 +19,26 @@ interface EmissionChartProps {
 
 // Kaspa emission schedule data
 const EMISSION_DATA = [
-  { date: '2022-11', reward: 440.00, label: 'Launch' },
-  { date: '2023-05', reward: 415.16, label: '' },
-  { date: '2023-11', reward: 391.71, label: '' },
-  { date: '2024-05', reward: 369.61, label: '' },
-  { date: '2024-11', reward: 348.76, label: '' },
-  { date: '2025-05', reward: 329.15, label: 'Current' },
-  { date: '2025-11', reward: 310.72, label: '' },
-  { date: '2026-05', reward: 293.33, label: '' },
-  { date: '2026-11', reward: 276.98, label: '' },
-  { date: '2027-05', reward: 261.46, label: '' },
-  { date: '2027-11', reward: 246.77, label: '' },
-  { date: '2028-05', reward: 232.99, label: '' },
-  { date: '2028-11', reward: 220.00, label: 'Crescendo HF' },
-  { date: '2029-05', reward: 207.70, label: '' },
-  { date: '2029-11', reward: 196.09, label: '' },
-  { date: '2030-05', reward: 185.13, label: '' },
+  { date: '2022-11', reward: 440.00 },
+  { date: '2023-05', reward: 415.16 },
+  { date: '2023-11', reward: 391.71 },
+  { date: '2024-05', reward: 369.61 },
+  { date: '2024-11', reward: 348.76 },
+  { date: '2025-05', reward: 329.15 },
+  { date: '2025-11', reward: 310.72 },
+  { date: '2026-05', reward: 293.33 },
+  { date: '2026-11', reward: 276.98 },
+  { date: '2027-05', reward: 261.46 },
+  { date: '2027-11', reward: 246.77 },
+  { date: '2028-05', reward: 232.99 },
+  { date: '2028-11', reward: 220.00 },
+  { date: '2029-05', reward: 207.70 },
+  { date: '2029-11', reward: 196.09 },
+  { date: '2030-05', reward: 185.13 },
 ];
 
 // Custom tooltip component
-const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) {
   if (active && payload && payload.length) {
     return (
       <div className="glass-card p-3 border border-[var(--color-primary)]/30">
@@ -53,10 +53,32 @@ const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?:
     );
   }
   return null;
-};
+}
 
 export function EmissionChart({ className }: EmissionChartProps) {
   const t = useTranslations('kaspaPage');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        if (width > 0 && height > 0) {
+          setDimensions({ width, height });
+        }
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    const timer = setTimeout(updateDimensions, 100);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <GlassCard className={`p-6 ${className}`}>
@@ -68,9 +90,11 @@ export function EmissionChart({ className }: EmissionChartProps) {
         </div>
       </div>
 
-      <div className="h-[300px] w-full">
-        <ResponsiveContainer width="100%" height="100%">
+      <div ref={containerRef} className="h-[300px] w-full">
+        {dimensions.width > 0 && dimensions.height > 0 ? (
           <AreaChart
+            width={dimensions.width}
+            height={dimensions.height}
             data={EMISSION_DATA}
             margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
           >
@@ -101,7 +125,6 @@ export function EmissionChart({ className }: EmissionChartProps) {
               domain={[150, 450]}
             />
             <Tooltip content={<CustomTooltip />} />
-            {/* Mark Crescendo Hardfork */}
             <ReferenceLine
               x="2028-11"
               stroke="#9D4EDD"
@@ -113,7 +136,6 @@ export function EmissionChart({ className }: EmissionChartProps) {
                 position: 'top',
               }}
             />
-            {/* Mark current position */}
             <ReferenceLine
               x="2025-05"
               stroke="#00FF88"
@@ -131,20 +153,15 @@ export function EmissionChart({ className }: EmissionChartProps) {
               stroke="#00D4FF"
               strokeWidth={2}
               fill="url(#emissionGradient)"
-              dot={{
-                fill: '#00D4FF',
-                strokeWidth: 0,
-                r: 3,
-              }}
-              activeDot={{
-                fill: '#00D4FF',
-                stroke: '#fff',
-                strokeWidth: 2,
-                r: 5,
-              }}
+              dot={{ fill: '#00D4FF', strokeWidth: 0, r: 3 }}
+              activeDot={{ fill: '#00D4FF', stroke: '#fff', strokeWidth: 2, r: 5 }}
             />
           </AreaChart>
-        </ResponsiveContainer>
+        ) : (
+          <div className="h-full w-full flex items-center justify-center">
+            <div className="animate-pulse text-[var(--color-text-muted)]">Loading chart...</div>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-4 text-xs text-[var(--color-text-muted)]">

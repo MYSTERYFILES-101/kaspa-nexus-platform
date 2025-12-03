@@ -22,60 +22,52 @@
 - [x] i18n: Internationalisierung (DE/EN)
 - [x] P1.2: Token Liste
 - [x] P1.3: Kaspa Page
-- [x] P1.3-ERWEITERUNG: Premium Kaspa Stats + Charts (NEU!)
-- [ ] P1.4: Token Detail Seite
+- [x] P1.3-ERWEITERUNG: Premium Kaspa Stats + Charts
+- [x] P1.4: Token Detail Seite (NEU!)
+- [ ] P1.5: Next Phase
 
-## LETZTE AENDERUNGEN (P1.3-ERWEITERUNG)
+## LETZTE AENDERUNGEN (P1.4)
 
-**Premium Kaspa Features implementiert:**
+**Token Detail Seite implementiert:**
 
-1. **Live Network Stats**
-   - DAA Score (Live)
-   - Hashrate (PH/s formattiert)
-   - Real-Time BPS
-   - Block Count
-   - Mined % (93.32%)
-   - Auto-Update alle 10s
+1. **Route & Navigation**
+   - Route: `/krc20/tokens/[ticker]`
+   - Beispiel: `/krc20/tokens/NACHO`
+   - TokenCard Link korrigiert
 
-2. **Mining Rewards**
-   - Current Reward (KAS/block)
-   - Next Reduction Countdown (Live Timer)
-   - Next Reward nach Reduktion
-   - Reduktions-Prozentsatz (-5.62%)
+2. **Token Header**
+   - Token Icon (Logo/Fallback)
+   - Name, Ticker, Rang
+   - Live Preis (USD + KAS)
+   - 24h Change mit Farbe
 
-3. **Emission Schedule Chart**
-   - Recharts AreaChart
-   - Timeline 2022-2030
-   - Current Position Marker
-   - Crescendo Hardfork Marker (2028)
-   - Custom Tooltip
+3. **Market Statistics Grid**
+   - Market Cap, Volume, Holders
+   - Circulating Supply, Max Supply
+   - Transfers
 
-4. **Market Widget Sidebar**
-   - Kompaktes Layout
-   - Price + Change
-   - Market Cap, Volume
-   - Live Indicator
+4. **Token Information**
+   - Mint Progress Bar
+   - State, Decimals, Mint Limit
+   - Total Mints, Deployed At
 
-5. **Two-Column Layout**
-   - 3/4 Main Content
-   - 1/4 Sidebar
-   - Quick Facts
-   - Resources Links
+5. **Top 10 Holders**
+   - Mock-Daten (API Placeholder)
+   - Rang, Adresse, Prozent
+
+6. **Sidebar**
+   - Quick Stats
+   - External Resources (kas.fyi, Explorer)
 
 **Neue Dateien:**
-- `src/components/kaspa/NetworkStats.tsx`
-- `src/components/kaspa/MiningInfo.tsx`
-- `src/components/kaspa/EmissionChart.tsx`
-- `src/components/kaspa/MarketWidget.tsx`
-- `src/components/kaspa/index.ts`
-- `docs/handover/protokolle/P1.3-ERWEITERUNG-PROTOKOLL.md`
+- `src/app/krc20/tokens/[ticker]/page.tsx`
+- `src/app/api/krc20/tokens/[ticker]/route.ts`
+- `docs/handover/protokolle/P1.4-PROTOKOLL.md`
 
 **Geaenderte Dateien:**
-- `src/app/krc20/kaspa/page.tsx` (Two-Column Layout)
-- `src/types/api.ts` (+KaspaNetworkStats)
-- `messages/de.json` (+20 Uebersetzungen)
-- `messages/en.json` (+20 Uebersetzungen)
-- `package.json` (+recharts)
+- `src/components/market/TokenCard.tsx` (Link korrigiert)
+- `messages/de.json` (+30 Uebersetzungen)
+- `messages/en.json` (+30 Uebersetzungen)
 
 ## TECH STACK
 
@@ -103,9 +95,11 @@
 |   |   +-- page.tsx          # Homepage mit Dashboard
 |   |   +-- layout.tsx        # Root Layout mit AppLayout
 |   |   +-- globals.css       # Design System (900+ Zeilen)
+|   |   +-- api/krc20/tokens/[ticker]/  # Token Detail API (NEU)
 |   |   +-- krc20/
 |   |       +-- kaspa/        # Kaspa Page (Premium)
 |   |       +-- tokens/       # Token Liste
+|   |       +-- tokens/[ticker]/  # Token Detail Page (NEU)
 |   +-- components/
 |   |   +-- layout/
 |   |   |   +-- Sidebar.tsx   # 6-Kategorien Sidebar
@@ -152,7 +146,8 @@
 |           +-- P1.1-REDESIGN-PROTOKOLL.md
 |           +-- P1.2-PROTOKOLL.md
 |           +-- P1.3-PROTOKOLL.md
-|           +-- P1.3-ERWEITERUNG-PROTOKOLL.md  # NEU
+|           +-- P1.3-ERWEITERUNG-PROTOKOLL.md
+|           +-- P1.4-PROTOKOLL.md  # NEU
 +-- public/
     +-- images/
         +-- banners/
@@ -214,6 +209,7 @@
 | `/v1/market/gainers` | GainersLosers |
 | `/v1/market/losers` | GainersLosers |
 | `/v1/krc20/tokens` | TopTokensList, TokenGrid |
+| `/v1/krc20/tokens/[ticker]` | TokenDetailPage (NEU) |
 
 ## KASPA PAGE FEATURES
 
@@ -237,18 +233,18 @@ Build: OK
 Route (app)                              Size     First Load JS
 +-- /                                    2.33 kB         113 kB
 +-- /_not-found                          873 B          88.2 kB
-+-- /krc20/kaspa                         112 kB          219 kB
++-- /krc20/kaspa                         110 kB          217 kB
 +-- /krc20/tokens                        4.32 kB         120 kB
++-- /krc20/tokens/[ticker]               3.93 kB         114 kB  (NEU)
 ```
 
 ## NAECHSTE AUFGABE
 
-**P1.4: Token Detail Seite**
-- Token-Detailansicht
-- Preis-Chart (OHLC)
-- Holder-Liste
-- Transfer-History
+**P1.5: TradingView Chart Integration**
+- TradingView Widget fuer Token Charts
+- OHLC Daten Integration
+- Timeframe Selector
 
 ---
 
-*Zuletzt aktualisiert: 2025-12-03 (P1.3-ERWEITERUNG)*
+*Zuletzt aktualisiert: 2025-12-03 (P1.4)*

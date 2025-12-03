@@ -13,7 +13,7 @@ interface TokenCardProps {
 
 export function TokenCard({ token, rank }: TokenCardProps) {
   return (
-    <Link href={`/tokens/${token.tick}`}>
+    <Link href={`/krc20/tokens/${token.tick}`}>
       <GlassCard className="p-4 h-full cursor-pointer group">
         {/* Header */}
         <div className="flex items-start gap-3 mb-3">
