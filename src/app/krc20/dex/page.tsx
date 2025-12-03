@@ -11,7 +11,7 @@ interface DexInfo {
   logo: string;
   url: string;
   type: 'telegram' | 'webapp';
-  status: 'active' | 'maintenance' | 'offline';
+  status: 'active' | 'beta' | 'unstable' | 'offline';
   volume24h: number | null;
   pairs: number;
   features: string[];
@@ -21,14 +21,14 @@ interface DexInfo {
 const DEX_LIST: DexInfo[] = [
   {
     id: 'kspr-bot',
-    name: 'KSPR Bot',
+    name: 'ZealousSwap - KSPR Bot',
     logo: '/images/dex/kspr-bot.png',
     url: 'https://t.me/ksaborNFT_bot',
     type: 'telegram',
     status: 'active',
-    volume24h: null, // Will be fetched later
+    volume24h: null,
     pairs: 150,
-    features: ['KRC-20 Swaps', 'Limit Orders', 'Portfolio Tracking'],
+    features: ['Swaps', 'Limit Orders', 'Portfolio', 'Sniper'],
   },
   {
     id: 'chainge-finance',
@@ -39,7 +39,7 @@ const DEX_LIST: DexInfo[] = [
     status: 'active',
     volume24h: null,
     pairs: 50,
-    features: ['Cross-Chain', 'KAS Bridge', 'Mobile App'],
+    features: ['Cross-Chain', 'Bridge', 'Routing', 'Wallet'],
   },
   {
     id: 'kasplex',
@@ -50,18 +50,29 @@ const DEX_LIST: DexInfo[] = [
     status: 'active',
     volume24h: null,
     pairs: 200,
-    features: ['Token Deploy', 'Mint', 'Transfer'],
+    features: ['KRC-20 Deploy', 'Mint', 'Transfer'],
   },
   {
-    id: 'zealous-swap',
-    name: 'ZealousSwap',
-    logo: '/images/dex/zealousswap.png',
-    url: 'https://www.zealousswap.com/',
+    id: 'kaspa-dex',
+    name: 'Kaspa DEX',
+    logo: '/images/dex/kaspa-dex.png',
+    url: '#',
     type: 'webapp',
-    status: 'active',
+    status: 'beta',
     volume24h: null,
-    pairs: 100,
-    features: ['Token Swaps', 'Liquidity Pools'],
+    pairs: 0,
+    features: ['Swaps', 'Liquidity Pools', 'Limit Orders'],
+  },
+  {
+    id: 'zing-swap',
+    name: 'ZingSwap',
+    logo: '/images/dex/zingswap.png',
+    url: '#',
+    type: 'webapp',
+    status: 'unstable',
+    volume24h: null,
+    pairs: 0,
+    features: ['Basic Swaps'],
   },
 ];
 
@@ -69,13 +80,15 @@ const DEX_LIST: DexInfo[] = [
 function StatusBadge({ status }: { status: string }) {
   const colors = {
     active: 'bg-[var(--color-success)]/10 text-[var(--color-success)] border-[var(--color-success)]/30',
-    maintenance: 'bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/30',
-    offline: 'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/30',
+    beta: 'bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/30',
+    unstable: 'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/30',
+    offline: 'bg-[var(--color-text-muted)]/10 text-[var(--color-text-muted)] border-[var(--color-text-muted)]/30',
   };
 
   const labels: Record<string, string> = {
     active: 'Active',
-    maintenance: 'Maintenance',
+    beta: 'Beta',
+    unstable: 'Unstable',
     offline: 'Offline',
   };
 
