@@ -28,6 +28,35 @@ export interface KaspaStats {
   totalTransactions: number;
 }
 
+export interface KaspaNetworkStats {
+  network: {
+    networkName: string;
+    blockCount: string;
+    headerCount: string;
+    tipHashes: string[];
+    difficulty: number;
+    pastMedianTime: string;
+    virtualParentHashes: string[];
+    pruningPointHash: string;
+    virtualDaaScore: string;
+    sink: string;
+  };
+  mining: {
+    blockReward: number;
+    hashrate: number;
+    hashrateFormatted: string;
+  };
+  market: {
+    price: number;
+    priceFormatted: string;
+    marketCap: number;
+    marketCapFormatted: string;
+  };
+  dag: {
+    blueScore: number;
+  };
+}
+
 // ═══════════════════════════════════════════════════════════════
 // KRC-20 TOKEN TYPES
 // ═══════════════════════════════════════════════════════════════

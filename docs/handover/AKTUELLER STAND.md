@@ -21,47 +21,61 @@
 - [x] P1.1-FIX-3: Video Anpassungen
 - [x] i18n: Internationalisierung (DE/EN)
 - [x] P1.2: Token Liste
-- [x] P1.3: Kaspa Page (NEU!)
+- [x] P1.3: Kaspa Page
+- [x] P1.3-ERWEITERUNG: Premium Kaspa Stats + Charts (NEU!)
 - [ ] P1.4: Token Detail Seite
 
-## LETZTE AENDERUNGEN (P1.3)
+## LETZTE AENDERUNGEN (P1.3-ERWEITERUNG)
 
-**Kaspa Page implementiert:**
+**Premium Kaspa Features implementiert:**
 
-1. **Kaspa Banner**
-   - 21:9 Aspect Ratio
-   - Kaspa Logo mit Gradient
-   - Tagline Overlay
+1. **Live Network Stats**
+   - DAA Score (Live)
+   - Hashrate (PH/s formattiert)
+   - Real-Time BPS
+   - Block Count
+   - Mined % (93.32%)
+   - Auto-Update alle 10s
 
-2. **Price Widget**
-   - Aktueller Preis mit 24h Change
-   - Market Rank
-   - 6-spaltige Stats Grid:
-     - Market Cap, 24h Volume
-     - Circulating Supply, Max Supply
-     - Block Time (1s), BPS (10)
+2. **Mining Rewards**
+   - Current Reward (KAS/block)
+   - Next Reduction Countdown (Live Timer)
+   - Next Reward nach Reduktion
+   - Reduktions-Prozentsatz (-5.62%)
 
-3. **Chart Platzhalter**
-   - TradingView "Coming Soon"
-   - Responsive 16:9/21:9
+3. **Emission Schedule Chart**
+   - Recharts AreaChart
+   - Timeline 2022-2030
+   - Current Position Marker
+   - Crescendo Hardfork Marker (2028)
+   - Custom Tooltip
 
-4. **Kaspa Info Sections**
-   - Was ist Kaspa?
-   - BlockDAG Technologie
-   - Feature Badges (Block Time, BPS, PoW)
-   - Feature Cards (Speed, Security, Scalability)
+4. **Market Widget Sidebar**
+   - Kompaktes Layout
+   - Price + Change
+   - Market Cap, Volume
+   - Live Indicator
 
-5. **Network Statistics**
-   - Block Time, BPS, Consensus, Protocol
+5. **Two-Column Layout**
+   - 3/4 Main Content
+   - 1/4 Sidebar
+   - Quick Facts
+   - Resources Links
 
 **Neue Dateien:**
-- `src/app/krc20/kaspa/page.tsx`
-- `public/images/banners/kaspa-banner.png`
-- `docs/handover/protokolle/P1.3-PROTOKOLL.md`
+- `src/components/kaspa/NetworkStats.tsx`
+- `src/components/kaspa/MiningInfo.tsx`
+- `src/components/kaspa/EmissionChart.tsx`
+- `src/components/kaspa/MarketWidget.tsx`
+- `src/components/kaspa/index.ts`
+- `docs/handover/protokolle/P1.3-ERWEITERUNG-PROTOKOLL.md`
 
 **Geaenderte Dateien:**
-- `messages/de.json` (+33 kaspaPage Uebersetzungen)
-- `messages/en.json` (+33 kaspaPage Uebersetzungen)
+- `src/app/krc20/kaspa/page.tsx` (Two-Column Layout)
+- `src/types/api.ts` (+KaspaNetworkStats)
+- `messages/de.json` (+20 Uebersetzungen)
+- `messages/en.json` (+20 Uebersetzungen)
+- `package.json` (+recharts)
 
 ## TECH STACK
 
@@ -74,9 +88,10 @@
 | i18n | next-intl (DE/EN) | OK |
 | API Client | api.kaspa-nexus.io | OK |
 | Layout | Sidebar (280px) | OK |
+| Charts | Recharts | OK |
 | Market Components | KaspaWidget, etc. | OK |
 | State | Zustand | Ausstehend |
-| Charts | Recharts/TradingView | Ausstehend |
+| TradingView | Platzhalter | Ausstehend |
 | Auth | Lucia Auth | Ausstehend |
 
 ## VERZEICHNISSTRUKTUR
@@ -89,7 +104,7 @@
 |   |   +-- layout.tsx        # Root Layout mit AppLayout
 |   |   +-- globals.css       # Design System (900+ Zeilen)
 |   |   +-- krc20/
-|   |       +-- kaspa/        # NEU: Kaspa Page
+|   |       +-- kaspa/        # Kaspa Page (Premium)
 |   |       +-- tokens/       # Token Liste
 |   +-- components/
 |   |   +-- layout/
@@ -109,6 +124,12 @@
 |   |   |   +-- MarketStats.tsx
 |   |   |   +-- GainersLosers.tsx
 |   |   |   +-- TopTokensList.tsx
+|   |   +-- kaspa/              # NEU: Kaspa Premium Komponenten
+|   |   |   +-- NetworkStats.tsx
+|   |   |   +-- MiningInfo.tsx
+|   |   |   +-- EmissionChart.tsx
+|   |   |   +-- MarketWidget.tsx
+|   |   |   +-- index.ts
 |   |   +-- tokens/
 |   |       +-- TokenSearch.tsx
 |   |       +-- TokenSort.tsx
@@ -130,12 +151,13 @@
 |           +-- P1.1-PROTOKOLL.md
 |           +-- P1.1-REDESIGN-PROTOKOLL.md
 |           +-- P1.2-PROTOKOLL.md
-|           +-- P1.3-PROTOKOLL.md  # NEU
+|           +-- P1.3-PROTOKOLL.md
+|           +-- P1.3-ERWEITERUNG-PROTOKOLL.md  # NEU
 +-- public/
     +-- images/
         +-- banners/
             +-- krc20-network.png
-            +-- kaspa-banner.png  # NEU
+            +-- kaspa-banner.png
 ```
 
 ## SIDEBAR KATEGORIEN
@@ -150,7 +172,7 @@
 |     o Home / Overview               |
 |                                     |
 |  > KRC-20 NETWORK                   |
-|     o Kaspa            [AKTIV]      |
+|     o Kaspa            [PREMIUM]    |
 |     o Coins & Tokens                |
 |     o DEX                           |
 |     o DeFi                          |
@@ -186,34 +208,27 @@
 
 | Endpoint | Komponente |
 |----------|------------|
-| `/v1/kaspa/price` | KaspaWidget, KaspaPage |
+| `/v1/kaspa/price` | KaspaWidget, KaspaPage, MarketWidget |
+| `/v1/kaspa/stats` | NetworkStats, MiningInfo |
 | `/v1/market/overview` | MarketStats |
 | `/v1/market/gainers` | GainersLosers |
 | `/v1/market/losers` | GainersLosers |
 | `/v1/krc20/tokens` | TopTokensList, TokenGrid |
 
-## DESIGN SPECS
+## KASPA PAGE FEATURES
 
-### Farben
-| Farbe | Hex | Verwendung |
-|-------|-----|------------|
-| Primary | #00D4FF | Links, BUY, Hover |
-| Secondary | #9D4EDD | Pro-Features, Akzente |
-| Background Start | #0A1628 | Gradient Start |
-| Background End | #1A1A2E | Gradient Ende |
-| Success | #00FF88 | Gewinn, Connected |
-| Error | #FF4444 | SELL, Verlust |
-| Warning | #FFB800 | PRO+ Badge |
-
-### Sidebar
-- Breite: 280px (Desktop)
-- Mobile: Overlay mit Hamburger
-- Breakpoint: 1024px
-
-### Badges
-- PRO: Lila (#9D4EDD)
-- PRO+: Gold (#FFB800)
-- UPGRADE: Gruen (#00FF88)
+| Feature | Status | Besser als kas.fyi |
+|---------|--------|-------------------|
+| Live DAA Score | OK | Gleich |
+| Live Hashrate (formatiert) | OK | Gleich |
+| Mining Reward | OK | JA |
+| Next Reduction Countdown | OK | JA |
+| Emission Schedule Chart | OK | JA |
+| Crescendo Hardfork Marker | OK | JA |
+| Market Widget Sidebar | OK | JA |
+| Quick Facts | OK | JA |
+| Resources Links | OK | JA |
+| i18n (DE/EN) | OK | JA |
 
 ## BUILD STATUS
 
@@ -221,8 +236,8 @@
 Build: OK
 Route (app)                              Size     First Load JS
 +-- /                                    2.33 kB         113 kB
-+-- /_not-found                          873 B          88.1 kB
-+-- /krc20/kaspa                         3.31 kB         110 kB
++-- /_not-found                          873 B          88.2 kB
++-- /krc20/kaspa                         112 kB          219 kB
 +-- /krc20/tokens                        4.32 kB         120 kB
 ```
 
@@ -236,4 +251,4 @@ Route (app)                              Size     First Load JS
 
 ---
 
-*Zuletzt aktualisiert: 2025-12-03 (P1.3)*
+*Zuletzt aktualisiert: 2025-12-03 (P1.3-ERWEITERUNG)*
