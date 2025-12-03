@@ -85,7 +85,7 @@ export default function TokenDetailPage() {
       return <>{children}</>;
     }
     if (showSkeleton) {
-      return <Skeleton className="h-6 w-20 inline-block" />;
+      return <Skeleton className="h-6 w-20" inline />;
     }
     return <span className="text-[var(--color-text-muted)]">-</span>;
   };

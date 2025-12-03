@@ -3,6 +3,7 @@ interface SkeletonProps {
   variant?: 'text' | 'circular' | 'rectangular';
   width?: string | number;
   height?: string | number;
+  inline?: boolean;
 }
 
 export function Skeleton({
@@ -10,6 +11,7 @@ export function Skeleton({
   variant = 'text',
   width,
   height,
+  inline = false,
 }: SkeletonProps) {
   const baseClasses = 'animate-pulse bg-white/10 rounded';
 
@@ -23,6 +25,16 @@ export function Skeleton({
     width: width,
     height: height,
   };
+
+  // Use span for inline contexts (inside <p> tags) to avoid hydration errors
+  if (inline) {
+    return (
+      <span
+        className={`${baseClasses} ${variantClasses[variant]} ${className} inline-block`}
+        style={style}
+      />
+    );
+  }
 
   return (
     <div
