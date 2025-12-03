@@ -52,6 +52,17 @@ const DEX_LIST: DexInfo[] = [
     pairs: 200,
     features: ['Token Deploy', 'Mint', 'Transfer'],
   },
+  {
+    id: 'zealous-swap',
+    name: 'ZealousSwap',
+    logo: '/images/dex/zealousswap.png',
+    url: 'https://www.zealousswap.com/',
+    type: 'webapp',
+    status: 'active',
+    volume24h: null,
+    pairs: 100,
+    features: ['Token Swaps', 'Liquidity Pools'],
+  },
 ];
 
 // Status badge component
