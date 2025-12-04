@@ -389,6 +389,63 @@
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "Authentication will be available soon"
   },
+  "signals": {
+    "board": {
+      "title": "Signal Board",
+      "description": "AI-validated trading signals"
+    },
+    "pro": {
+      "title": "Signals Pro",
+      "badge": "PRO",
+      "description": "Premium signals with 3-AI validation"
+    },
+    "bot": {
+      "title": "Trading Bot",
+      "badge": "PRO+",
+      "description": "Automated trading",
+      "config": "Bot Configuration",
+      "exchange": "Exchange",
+      "strategy": "Strategy",
+      "riskLevel": "Risk Level",
+      "status": "Bot Status",
+      "botStatus": "Status",
+      "offline": "Offline",
+      "trades24h": "Trades (24h)",
+      "profit24h": "Profit (24h)",
+      "startBot": "Start Bot",
+      "features": "Bot Features",
+      "autoTrade": "Auto Trading",
+      "autoTradeDesc": "Automatic execution",
+      "riskManagement": "Risk Management",
+      "riskManagementDesc": "Stop-Loss & Take-Profit",
+      "performance": "Performance",
+      "performanceDesc": "Real-time tracking"
+    },
+    "stats": {
+      "winRate": "Win Rate",
+      "signalsToday": "Signals Today",
+      "aiValidation": "AI Validation"
+    },
+    "recentSignals": "Recent Signals",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This feature will be available soon. We are working on AI-validated trading signals.",
+    "requiresPro": "Requires Pro Subscription",
+    "requiresProPlus": "Requires Pro+ Subscription",
+    "unlockFeatures": "Unlock premium signals",
+    "unlockBotFeatures": "Unlock trading bot features",
+    "upgradeToPro": "Upgrade to Pro",
+    "upgradeToProPlus": "Upgrade to Pro+",
+    "features": {
+      "tripleAi": "3-AI Validation",
+      "tripleAiDesc": "Every signal is validated by 3 independent AI models",
+      "realtime": "Real-time Signals",
+      "realtimeDesc": "Instant notification for new signals",
+      "analytics": "Advanced Analytics",
+      "analyticsDesc": "Detailed performance statistics",
+      "alerts": "Push Notifications",
+      "alertsDesc": "Instant alerts via app and email"
+    }
+  },
   "account": {
     "profile": {
       "title": "My Profile",

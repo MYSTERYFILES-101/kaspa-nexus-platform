@@ -389,6 +389,63 @@
     "comingSoon": "Demnaechst verfuegbar",
     "comingSoonDesc": "Authentifizierung wird bald freigeschaltet"
   },
+  "signals": {
+    "board": {
+      "title": "Signal Board",
+      "description": "KI-validierte Trading-Signale"
+    },
+    "pro": {
+      "title": "Signals Pro",
+      "badge": "PRO",
+      "description": "Premium-Signale mit 3-KI Validierung"
+    },
+    "bot": {
+      "title": "Trading Bot",
+      "badge": "PRO+",
+      "description": "Automatisierter Handel",
+      "config": "Bot Konfiguration",
+      "exchange": "Exchange",
+      "strategy": "Strategie",
+      "riskLevel": "Risiko-Level",
+      "status": "Bot Status",
+      "botStatus": "Status",
+      "offline": "Offline",
+      "trades24h": "Trades (24h)",
+      "profit24h": "Profit (24h)",
+      "startBot": "Bot starten",
+      "features": "Bot Features",
+      "autoTrade": "Auto-Trading",
+      "autoTradeDesc": "Automatische Ausfuehrung",
+      "riskManagement": "Risiko-Management",
+      "riskManagementDesc": "Stop-Loss & Take-Profit",
+      "performance": "Performance",
+      "performanceDesc": "Echtzeit-Tracking"
+    },
+    "stats": {
+      "winRate": "Win Rate",
+      "signalsToday": "Signale heute",
+      "aiValidation": "KI Validierung"
+    },
+    "recentSignals": "Aktuelle Signale",
+    "comingSoon": "Demnaechst verfuegbar",
+    "comingSoonDesc": "Diese Funktion wird bald freigeschaltet. Wir arbeiten an KI-validierten Trading-Signalen.",
+    "requiresPro": "Erfordert Pro-Abo",
+    "requiresProPlus": "Erfordert Pro+ Abo",
+    "unlockFeatures": "Schalte Premium-Signale frei",
+    "unlockBotFeatures": "Schalte Trading-Bot Funktionen frei",
+    "upgradeToPro": "Auf Pro upgraden",
+    "upgradeToProPlus": "Auf Pro+ upgraden",
+    "features": {
+      "tripleAi": "3-KI Validierung",
+      "tripleAiDesc": "Jedes Signal wird von 3 unabhaengigen KI-Modellen validiert",
+      "realtime": "Echtzeit-Signale",
+      "realtimeDesc": "Sofortige Benachrichtigung bei neuen Signalen",
+      "analytics": "Erweiterte Analytik",
+      "analyticsDesc": "Detaillierte Performance-Statistiken",
+      "alerts": "Push-Benachrichtigungen",
+      "alertsDesc": "Sofortige Alerts per App und E-Mail"
+    }
+  },
   "account": {
     "profile": {
       "title": "Mein Profil",
