@@ -490,5 +490,130 @@
     },
     "comingSoon": "Demnaechst verfuegbar",
     "comingSoonDesc": "Diese Funktion wird bald freigeschaltet"
+  },
+  "investment": {
+    "board": {
+      "title": "Investment Board",
+      "description": "Ueberblick ueber Investment-Moeglichkeiten im Kaspa-Oekosystem"
+    },
+    "stats": {
+      "avgReturn": "Durchschn. Rendite",
+      "activeInvestors": "Aktive Investoren",
+      "trackedTokens": "Verfolgte Tokens"
+    },
+    "options": {
+      "title": "Investment-Optionen",
+      "krc20": {
+        "title": "KRC-20 Tokens",
+        "desc": "Investiere in Token-Projekte"
+      },
+      "kaspa": {
+        "title": "Kaspa (KAS)",
+        "desc": "Die native Blockchain-Waehrung"
+      },
+      "defi": {
+        "title": "DeFi Protokolle",
+        "desc": "Dezentrale Finanzprodukte"
+      }
+    },
+    "highlights": {
+      "title": "Markt-Highlights"
+    },
+    "portfolio": {
+      "title": "Mein Portfolio",
+      "badge": "PRO",
+      "description": "Verwalte und analysiere dein Krypto-Portfolio",
+      "overview": "Portfolio-Uebersicht",
+      "summary": "Zusammenfassung",
+      "totalValue": "Gesamtwert",
+      "profit24h": "Gewinn (24h)",
+      "holdings": "Positionen",
+      "yourHoldings": "Deine Positionen",
+      "addAsset": "Asset hinzufuegen",
+      "asset": "Asset",
+      "amount": "Menge",
+      "price": "Preis",
+      "value": "Wert",
+      "change24h": "24h",
+      "noHoldings": "Keine Positionen vorhanden",
+      "chartPlaceholder": "Portfolio-Chart",
+      "features": "Portfolio-Features",
+      "featureTracking": "Echtzeit-Tracking",
+      "featureTrackingDesc": "Live-Werte deiner Positionen",
+      "featureAi": "KI-Analyse",
+      "featureAiDesc": "Intelligente Portfolio-Vorschlaege",
+      "featureAlerts": "Preis-Alerts",
+      "featureAlertsDesc": "Benachrichtigungen bei Kursaenderungen"
+    },
+    "requiresPro": "Erfordert Pro-Abo",
+    "unlockPortfolio": "Schalte Portfolio-Funktionen frei",
+    "upgradeToPro": "Auf Pro upgraden",
+    "comingSoon": "Demnaechst",
+    "comingSoonDesc": "Diese Funktion wird bald freigeschaltet. Wir arbeiten an erweiterten Investment-Tools."
+  },
+  "team": {
+    "title": "Unser Team",
+    "subtitle": "Die Menschen hinter KASPA-NEXUS",
+    "founder": {
+      "title": "Gruender",
+      "name": "Peter Wittner",
+      "role": "Founder & Lead Developer",
+      "bio": "Leidenschaftlicher Blockchain-Enthusiast und Full-Stack-Entwickler mit Fokus auf das Kaspa-Oekosystem. Gruender von KASPA-NEXUS mit der Vision, die genaueste und zuverlaessigste KRC-20 Datenplattform zu schaffen."
+    },
+    "vision": {
+      "title": "Unsere Vision",
+      "accuracy": {
+        "title": "Genauigkeit",
+        "desc": "Die praezisesten Daten im KRC-20 Bereich"
+      },
+      "trust": {
+        "title": "Vertrauen",
+        "desc": "Transparenz und Zuverlaessigkeit in allem"
+      },
+      "community": {
+        "title": "Community",
+        "desc": "Gemeinsam das Kaspa-Oekosystem staerken"
+      }
+    },
+    "joinUs": {
+      "title": "Werde Teil unserer Community",
+      "description": "Verbinde dich mit uns und werde Teil der KASPA-NEXUS Community."
+    },
+    "sponsors": {
+      "title": "Unsere Sponsoren",
+      "subtitle": "Partner, die KASPA-NEXUS unterstuetzen",
+      "noSponsors": "Noch keine Sponsoren",
+      "noSponsorsDesc": "Wir suchen Partner, die unsere Vision teilen und das Kaspa-Oekosystem gemeinsam mit uns staerken moechten.",
+      "tiers": {
+        "title": "Sponsoring-Pakete",
+        "bronze": {
+          "title": "Bronze",
+          "price": "ab 100 EUR/Monat",
+          "benefit1": "Logo auf der Sponsoren-Seite",
+          "benefit2": "Erwaehnung in Social Media"
+        },
+        "silver": {
+          "title": "Silber",
+          "price": "ab 500 EUR/Monat",
+          "benefit1": "Alles aus Bronze",
+          "benefit2": "Logo auf der Startseite",
+          "benefit3": "Newsletter-Erwaehnung"
+        },
+        "gold": {
+          "title": "Gold",
+          "price": "ab 1000 EUR/Monat",
+          "benefit1": "Alles aus Silber",
+          "benefit2": "Prominente Platzierung",
+          "benefit3": "Dedizierter Blog-Artikel",
+          "benefit4": "Direkter Support-Kanal"
+        }
+      },
+      "contact": {
+        "title": "Interesse an Sponsoring?",
+        "description": "Kontaktiere uns fuer individuelle Sponsoring-Moeglichkeiten.",
+        "cta": "Kontakt aufnehmen"
+      }
+    },
+    "comingSoonDesc": "Weitere Team-Informationen und Neuigkeiten werden bald veroeffentlicht."
   }
 }

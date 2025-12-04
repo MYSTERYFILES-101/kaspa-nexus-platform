@@ -490,5 +490,130 @@
     },
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "This feature will be available soon"
+  },
+  "investment": {
+    "board": {
+      "title": "Investment Board",
+      "description": "Overview of investment opportunities in the Kaspa ecosystem"
+    },
+    "stats": {
+      "avgReturn": "Avg. Return",
+      "activeInvestors": "Active Investors",
+      "trackedTokens": "Tracked Tokens"
+    },
+    "options": {
+      "title": "Investment Options",
+      "krc20": {
+        "title": "KRC-20 Tokens",
+        "desc": "Invest in token projects"
+      },
+      "kaspa": {
+        "title": "Kaspa (KAS)",
+        "desc": "The native blockchain currency"
+      },
+      "defi": {
+        "title": "DeFi Protocols",
+        "desc": "Decentralized finance products"
+      }
+    },
+    "highlights": {
+      "title": "Market Highlights"
+    },
+    "portfolio": {
+      "title": "My Portfolio",
+      "badge": "PRO",
+      "description": "Manage and analyze your crypto portfolio",
+      "overview": "Portfolio Overview",
+      "summary": "Summary",
+      "totalValue": "Total Value",
+      "profit24h": "Profit (24h)",
+      "holdings": "Holdings",
+      "yourHoldings": "Your Holdings",
+      "addAsset": "Add Asset",
+      "asset": "Asset",
+      "amount": "Amount",
+      "price": "Price",
+      "value": "Value",
+      "change24h": "24h",
+      "noHoldings": "No holdings yet",
+      "chartPlaceholder": "Portfolio Chart",
+      "features": "Portfolio Features",
+      "featureTracking": "Real-time Tracking",
+      "featureTrackingDesc": "Live values of your positions",
+      "featureAi": "AI Analysis",
+      "featureAiDesc": "Intelligent portfolio suggestions",
+      "featureAlerts": "Price Alerts",
+      "featureAlertsDesc": "Notifications for price changes"
+    },
+    "requiresPro": "Requires Pro Subscription",
+    "unlockPortfolio": "Unlock portfolio features",
+    "upgradeToPro": "Upgrade to Pro",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This feature will be available soon. We are working on advanced investment tools."
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The people behind KASPA-NEXUS",
+    "founder": {
+      "title": "Founder",
+      "name": "Peter Wittner",
+      "role": "Founder & Lead Developer",
+      "bio": "Passionate blockchain enthusiast and full-stack developer focused on the Kaspa ecosystem. Founder of KASPA-NEXUS with the vision of creating the most accurate and reliable KRC-20 data platform."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "accuracy": {
+        "title": "Accuracy",
+        "desc": "The most precise data in the KRC-20 space"
+      },
+      "trust": {
+        "title": "Trust",
+        "desc": "Transparency and reliability in everything"
+      },
+      "community": {
+        "title": "Community",
+        "desc": "Strengthening the Kaspa ecosystem together"
+      }
+    },
+    "joinUs": {
+      "title": "Join Our Community",
+      "description": "Connect with us and become part of the KASPA-NEXUS community."
+    },
+    "sponsors": {
+      "title": "Our Sponsors",
+      "subtitle": "Partners who support KASPA-NEXUS",
+      "noSponsors": "No sponsors yet",
+      "noSponsorsDesc": "We are looking for partners who share our vision and want to strengthen the Kaspa ecosystem together with us.",
+      "tiers": {
+        "title": "Sponsorship Packages",
+        "bronze": {
+          "title": "Bronze",
+          "price": "from 100 EUR/month",
+          "benefit1": "Logo on sponsors page",
+          "benefit2": "Social media mention"
+        },
+        "silver": {
+          "title": "Silver",
+          "price": "from 500 EUR/month",
+          "benefit1": "Everything in Bronze",
+          "benefit2": "Logo on homepage",
+          "benefit3": "Newsletter mention"
+        },
+        "gold": {
+          "title": "Gold",
+          "price": "from 1000 EUR/month",
+          "benefit1": "Everything in Silver",
+          "benefit2": "Prominent placement",
+          "benefit3": "Dedicated blog article",
+          "benefit4": "Direct support channel"
+        }
+      },
+      "contact": {
+        "title": "Interested in Sponsoring?",
+        "description": "Contact us for individual sponsorship opportunities.",
+        "cta": "Contact Us"
+      }
+    },
+    "comingSoonDesc": "More team information and news will be published soon."
   }
 }
