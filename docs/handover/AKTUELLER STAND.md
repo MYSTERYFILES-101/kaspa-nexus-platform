@@ -23,51 +23,44 @@
 - [x] P1.2: Token Liste
 - [x] P1.3: Kaspa Page
 - [x] P1.3-ERWEITERUNG: Premium Kaspa Stats + Charts
-- [x] P1.4: Token Detail Seite (NEU!)
-- [ ] P1.5: Next Phase
+- [x] P1.4: Token Detail Seite
+- [x] P1.5: DEX Liste Seite (NEU!)
+- [ ] P1.6: DeFi Seite
+- [ ] P1.7: Infrastructure Seite
 
-## LETZTE AENDERUNGEN (P1.4)
+## LETZTE AENDERUNGEN (2025-12-03)
 
-**Token Detail Seite implementiert:**
+### P1.5: DEX Liste Seite
 
-1. **Route & Navigation**
-   - Route: `/krc20/tokens/[ticker]`
-   - Beispiel: `/krc20/tokens/NACHO`
-   - TokenCard Link korrigiert
+**Neue Seite:** `/krc20/dex`
 
-2. **Token Header**
-   - Token Icon (Logo/Fallback)
-   - Name, Ticker, Rang
-   - Live Preis (USD + KAS)
-   - 24h Change mit Farbe
+**Features:**
+- DEX-Liste mit verifizierten Projekten
+- Status-Badges (Active, Offline)
+- Typ-Badges (Web App, Telegram, etc.)
+- Feature-Tags pro DEX
+- Externe Links
 
-3. **Market Statistics Grid**
-   - Market Cap, Volume, Holders
-   - Circulating Supply, Max Supply
-   - Transfers
+**Verifizierte DEXs:**
+| Name | URL | Status |
+|------|-----|--------|
+| ZealousSwap | app.zealousswap.com/swap | Active |
+| KSPR Bot | t.me/ksaborNFT_bot | Active |
+| Chainge Finance | chainge.finance | Offline |
+| KasPlex | kasplex.org | Active |
 
-4. **Token Information**
-   - Mint Progress Bar
-   - State, Decimals, Mint Limit
-   - Total Mints, Deployed At
+**WICHTIG:** Fake-DEXs wurden entfernt (Kaspa DEX, ZingSwap existieren nicht!)
 
-5. **Top 10 Holders**
-   - Mock-Daten (API Placeholder)
-   - Rang, Adresse, Prozent
+### Archival Node Tuning
 
-6. **Sidebar**
-   - Quick Stats
-   - External Resources (kas.fyi, Explorer)
+**RAM-Scale erhoeht:** 1.5 --> 5.0
 
-**Neue Dateien:**
-- `src/app/krc20/tokens/[ticker]/page.tsx`
-- `src/app/api/krc20/tokens/[ticker]/route.ts`
-- `docs/handover/protokolle/P1.4-PROTOKOLL.md`
+**WICHTIGE ERKENNTNIS:**
+- Der Archival Node hat nur ~38GB, sollte aber ~1.9TB haben
+- `--archival` Flag verhindert nur Loeschen, erzwingt KEINEN Genesis-Sync
+- Loesung: rsync von existierendem Archival Node (Helix auf Discord)
 
-**Geaenderte Dateien:**
-- `src/components/market/TokenCard.tsx` (Link korrigiert)
-- `messages/de.json` (+30 Uebersetzungen)
-- `messages/en.json` (+30 Uebersetzungen)
+Details: `/docs/handover/protokolle/ARCHIVAL-NODE-TUNING-PROTOKOLL.md`
 
 ## TECH STACK
 
@@ -92,67 +85,40 @@
 /home/kaspa/kaspa-nexus-platform/
 +-- src/
 |   +-- app/
-|   |   +-- page.tsx          # Homepage mit Dashboard
-|   |   +-- layout.tsx        # Root Layout mit AppLayout
-|   |   +-- globals.css       # Design System (900+ Zeilen)
-|   |   +-- api/krc20/tokens/[ticker]/  # Token Detail API (NEU)
+|   |   +-- page.tsx              # Homepage mit Dashboard
+|   |   +-- layout.tsx            # Root Layout mit AppLayout
+|   |   +-- globals.css           # Design System (900+ Zeilen)
+|   |   +-- api/krc20/tokens/[ticker]/  # Token Detail API
 |   |   +-- krc20/
-|   |       +-- kaspa/        # Kaspa Page (Premium)
-|   |       +-- tokens/       # Token Liste
-|   |       +-- tokens/[ticker]/  # Token Detail Page (NEU)
+|   |       +-- kaspa/            # Kaspa Page (Premium)
+|   |       +-- tokens/           # Token Liste
+|   |       +-- tokens/[ticker]/  # Token Detail Page
+|   |       +-- dex/              # DEX Liste (NEU)
 |   +-- components/
 |   |   +-- layout/
-|   |   |   +-- Sidebar.tsx   # 6-Kategorien Sidebar
-|   |   |   +-- AppLayout.tsx # Sidebar + Main Layout
+|   |   |   +-- Sidebar.tsx       # 6-Kategorien Sidebar
+|   |   |   +-- AppLayout.tsx     # Sidebar + Main Layout
 |   |   +-- dashboard/
-|   |   |   +-- DashboardBanner.tsx
-|   |   |   +-- FeatureBanner.tsx
-|   |   |   +-- StatsCard.tsx
 |   |   +-- ui/
-|   |   |   +-- GlassCard.tsx
-|   |   |   +-- Button.tsx
-|   |   |   +-- Badge.tsx
-|   |   |   +-- LanguageSwitcher.tsx
 |   |   +-- market/
-|   |   |   +-- KaspaWidget.tsx
-|   |   |   +-- MarketStats.tsx
-|   |   |   +-- GainersLosers.tsx
-|   |   |   +-- TopTokensList.tsx
-|   |   +-- kaspa/              # NEU: Kaspa Premium Komponenten
-|   |   |   +-- NetworkStats.tsx
-|   |   |   +-- MiningInfo.tsx
-|   |   |   +-- EmissionChart.tsx
-|   |   |   +-- MarketWidget.tsx
-|   |   |   +-- index.ts
+|   |   +-- kaspa/
 |   |   +-- tokens/
-|   |       +-- TokenSearch.tsx
-|   |       +-- TokenSort.tsx
-|   |       +-- TokenPagination.tsx
-|   |       +-- TokenGrid.tsx
 |   +-- config/
 |   +-- lib/
 |   +-- types/
 +-- messages/
-|   +-- de.json               # Deutsche Uebersetzungen
-|   +-- en.json               # Englische Uebersetzungen
+|   +-- de.json                   # Deutsche Uebersetzungen
+|   +-- en.json                   # Englische Uebersetzungen
 +-- docs/
 |   +-- ENTWICKLUNGS-REGELN.md
 |   +-- MASTERPLAN.md
 |   +-- handover/
 |       +-- AKTUELLER STAND.md
+|       +-- WICHTIGES-WISSEN.md   # (NEU) Gesammeltes Wissen
 |       +-- HANDOVER-INDEX.md
 |       +-- protokolle/
-|           +-- P1.1-PROTOKOLL.md
-|           +-- P1.1-REDESIGN-PROTOKOLL.md
-|           +-- P1.2-PROTOKOLL.md
-|           +-- P1.3-PROTOKOLL.md
-|           +-- P1.3-ERWEITERUNG-PROTOKOLL.md
-|           +-- P1.4-PROTOKOLL.md  # NEU
 +-- public/
     +-- images/
-        +-- banners/
-            +-- krc20-network.png
-            +-- kaspa-banner.png
 ```
 
 ## SIDEBAR KATEGORIEN
@@ -169,7 +135,7 @@
 |  > KRC-20 NETWORK                   |
 |     o Kaspa            [PREMIUM]    |
 |     o Coins & Tokens                |
-|     o DEX                           |
+|     o DEX              [NEU]        |
 |     o DeFi                          |
 |     o Infrastructure                |
 |                                     |
@@ -209,22 +175,7 @@
 | `/v1/market/gainers` | GainersLosers |
 | `/v1/market/losers` | GainersLosers |
 | `/v1/krc20/tokens` | TopTokensList, TokenGrid |
-| `/v1/krc20/tokens/[ticker]` | TokenDetailPage (NEU) |
-
-## KASPA PAGE FEATURES
-
-| Feature | Status | Besser als kas.fyi |
-|---------|--------|-------------------|
-| Live DAA Score | OK | Gleich |
-| Live Hashrate (formatiert) | OK | Gleich |
-| Mining Reward | OK | JA |
-| Next Reduction Countdown | OK | JA |
-| Emission Schedule Chart | OK | JA |
-| Crescendo Hardfork Marker | OK | JA |
-| Market Widget Sidebar | OK | JA |
-| Quick Facts | OK | JA |
-| Resources Links | OK | JA |
-| i18n (DE/EN) | OK | JA |
+| `/v1/krc20/tokens/[ticker]` | TokenDetailPage |
 
 ## BUILD STATUS
 
@@ -235,16 +186,29 @@ Route (app)                              Size     First Load JS
 +-- /_not-found                          873 B          88.2 kB
 +-- /krc20/kaspa                         110 kB          217 kB
 +-- /krc20/tokens                        4.32 kB         120 kB
-+-- /krc20/tokens/[ticker]               3.93 kB         114 kB  (NEU)
++-- /krc20/tokens/[ticker]               3.93 kB         114 kB
++-- /krc20/dex                           ~3 kB           ~110 kB (NEU)
 ```
 
-## NAECHSTE AUFGABE
+## OFFENE AUFGABEN
 
-**P1.5: TradingView Chart Integration**
-- TradingView Widget fuer Token Charts
-- OHLC Daten Integration
-- Timeframe Selector
+### Frontend
+- [ ] P1.6: DeFi Seite erstellen
+- [ ] P1.7: Infrastructure Seite erstellen
+- [ ] TradingView Chart Integration
+
+### Infrastructure
+- [ ] Archival Node: Helix auf Discord kontaktieren fuer rsync
+- [ ] Storage erweitern auf 2.5+ TB
+
+## WICHTIGE DOKUMENTE
+
+| Dokument | Pfad | Beschreibung |
+|----------|------|--------------|
+| **WICHTIGES-WISSEN.md** | `/docs/handover/` | Gesammeltes Wissen, Loesungen, Kontakte |
+| **MASTERPLAN.md** | `/docs/` | Langfristige Planung |
+| **ENTWICKLUNGS-REGELN.md** | `/docs/` | Coding Standards |
 
 ---
 
-*Zuletzt aktualisiert: 2025-12-03 (P1.4)*
+*Zuletzt aktualisiert: 2025-12-03 (P1.5 + Archival Node Recherche)*

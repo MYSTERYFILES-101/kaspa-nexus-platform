@@ -292,6 +292,31 @@
     "step3Title": "Swap bestaetigen",
     "step3Desc": "Bestatige die Transaktion in deiner Wallet. Der Swap wird direkt auf der Blockchain ausgefuehrt."
   },
+  "defiPage": {
+    "title": "DeFi",
+    "subtitle": "Dezentralisierte Finanzanwendungen im Kaspa-Oekosystem",
+    "description": "DeFi (Decentralized Finance) ermoeglicht Finanzdienstleistungen ohne zentrale Vermittler. Das Kaspa-Oekosystem entwickelt sich stetig weiter und bringt innovative DeFi-Loesungen hervor.",
+    "comingSoon": "Demnaechst",
+    "stayTuned": "Weitere DeFi-Projekte sind in Entwicklung",
+    "lending": {
+      "title": "Lending & Borrowing",
+      "description": "Verleihe und leihe KRC-20 Tokens dezentral"
+    },
+    "staking": {
+      "title": "Staking Pools",
+      "description": "Stake deine Tokens und verdiene Belohnungen"
+    },
+    "yield": {
+      "title": "Yield Farming",
+      "description": "Optimiere deine Ertraege durch Liquiditaetsbereitstellung"
+    },
+    "bridges": {
+      "title": "Bridges",
+      "description": "Uebertrage Assets zwischen verschiedenen Blockchains"
+    },
+    "noProjects": "Noch keine DeFi-Projekte verfuegbar",
+    "learnMore": "Mehr erfahren"
+  },
   "footer": {
     "tagline": "Die genaueste KRC-20 Datenplattform",
     "products": "Produkte",

@@ -292,6 +292,31 @@
     "step3Title": "Confirm Swap",
     "step3Desc": "Confirm the transaction in your wallet. The swap is executed directly on the blockchain."
   },
+  "defiPage": {
+    "title": "DeFi",
+    "subtitle": "Decentralized Finance Applications in the Kaspa Ecosystem",
+    "description": "DeFi (Decentralized Finance) enables financial services without central intermediaries. The Kaspa ecosystem is constantly evolving and bringing forth innovative DeFi solutions.",
+    "comingSoon": "Coming Soon",
+    "stayTuned": "More DeFi projects are in development",
+    "lending": {
+      "title": "Lending & Borrowing",
+      "description": "Lend and borrow KRC-20 tokens in a decentralized way"
+    },
+    "staking": {
+      "title": "Staking Pools",
+      "description": "Stake your tokens and earn rewards"
+    },
+    "yield": {
+      "title": "Yield Farming",
+      "description": "Optimize your returns through liquidity provision"
+    },
+    "bridges": {
+      "title": "Bridges",
+      "description": "Transfer assets between different blockchains"
+    },
+    "noProjects": "No DeFi projects available yet",
+    "learnMore": "Learn more"
+  },
   "footer": {
     "tagline": "The Most Accurate KRC-20 Data Platform",
     "products": "Products",
