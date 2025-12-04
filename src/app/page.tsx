@@ -77,7 +77,7 @@ export default function Home() {
           description={t('banners.krc20.description')}
           stats="- Tokens • - DEX • - Wallets"
           cta={t('banners.krc20.cta')}
-          href="/krc20/tokens"
+          href="/krc20/kaspa"
           icon={<NetworkIcon />}
           variant="primary"
         />
