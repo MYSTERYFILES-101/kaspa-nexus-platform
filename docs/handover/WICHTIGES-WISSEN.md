@@ -1,6 +1,6 @@
 # WICHTIGES WISSEN - Kaspa Nexus Platform
 
-**Letzte Aktualisierung:** 2025-12-03
+**Letzte Aktualisierung:** 2025-12-04
 **Zweck:** Alle wichtigen Erkenntnisse, Loesungen und Wissen fuer zukuenftige Referenz
 
 ---
@@ -60,18 +60,32 @@
 ### Archival Node - KRITISCHES WISSEN
 
 **PROBLEM ENTDECKT (2025-12-03):**
-- Der Archival Node hat nur ~38 GB Daten
+- Der Archival Node hat nur ~53 GB Daten (Stand 2025-12-04)
 - Ein ECHTER Archival Node braucht ~1.9 TB (Stand 02/2025)
 - Das `--archival` Flag verhindert NUR das Loeschen, erzwingt KEINEN Genesis-Sync
 - Jeder neue Node synct automatisch nur vom "Pruning Point" (letzte Wochen)
 
-**LOESUNG:**
-Es ist **NICHT moeglich**, einen Archival Node per Netzwerk von Genesis zu syncen!
-Der einzige Weg ist **rsync von einem existierenden Archival Node**.
+**LOESUNG - DB DUMP (BESSER ALS RSYNC!):**
 
-**Kontakt fuer rsync:**
+Am 2025-12-04 hat **supertypo** (Kaspa Discord Administrator - einer von nur 2!) eine bessere Loesung angeboten:
+
+| Methode | DB Dump von api.kaspa.org | Archival Node rsync |
+|---------|---------------------------|---------------------|
+| **URL** | https://db-dl.kaspa.org/ | Von Helix/anderen |
+| **Format** | PostgreSQL (direkt nutzbar) | Golang + Rust (2 Formate!) |
+| **Inhalt** | Alle TX Input Signature Scripts (KRC-20 Daten) | Rohe Blockchain |
+| **Seit** | VOR dem KRC-20 Launch | Genesis |
+| **Komplexitaet** | Einfacher | Komplex |
+| **Speicher** | Weniger | ~2 TB |
+
+**WICHTIG:**
+- Pruned Node MUSS laufen um keine Luecke zwischen Dump und Live-Daten zu haben!
+- Es gab eine Kasplex Downtime zwischen erstem und zweitem Launch - "a mess to sort out"
+
+**Alternative: rsync (falls DB Dump nicht reicht)**
 - **Helix (helixeasy)** auf Kaspa Discord
-- Oder: **#datadir_exchange Channel** im Discord
+- **PeWMaXi** und **Callidon of Kaspa** - aktive Archival Node Betreiber
+- **#datadir_exchange Channel** im Discord
 
 **Hardware-Anforderungen fuer echten Archival Node:**
 
@@ -286,22 +300,33 @@ Diese wurden faelschlicherweise hinzugefuegt und mussten entfernt werden.
 
 ## 7. WICHTIGE KONTAKTE
 
-### Kaspa Community
+### Kaspa Community - Hilfreiche Personen
 
-| Kontakt | Zweck |
-|---------|-------|
-| **Helix (helixeasy)** | Archival Node rsync Zugang |
+| Kontakt | Rolle | Zweck |
+|---------|-------|-------|
+| **supertypo** | Discord Administrator (1 von 2!) | DB Dumps von api.kaspa.org - HAUPTKONTAKT fuer historische Daten! |
+| **IzioDev** | Software Ecosystem Developer | Hat uns zu den richtigen Leuten vermittelt |
+| **PeWMaXi** | Archival Node Betreiber | Alternative fuer rsync |
+| **Callidon of Kaspa** | Archival Node Betreiber | Alternative fuer rsync |
+| **Helix (helixeasy)** | Community | Archival Node rsync Zugang |
+
+### Kaspa Discord
+
+| Ressource | Info |
+|-----------|------|
 | **Kaspa Discord** | https://discord.gg/kaspa |
 | **#datadir_exchange** | Channel fuer Node Snapshots |
+| **Unser Account** | "Kaspa-Nexus" (erstellt 2025-12-03) |
 
-### Offizielle Ressourcen
+### Wichtige URLs fuer Daten
 
-| Ressource | URL |
-|-----------|-----|
-| Kaspa Wiki | https://wiki.kaspa.org |
-| Rusty-Kaspa GitHub | https://github.com/kaspanet/rusty-kaspa |
-| Kaspa Explorer | https://explorer.kaspa.org |
-| kas.fyi Explorer | https://kas.fyi |
+| Ressource | URL | Beschreibung |
+|-----------|-----|--------------|
+| **DB Dumps** | https://db-dl.kaspa.org/ | PostgreSQL Dumps von api.kaspa.org (BESTE Quelle!) |
+| Kaspa Wiki | https://wiki.kaspa.org | Offizielle Dokumentation |
+| Rusty-Kaspa GitHub | https://github.com/kaspanet/rusty-kaspa | Node Source Code |
+| Kaspa Explorer | https://explorer.kaspa.org | Offizieller Block Explorer |
+| kas.fyi Explorer | https://kas.fyi | Community Block Explorer |
 
 ---
 
@@ -391,13 +416,18 @@ sudo -u kaspa pm2 restart kaspa-nexus-api
 | 2025-12-03 | Archival Node Wissen hinzugefuegt (rsync-Loesung) |
 | 2025-12-03 | DEX-Liste bereinigt (Fake DEXs entfernt) |
 | 2025-12-03 | RAM-Scale von 1.5 auf 5.0 erhoeht |
+| 2025-12-04 | **DB Dump Loesung** von supertypo hinzugefuegt (besser als rsync!) |
+| 2025-12-04 | Kontaktliste erweitert (supertypo, IzioDev, PeWMaXi, Callidon) |
+| 2025-12-04 | https://db-dl.kaspa.org/ als Hauptquelle dokumentiert |
 
 ---
 
 ## OFFENE AUFGABEN
 
-- [ ] Archival Node: Helix auf Discord kontaktieren fuer rsync
-- [ ] Storage erweitern auf 2.5+ TB fuer Archival Node
+- [x] ~~Archival Node: Helix auf Discord kontaktieren fuer rsync~~ (DB Dump ist bessere Loesung!)
+- [ ] **DB Dump herunterladen** von https://db-dl.kaspa.org/ (supertypo erstellt neuen, 12-24h)
+- [ ] KRC-20 Indexer mit DB Dump Daten aufbauen
+- [ ] Storage erweitern auf 2.5+ TB (falls Archival Node doch noetig)
 - [ ] Chainge Finance URL-Erreichbarkeit weiter beobachten
 
 ---
