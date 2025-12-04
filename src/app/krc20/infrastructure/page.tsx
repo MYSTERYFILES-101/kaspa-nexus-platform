@@ -34,7 +34,6 @@ const TOOLS: InfraItem[] = [
 const DEV_RESOURCES: InfraItem[] = [
   { id: 'rustykaspa', name: 'Rusty Kaspa', descriptionKey: 'dev.rustykaspa', url: 'https://github.com/kaspanet/rusty-kaspa', status: 'active' },
   { id: 'kaspawiki', name: 'Kaspa Wiki', descriptionKey: 'dev.wiki', url: 'https://wiki.kaspa.org', status: 'active' },
-  { id: 'kaspadocs', name: 'Kaspa Docs', descriptionKey: 'dev.docs', url: 'https://docs.kaspa.org', status: 'active' },
 ];
 
 // Status badge

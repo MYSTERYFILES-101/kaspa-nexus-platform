@@ -318,8 +318,7 @@
     "dev": {
       "title": "Developer Resources",
       "rustykaspa": "Official Rust Implementation of the Kaspa Node",
-      "wiki": "Official Kaspa Documentation",
-      "docs": "Technical Kaspa Documentation"
+      "wiki": "Official Kaspa Documentation"
     },
     "infoNote": "This list is updated regularly. Missing a project? Contact us!"
   },
