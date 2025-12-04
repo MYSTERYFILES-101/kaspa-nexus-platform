@@ -368,5 +368,24 @@
     "terms": "Terms of Service",
     "imprint": "Imprint",
     "copyright": "© {year} KASPA-NEXUS. All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?"
+    },
+    "register": {
+      "title": "Register",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?"
+    },
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Authentication will be available soon"
   }
 }

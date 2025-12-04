@@ -368,5 +368,24 @@
     "terms": "Nutzungsbedingungen",
     "imprint": "Impressum",
     "copyright": "© {year} KASPA-NEXUS. Alle Rechte vorbehalten."
+  },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "noAccount": "Noch kein Konto?"
+    },
+    "register": {
+      "title": "Registrieren",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestaetigen",
+      "submit": "Konto erstellen",
+      "hasAccount": "Bereits ein Konto?"
+    },
+    "comingSoon": "Demnaechst verfuegbar",
+    "comingSoonDesc": "Authentifizierung wird bald freigeschaltet"
   }
 }
