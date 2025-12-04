@@ -310,8 +310,7 @@
     },
     "tools": {
       "title": "Tools",
-      "kasplex": "KRC-20 Token Deploy, Mint & Transfer",
-      "kastools": "Verschiedene Kaspa Utilities"
+      "kasplex": "KRC-20 Token Deploy, Mint & Transfer"
     },
     "dev": {
       "title": "Entwickler-Ressourcen",

@@ -26,7 +26,6 @@ const EXPLORERS: InfraItem[] = [
 
 const TOOLS: InfraItem[] = [
   { id: 'kasplex', name: 'KasPlex', descriptionKey: 'tools.kasplex', url: 'https://kasplex.org', status: 'active' },
-  { id: 'kastools', name: 'Kas.Tools', descriptionKey: 'tools.kastools', url: 'https://kas.tools', status: 'active' },
 ];
 
 const DEV_RESOURCES: InfraItem[] = [
