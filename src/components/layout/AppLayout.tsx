@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Sidebar } from './Sidebar';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { NetworkBackground } from '@/components/backgrounds';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -14,10 +15,8 @@ export function AppLayout({ children }: AppLayoutProps) {
 
   return (
     <div className="app-layout">
-      {/* Background Orbs */}
-      <div className="bg-orb bg-orb-1" />
-      <div className="bg-orb bg-orb-2" />
-      <div className="bg-orb bg-orb-3" />
+      {/* Animated Network Background */}
+      <NetworkBackground />
 
       {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />

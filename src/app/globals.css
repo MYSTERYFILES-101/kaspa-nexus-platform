@@ -71,8 +71,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
-  background-attachment: fixed;
+  background: #060d17;
   color: var(--color-text-primary);
   min-height: 100vh;
   font-feature-settings: "rlig" 1, "calt" 1;
@@ -80,72 +79,11 @@ body {
   position: relative;
 }
 
-/* Network Pattern Background */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('/images/backgrounds/network-pattern.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 0;
-}
-
 /* ═══════════════════════════════════════════════════════════════
    BACKGROUND EFFECTS
    ═══════════════════════════════════════════════════════════════ */
 
-/* Floating Orbs */
-.bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite;
-}
-
-.bg-orb-1 {
-  width: 400px;
-  height: 400px;
-  background: var(--color-primary);
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.bg-orb-2 {
-  width: 300px;
-  height: 300px;
-  background: var(--color-secondary);
-  top: 60%;
-  right: 10%;
-  animation-delay: -7s;
-}
-
-.bg-orb-3 {
-  width: 250px;
-  height: 250px;
-  background: var(--color-primary-dark);
-  bottom: 10%;
-  left: 30%;
-  animation-delay: -14s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -30px) scale(1.05); }
-  50% { transform: translate(-20px, 20px) scale(0.95); }
-  75% { transform: translate(-30px, -20px) scale(1.02); }
-}
+/* NetworkBackground component now handles the animated background */
 
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT - SIDEBAR + MAIN
