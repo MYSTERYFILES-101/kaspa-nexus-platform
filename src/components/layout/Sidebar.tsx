@@ -80,29 +80,34 @@ const LoginIcon = () => (
   </svg>
 );
 
+const RegisterIcon = () => (
+  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+  </svg>
+);
+
 const ProfileIcon = () => (
   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
   </svg>
 );
 
-const UpgradeIcon = () => (
-  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-  </svg>
-);
-
-const ApiIcon = () => (
-  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-  </svg>
-);
-
-const LogoutIcon = () => (
-  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-  </svg>
-);
+// Icons für später (wenn Auth implementiert ist):
+// const UpgradeIcon = () => (
+//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+//   </svg>
+// );
+// const ApiIcon = () => (
+//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+//   </svg>
+// );
+// const LogoutIcon = () => (
+//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+//   </svg>
+// );
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
   <svg
@@ -200,11 +205,10 @@ const navigation: NavCategory[] = [
     labelKey: 'account',
     defaultOpen: false,
     items: [
+      // Ohne Auth: nur Login und Register anzeigen
+      // Später mit Auth: dynamisch umschalten zu Profile, Upgrade, API, Logout
       { labelKey: 'login', href: '/auth/login', icon: LoginIcon },
-      { labelKey: 'profile', href: '/account/profile', icon: ProfileIcon },
-      { labelKey: 'buyPro', href: '/account/upgrade', icon: UpgradeIcon, badge: 'upgrade' },
-      { labelKey: 'buyApi', href: '/account/api', icon: ApiIcon, badge: 'upgrade' },
-      { labelKey: 'logout', href: '#', icon: LogoutIcon },
+      { labelKey: 'register', href: '/auth/register', icon: RegisterIcon },
     ],
   },
 ];
