@@ -387,5 +387,50 @@
     },
     "comingSoon": "Demnaechst verfuegbar",
     "comingSoonDesc": "Authentifizierung wird bald freigeschaltet"
+  },
+  "account": {
+    "profile": {
+      "title": "Mein Profil",
+      "uploadAvatar": "Avatar hochladen",
+      "details": "Profil-Details",
+      "name": "Name",
+      "email": "E-Mail",
+      "save": "Speichern"
+    },
+    "upgrade": {
+      "title": "Pro-Upgrade",
+      "free": "Kostenlos",
+      "pro": "Pro",
+      "proPlus": "Pro+",
+      "perMonth": "pro Monat",
+      "select": "Auswaehlen",
+      "features": {
+        "basicData": "Basis-Marktdaten",
+        "limitedTokens": "Top 50 Tokens",
+        "communityAccess": "Community-Zugang",
+        "fullData": "Vollstaendige Marktdaten",
+        "allTokens": "Alle Tokens",
+        "aiSignals": "AI Trading-Signale",
+        "portfolio": "Portfolio-Analyse",
+        "everything": "Alles aus Pro",
+        "apiAccess": "API-Zugang",
+        "tradingBot": "Trading Bot",
+        "prioritySupport": "Prioritaets-Support"
+      }
+    },
+    "api": {
+      "title": "API-Zugang",
+      "description": "Verwalte deine API-Keys",
+      "keys": "API-Keys",
+      "generate": "Neuen Key generieren",
+      "usage": "Nutzung",
+      "requests": "Anfragen heute",
+      "rateLimit": "Rate Limit",
+      "docs": "API-Dokumentation",
+      "docsDesc": "Erfahre wie du die API nutzen kannst",
+      "viewDocs": "Docs ansehen"
+    },
+    "comingSoon": "Demnaechst verfuegbar",
+    "comingSoonDesc": "Diese Funktion wird bald freigeschaltet"
   }
 }

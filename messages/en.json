@@ -387,5 +387,50 @@
     },
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "Authentication will be available soon"
+  },
+  "account": {
+    "profile": {
+      "title": "My Profile",
+      "uploadAvatar": "Upload Avatar",
+      "details": "Profile Details",
+      "name": "Name",
+      "email": "Email",
+      "save": "Save"
+    },
+    "upgrade": {
+      "title": "Pro Upgrade",
+      "free": "Free",
+      "pro": "Pro",
+      "proPlus": "Pro+",
+      "perMonth": "per month",
+      "select": "Select",
+      "features": {
+        "basicData": "Basic Market Data",
+        "limitedTokens": "Top 50 Tokens",
+        "communityAccess": "Community Access",
+        "fullData": "Full Market Data",
+        "allTokens": "All Tokens",
+        "aiSignals": "AI Trading Signals",
+        "portfolio": "Portfolio Analysis",
+        "everything": "Everything in Pro",
+        "apiAccess": "API Access",
+        "tradingBot": "Trading Bot",
+        "prioritySupport": "Priority Support"
+      }
+    },
+    "api": {
+      "title": "API Access",
+      "description": "Manage your API keys",
+      "keys": "API Keys",
+      "generate": "Generate New Key",
+      "usage": "Usage",
+      "requests": "Requests Today",
+      "rateLimit": "Rate Limit",
+      "docs": "API Documentation",
+      "docsDesc": "Learn how to use the API",
+      "viewDocs": "View Docs"
+    },
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This feature will be available soon"
   }
 }
