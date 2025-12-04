@@ -301,7 +301,8 @@
       "title": "Wallets",
       "kasware": "Browser Extension Wallet fuer Kaspa & KRC-20",
       "kaspium": "Mobile Wallet fuer iOS und Android",
-      "tangem": "Hardware Wallet mit NFC-Karte"
+      "tangem": "Hardware Wallet mit NFC-Karte",
+      "ecko": "Multi-Chain Web3 Wallet mit KRC-20 Support"
     },
     "explorer": {
       "title": "Block Explorer",
@@ -310,12 +311,15 @@
     },
     "tools": {
       "title": "Tools",
-      "kasplex": "KRC-20 Token Deploy, Mint & Transfer"
+      "kasplex": "KRC-20 Token Deploy, Mint & Transfer",
+      "zealousswap": "DEX fuer KRC-20 Token Swaps",
+      "kaspalytics": "Kaspa Netzwerk Analytics & Statistiken"
     },
     "dev": {
       "title": "Entwickler-Ressourcen",
       "rustykaspa": "Offizielle Rust-Implementation des Kaspa Node",
-      "wiki": "Offizielle Kaspa Dokumentation"
+      "wiki": "Offizielle Kaspa Dokumentation",
+      "docs": "Technische Kaspa Dokumentation"
     },
     "infoNote": "Diese Liste wird regelmaessig aktualisiert. Fehlt ein Projekt? Kontaktiere uns!"
   },

@@ -17,6 +17,7 @@ const WALLETS: InfraItem[] = [
   { id: 'kasware', name: 'KasWare', descriptionKey: 'wallets.kasware', url: 'https://kasware.xyz', status: 'active' },
   { id: 'kaspium', name: 'Kaspium', descriptionKey: 'wallets.kaspium', url: 'https://kaspium.io', status: 'active' },
   { id: 'tangem', name: 'Tangem', descriptionKey: 'wallets.tangem', url: 'https://tangem.com', status: 'active' },
+  { id: 'ecko', name: 'Ecko Wallet', descriptionKey: 'wallets.ecko', url: 'https://ecko.finance', status: 'active' },
 ];
 
 const EXPLORERS: InfraItem[] = [
@@ -26,11 +27,14 @@ const EXPLORERS: InfraItem[] = [
 
 const TOOLS: InfraItem[] = [
   { id: 'kasplex', name: 'KasPlex', descriptionKey: 'tools.kasplex', url: 'https://kasplex.org', status: 'active' },
+  { id: 'zealousswap', name: 'ZealousSwap', descriptionKey: 'tools.zealousswap', url: 'https://app.zealousswap.com', status: 'active' },
+  { id: 'kaspalytics', name: 'Kaspalytics', descriptionKey: 'tools.kaspalytics', url: 'https://kaspalytics.com', status: 'active' },
 ];
 
 const DEV_RESOURCES: InfraItem[] = [
   { id: 'rustykaspa', name: 'Rusty Kaspa', descriptionKey: 'dev.rustykaspa', url: 'https://github.com/kaspanet/rusty-kaspa', status: 'active' },
   { id: 'kaspawiki', name: 'Kaspa Wiki', descriptionKey: 'dev.wiki', url: 'https://wiki.kaspa.org', status: 'active' },
+  { id: 'kaspadocs', name: 'Kaspa Docs', descriptionKey: 'dev.docs', url: 'https://docs.kaspa.org', status: 'active' },
 ];
 
 // Status badge
