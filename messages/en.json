@@ -292,6 +292,34 @@
     "step3Title": "Confirm Swap",
     "step3Desc": "Confirm the transaction in your wallet. The swap is executed directly on the blockchain."
   },
+  "infrastructure": {
+    "title": "Infrastructure",
+    "subtitle": "Wallets, Tools & Resources for the Kaspa Ecosystem",
+    "active": "Active",
+    "comingSoon": "Coming Soon",
+    "wallets": {
+      "title": "Wallets",
+      "kasware": "Browser Extension Wallet for Kaspa & KRC-20",
+      "kaspium": "Mobile Wallet for iOS and Android",
+      "tangem": "Hardware Wallet with NFC Card"
+    },
+    "explorer": {
+      "title": "Block Explorer",
+      "kasfyi": "Detailed Explorer with Analytics",
+      "kaspaorg": "Official Kaspa Block Explorer"
+    },
+    "tools": {
+      "title": "Tools",
+      "kasplex": "KRC-20 Token Deploy, Mint & Transfer",
+      "kastools": "Various Kaspa Utilities"
+    },
+    "dev": {
+      "title": "Developer Resources",
+      "rustykaspa": "Official Rust Implementation of the Kaspa Node",
+      "wiki": "Official Kaspa Documentation"
+    },
+    "infoNote": "This list is updated regularly. Missing a project? Contact us!"
+  },
   "defiPage": {
     "title": "DeFi",
     "subtitle": "Decentralized Finance Applications in the Kaspa Ecosystem",

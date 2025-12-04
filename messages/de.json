@@ -292,6 +292,34 @@
     "step3Title": "Swap bestaetigen",
     "step3Desc": "Bestatige die Transaktion in deiner Wallet. Der Swap wird direkt auf der Blockchain ausgefuehrt."
   },
+  "infrastructure": {
+    "title": "Infrastruktur",
+    "subtitle": "Wallets, Tools & Ressourcen fuer das Kaspa-Oekosystem",
+    "active": "Aktiv",
+    "comingSoon": "Demnaechst",
+    "wallets": {
+      "title": "Wallets",
+      "kasware": "Browser Extension Wallet fuer Kaspa & KRC-20",
+      "kaspium": "Mobile Wallet fuer iOS und Android",
+      "tangem": "Hardware Wallet mit NFC-Karte"
+    },
+    "explorer": {
+      "title": "Block Explorer",
+      "kasfyi": "Detaillierter Explorer mit Analytics",
+      "kaspaorg": "Offizieller Kaspa Block Explorer"
+    },
+    "tools": {
+      "title": "Tools",
+      "kasplex": "KRC-20 Token Deploy, Mint & Transfer",
+      "kastools": "Verschiedene Kaspa Utilities"
+    },
+    "dev": {
+      "title": "Entwickler-Ressourcen",
+      "rustykaspa": "Offizielle Rust-Implementation des Kaspa Node",
+      "wiki": "Offizielle Kaspa Dokumentation"
+    },
+    "infoNote": "Diese Liste wird regelmaessig aktualisiert. Fehlt ein Projekt? Kontaktiere uns!"
+  },
   "defiPage": {
     "title": "DeFi",
     "subtitle": "Dezentralisierte Finanzanwendungen im Kaspa-Oekosystem",
