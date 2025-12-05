@@ -157,7 +157,7 @@ export default function TokensPage() {
       </div>
 
       {/* Filters */}
-      <GlassCard padding="md" className="mb-6">
+      <GlassCard padding="md" className="mb-6 overflow-visible relative z-40">
         <div className="flex flex-col sm:flex-row gap-4">
           <TokenSearch onSearch={setSearchQuery} />
           <TokenSort value={sortOption} onChange={setSortOption} />

@@ -70,26 +70,26 @@ export default function Home() {
         <StatsCard label={t('stats.winRate')} value="-" variant="warning" />
       </div>
 
-      {/* Feature Banners */}
-      <div className="space-y-4 mb-8">
+      {/* Feature Banners - Horizontal Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <FeatureBanner
           title={t('banners.krc20.title')}
           description={t('banners.krc20.description')}
-          stats="- Tokens • - DEX • - Wallets"
           cta={t('banners.krc20.cta')}
           href="/krc20/kaspa"
           icon={<NetworkIcon />}
           variant="primary"
+          compact
         />
 
         <FeatureBanner
           title={t('banners.signals.title')}
           description={t('banners.signals.description')}
-          stats="- aktive Signale • -% Win-Rate"
           cta={t('banners.signals.cta')}
           href="/signals"
           icon={<SignalsIcon />}
           variant="secondary"
+          compact
         />
 
         <FeatureBanner
@@ -99,6 +99,7 @@ export default function Home() {
           href="/investment/portfolio"
           icon={<PortfolioIcon />}
           variant="gradient"
+          compact
         />
       </div>
 

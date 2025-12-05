@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { GlassCard } from '@/components/ui/GlassCard';
 
 // Infrastructure Item type
@@ -10,24 +11,25 @@ interface InfraItem {
   descriptionKey: string;
   url: string;
   status: 'active' | 'coming_soon';
+  logo?: string;
 }
 
 // Infrastructure Categories
 const WALLETS: InfraItem[] = [
-  { id: 'kasware', name: 'KasWare', descriptionKey: 'wallets.kasware', url: 'https://kasware.xyz', status: 'active' },
+  { id: 'kasware', name: 'KasWare', descriptionKey: 'wallets.kasware', url: 'https://kasware.xyz', status: 'active', logo: '/images/infrastructure/kasware.jpg' },
   { id: 'kaspium', name: 'Kaspium', descriptionKey: 'wallets.kaspium', url: 'https://kaspium.io', status: 'active' },
-  { id: 'tangem', name: 'Tangem', descriptionKey: 'wallets.tangem', url: 'https://tangem.com', status: 'active' },
-  { id: 'ecko', name: 'Ecko Wallet', descriptionKey: 'wallets.ecko', url: 'https://ecko.finance', status: 'active' },
+  { id: 'tangem', name: 'Tangem', descriptionKey: 'wallets.tangem', url: 'https://tangem.com', status: 'active', logo: '/images/infrastructure/tangem.webp' },
+  { id: 'ecko', name: 'Ecko Wallet', descriptionKey: 'wallets.ecko', url: 'https://ecko.finance', status: 'active', logo: '/images/infrastructure/ecko.webp' },
 ];
 
 const EXPLORERS: InfraItem[] = [
-  { id: 'kasfyi', name: 'kas.fyi', descriptionKey: 'explorer.kasfyi', url: 'https://kas.fyi', status: 'active' },
-  { id: 'kaspaorg', name: 'explorer.kaspa.org', descriptionKey: 'explorer.kaspaorg', url: 'https://explorer.kaspa.org', status: 'active' },
+  { id: 'kasfyi', name: 'kas.fyi', descriptionKey: 'explorer.kasfyi', url: 'https://kas.fyi', status: 'active', logo: '/images/infrastructure/kasfyi.svg' },
+  { id: 'kaspaorg', name: 'explorer.kaspa.org', descriptionKey: 'explorer.kaspaorg', url: 'https://explorer.kaspa.org', status: 'active', logo: '/images/infrastructure/explorer-kaspa.jpg' },
 ];
 
 const TOOLS: InfraItem[] = [
-  { id: 'kasplex', name: 'KasPlex', descriptionKey: 'tools.kasplex', url: 'https://kasplex.org', status: 'active' },
-  { id: 'zealousswap', name: 'ZealousSwap', descriptionKey: 'tools.zealousswap', url: 'https://app.zealousswap.com', status: 'active' },
+  { id: 'kasplex', name: 'KasPlex', descriptionKey: 'tools.kasplex', url: 'https://kasplex.org', status: 'active', logo: '/images/infrastructure/kasplex.png' },
+  { id: 'zealousswap', name: 'ZealousSwap', descriptionKey: 'tools.zealousswap', url: 'https://app.zealousswap.com', status: 'active', logo: '/images/infrastructure/zealousswap.jpg' },
   { id: 'kaspalytics', name: 'Kaspalytics', descriptionKey: 'tools.kaspalytics', url: 'https://kaspalytics.com', status: 'active' },
 ];
 
@@ -68,8 +70,20 @@ function InfraCard({ item }: { item: InfraItem }) {
     >
       <GlassCard className="p-4 h-full hover:border-[var(--color-primary)]/50 transition-all duration-300">
         <div className="flex items-start justify-between mb-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center">
-            <span className="text-sm font-bold text-white">{item.name.charAt(0)}</span>
+          <div className="w-10 h-10 rounded-lg bg-[var(--color-bg-start)] border border-[var(--glass-border)] flex items-center justify-center overflow-hidden">
+            {item.logo ? (
+              <Image
+                src={item.logo}
+                alt={item.name}
+                width={36}
+                height={36}
+                className="w-9 h-9 object-contain rounded"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center">
+                <span className="text-sm font-bold text-white">{item.name.charAt(0)}</span>
+              </div>
+            )}
           </div>
           <StatusBadge status={item.status} />
         </div>

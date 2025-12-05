@@ -44,7 +44,7 @@ export function TokenGrid({ tokens, isLoading, startRank = 1, isSearching = fals
     return (
       <div className="space-y-6">
         {/* Info Box */}
-        <div className="glass-card p-6 text-center border border-[var(--color-warning)]/30 bg-[var(--color-warning)]/5">
+        <div className="glass-card p-6 text-center border border-[var(--color-warning)]/30 bg-[var(--color-warning)]/5 relative z-10">
           <div className="flex items-center justify-center gap-3 mb-3">
             <svg className="w-8 h-8 text-[var(--color-warning)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

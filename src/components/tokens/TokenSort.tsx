@@ -51,7 +51,7 @@ export function TokenSort({ value, onChange }: TokenSortProps) {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative z-50" ref={dropdownRef}>
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

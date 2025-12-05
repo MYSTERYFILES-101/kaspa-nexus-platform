@@ -23,7 +23,7 @@ const DEX_LIST: DexInfo[] = [
   {
     id: 'zealousswap',
     name: 'ZealousSwap',
-    logo: '/images/dex/zealousswap.png',
+    logo: '/images/dex/zealousswap.jpg',
     url: 'https://app.zealousswap.com/swap',
     type: 'webapp',
     status: 'active',
@@ -34,8 +34,8 @@ const DEX_LIST: DexInfo[] = [
   {
     id: 'kspr-bot',
     name: 'KSPR Bot',
-    logo: '/images/dex/kspr-bot.png',
-    url: 'https://t.me/ksaborNFT_bot',
+    logo: '/images/dex/kspr-bot.jpg',
+    url: 'https://t.me/kspr_bot',
     type: 'telegram',
     status: 'active',
     volume24h: null,
@@ -45,10 +45,10 @@ const DEX_LIST: DexInfo[] = [
   {
     id: 'chainge-finance',
     name: 'Chainge Finance',
-    logo: '/images/dex/chainge.png',
-    url: 'https://www.chainge.finance/',
+    logo: '/images/dex/chainge.jpg',
+    url: 'https://dapp.chainge.finance/',
     type: 'webapp',
-    status: 'offline',
+    status: 'active',
     volume24h: null,
     pairs: 50,
     features: ['Cross-Chain', 'Bridge', 'Routing', 'Wallet'],
@@ -133,9 +133,13 @@ function DexCard({ dex }: { dex: DexInfo }) {
           <div className="flex items-center gap-4">
             {/* Logo */}
             <div className="w-14 h-14 rounded-xl bg-[var(--color-bg-start)] border border-[var(--glass-border)] flex items-center justify-center overflow-hidden">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center">
-                <span className="text-xl font-bold text-white">{dex.name.charAt(0)}</span>
-              </div>
+              <Image
+                src={dex.logo}
+                alt={dex.name}
+                width={48}
+                height={48}
+                className="w-12 h-12 object-contain rounded-lg"
+              />
             </div>
             <div>
               <h3 className="text-lg font-semibold group-hover:text-[var(--color-primary)] transition-colors">

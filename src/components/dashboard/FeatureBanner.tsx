@@ -10,6 +10,7 @@ interface FeatureBannerProps {
   href: string;
   icon: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'gradient';
+  compact?: boolean;
 }
 
 export function FeatureBanner({
@@ -20,6 +21,7 @@ export function FeatureBanner({
   href,
   icon,
   variant = 'primary',
+  compact = false,
 }: FeatureBannerProps) {
   const bgClasses = {
     primary: 'from-[rgba(0,212,255,0.1)] to-[rgba(0,212,255,0.05)]',
@@ -33,6 +35,40 @@ export function FeatureBanner({
     gradient: 'border-[rgba(0,212,255,0.2)] hover:border-[rgba(157,78,221,0.4)]',
   };
 
+  // Compact layout for grid view
+  if (compact) {
+    return (
+      <Link
+        href={href}
+        className={`block glass-card p-4 bg-gradient-to-br ${bgClasses[variant]} ${borderClasses[variant]} transition-all duration-300 hover:transform hover:-translate-y-1 h-full`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Icon */}
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center mb-3">
+            {icon}
+          </div>
+
+          {/* Content */}
+          <h3 className="text-base font-semibold text-[var(--color-text-primary)] mb-1">
+            {title}
+          </h3>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-3 flex-1 line-clamp-2">
+            {description}
+          </p>
+
+          {/* CTA */}
+          <div className="flex items-center gap-1 text-[var(--color-primary)] font-medium text-xs">
+            {cta}
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
+  // Default horizontal layout
   return (
     <Link
       href={href}
