@@ -1,4 +1,90 @@
 {
+  "krc20Switchbar": {
+    "kaspa": "Kaspa",
+    "tokens": "Tokens",
+    "dex": "DEX",
+    "defi": "DeFi",
+    "infrastructure": "Infrastructure"
+  },
+  "signalsSwitchbar": {
+    "board": "Board",
+    "pro": "Signals",
+    "bot": "Trading Bot"
+  },
+  "investmentSwitchbar": {
+    "board": "Board",
+    "portfolio": "Portfolio",
+    "tracker": "Tracker"
+  },
+  "tracker": {
+    "title": "Portfolio Tracker",
+    "subtitle": "Track your investments in real-time",
+    "addPosition": "Add Position",
+    "stats": {
+      "totalValue": "Total Value",
+      "invested": "Invested",
+      "profitLoss": "Profit/Loss",
+      "profitLossPercent": "Return"
+    },
+    "chart": {
+      "title": "Value Development",
+      "empty": "Add positions to see value development",
+      "placeholder": "Chart loading with real-time data..."
+    },
+    "positions": {
+      "title": "My Positions",
+      "count": "Positions",
+      "empty": {
+        "title": "No positions yet",
+        "description": "Add your first position to start tracking your portfolio.",
+        "cta": "Add First Position"
+      }
+    },
+    "table": {
+      "coin": "Coin",
+      "amount": "Amount",
+      "avgPrice": "Avg Price",
+      "currentPrice": "Current",
+      "value": "Value",
+      "profitLoss": "+/-",
+      "actions": "Actions"
+    },
+    "actions": {
+      "addPurchase": "Add Purchase",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "history": {
+      "title": "Recent Transactions",
+      "bought": "Bought:",
+      "perCoin": "per coin"
+    },
+    "modal": {
+      "addPosition": {
+        "title": "Add Position"
+      },
+      "addPurchase": {
+        "title": "Add Purchase",
+        "confirm": "Save Purchase"
+      },
+      "coinName": "Coin Name",
+      "symbol": "Symbol",
+      "amount": "Amount",
+      "buyPrice": "Buy Price",
+      "buyDate": "Buy Date",
+      "cancel": "Cancel",
+      "add": "Add",
+      "currentAmount": "Current Amount",
+      "currentAvgPrice": "Current Avg Price",
+      "preview": "Preview after purchase",
+      "newAmount": "New Amount",
+      "newAvgPrice": "New Avg Price"
+    },
+    "info": {
+      "title": "Local Storage",
+      "description": "Your portfolio data is currently stored locally in your browser. With a Pro account, it will be securely stored in the cloud and available on all your devices."
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error loading data",
@@ -38,6 +124,7 @@
       "tradingBot": "Trading Bot",
       "investmentBoard": "Board",
       "portfolio": "Portfolio",
+      "tracker": "Tracker",
       "teamMembers": "Team",
       "sponsors": "Sponsors",
       "login": "Login",
@@ -446,6 +533,169 @@
       "alertsDesc": "Instant alerts via app and email"
     }
   },
+  "signalsPro": {
+    "title": "AI Signals",
+    "subtitle": "AI-validated trading signals for BTC, ETH & KAS",
+    "btcStatus": {
+      "normal": "BTC stable - Signals active",
+      "warning": "BTC volatile - Caution",
+      "paused": "BTC -5% - Signals paused"
+    },
+    "coinBox": {
+      "signals": "Signals",
+      "winRate": "Win Rate",
+      "wins": "Wins",
+      "losses": "Losses",
+      "avgProfit": "Avg Profit",
+      "clickToView": "Click to view all signals"
+    },
+    "timeFilter": {
+      "label": "Time Period",
+      "week": "7 Days",
+      "month": "30 Days",
+      "total": "All Time"
+    },
+    "totalStats": {
+      "signals": "Signals",
+      "winRate": "Win Rate",
+      "avgProfit": "Avg Profit"
+    },
+    "coinSignals": {
+      "title": "Signals",
+      "total": "signals total"
+    },
+    "activeSignals": {
+      "title": "Active Signals",
+      "active": "Active",
+      "noActive": "No active signals"
+    },
+    "stats": {
+      "totalSignals": "Total Signals",
+      "winRate": "Win Rate",
+      "avgProfit": "Avg Profit",
+      "currentStreak": "Current Streak"
+    },
+    "performance": {
+      "title": "My Performance",
+      "coin": "Coin",
+      "signals": "Signals",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "Win Rate",
+      "avgProfit": "Avg Profit",
+      "total": "TOTAL",
+      "bestStreak": "Best Streak",
+      "currentStreak": "Current Streak"
+    },
+    "signals": {
+      "title": "Signal Overview",
+      "all": "All",
+      "active": "Active",
+      "closed": "Closed",
+      "live": "LIVE",
+      "entry": "Entry",
+      "current": "Current",
+      "stopLoss": "Stop Loss",
+      "tpProgress": "Progress",
+      "confidence": "Confidence",
+      "unrealized": "unrealized",
+      "win": "WIN",
+      "loss": "LOSS",
+      "trailingHistory": "Trailing History",
+      "hitAt": "hit at",
+      "movedFrom": "moved from",
+      "closedAt": "closed at"
+    },
+    "tpLevels": {
+      "title": "Take Profit Levels",
+      "action1": "SL to Entry",
+      "action2": "SL to TP1",
+      "action3": "SL to TP2",
+      "action4": "SL to TP3",
+      "action5": "SL to TP4"
+    },
+    "info": {
+      "title": "OpenRouter AI Integration",
+      "description": "Our signals are validated by multiple AI models via OpenRouter. All 3 must agree before a signal is issued. This ensures highest quality and minimizes false signals."
+    }
+  },
+  "tradingBot": {
+    "title": "Trading Bot",
+    "subtitle": "Automated execution of your AI signals",
+    "unlockBot": "Unlock automated trading with Pro+",
+    "supportedCoins": "Supported Coins",
+    "howItWorks": {
+      "title": "How the Bot Works",
+      "step1": {
+        "title": "Receive Signal",
+        "desc": "AI generates BUY/SELL signal"
+      },
+      "step2": {
+        "title": "Execute Entry",
+        "desc": "Bot opens position automatically"
+      },
+      "step3": {
+        "title": "Manage Trade",
+        "desc": "Adjust Take Profits & Stop Loss"
+      },
+      "step4": {
+        "title": "Execute Exit",
+        "desc": "Close position automatically"
+      }
+    },
+    "apiConnection": {
+      "title": "Exchange Connection",
+      "recommended": "Recommended",
+      "notConnected": "Not connected",
+      "connected": "Connected",
+      "connectApi": "Connect API Key",
+      "security": {
+        "title": "Security",
+        "desc": "Your funds stay on CoinEx. We only need trade permission, no withdrawals."
+      }
+    },
+    "settings": {
+      "title": "Bot Settings",
+      "tradeAmount": "Trade Amount",
+      "leverage": "Leverage",
+      "onlyKas": "KAS only",
+      "maxTrades": "Max Open Trades",
+      "autoTp": "Auto Take-Profit",
+      "trailingSl": "Trailing Stop-Loss",
+      "dailyLossLimit": "Daily Loss Limit"
+    },
+    "status": {
+      "title": "Bot Status",
+      "botStatus": "Status",
+      "offline": "Offline",
+      "online": "Online",
+      "activeTrades": "Active Trades",
+      "todayTrades": "Today's Trades",
+      "todayProfit": "Today's Profit",
+      "startBot": "Start Bot",
+      "stopBot": "Stop Bot",
+      "killSwitch": "Emergency Stop",
+      "killSwitchDesc": "Close all positions immediately",
+      "stopAll": "Stop All"
+    },
+    "history": {
+      "title": "Trade History",
+      "signal": "Signal",
+      "coin": "Coin",
+      "type": "Type",
+      "entry": "Entry",
+      "exit": "Exit",
+      "tpHit": "TP Hit",
+      "profit": "Profit",
+      "status": "Status",
+      "active": "Active",
+      "closed": "Closed"
+    },
+    "comingSoon": {
+      "title": "Coming Soon",
+      "desc": "The Trading Bot is under development. It will automatically execute Signals PRO - Entry, Take Profits and Stop Loss will be traded automatically on CoinEx."
+    }
+  },
   "account": {
     "profile": {
       "title": "My Profile",
@@ -493,8 +743,45 @@
   },
   "investment": {
     "board": {
-      "title": "Investment Board",
-      "description": "Overview of investment opportunities in the Kaspa ecosystem"
+      "title": "Investment Hub",
+      "subtitle": "AI-powered portfolio tools for smart investments",
+      "intro": "Welcome to the KASPA-NEXUS Investment Hub. Here you'll find our AI-powered tools designed to help you make informed investment decisions. Whether you want to build a new portfolio or analyze your existing one - our artificial intelligence supports you with real-time market data and professional recommendations.",
+      "generator": {
+        "title": "Portfolio Generator",
+        "description": "Let our AI create a customized crypto portfolio for you. Based on your budget and risk tolerance, the AI analyzes the current market and recommends the optimal allocation.",
+        "feature1": "Budget from 100€ to 10,000,000€",
+        "feature2": "3 risk levels (Conservative to Aggressive)",
+        "feature3": "Specific % allocation per coin",
+        "feature4": "3 scenarios: Best Case, Likely, Worst Case"
+      },
+      "analyzer": {
+        "title": "Portfolio Analyzer",
+        "description": "Already have crypto holdings? Let our AI analyze your portfolio. You'll receive a professional evaluation with strengths, weaknesses, and optimization suggestions.",
+        "feature1": "Analysis of up to 15 different coins",
+        "feature2": "Risk distribution assessment",
+        "feature3": "Identification of strengths and weaknesses",
+        "feature4": "Concrete optimization suggestions"
+      },
+      "howItWorks": {
+        "title": "How It Works",
+        "step1": {
+          "title": "Enter Data",
+          "desc": "Enter your budget and risk level or list your current holdings."
+        },
+        "step2": {
+          "title": "AI Analyzes",
+          "desc": "Our AI checks current market data, trends, and risk factors in real-time."
+        },
+        "step3": {
+          "title": "Get Results",
+          "desc": "You receive a detailed recommendation with reasoning and forecasts."
+        }
+      },
+      "aiPowered": {
+        "title": "Powered by AI",
+        "description": "Our portfolio tools use multiple AI systems that analyze current market data from CoinGecko and other sources. Every recommendation is based on real-time data - no mock data, no outdated information. The AI considers BTC dominance, Fear & Greed Index, market cap, and current trends."
+      },
+      "cta": "Create Portfolio Now"
     },
     "stats": {
       "avgReturn": "Avg. Return",
@@ -550,6 +837,50 @@
     "upgradeToPro": "Upgrade to Pro",
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "This feature will be available soon. We are working on advanced investment tools."
+  },
+  "portfolio": {
+    "title": "AI Portfolio",
+    "description": "AI-powered portfolio generator and analyzer",
+    "unlockFeatures": "Unlock AI portfolio features",
+    "tabs": {
+      "generator": "Portfolio Generator",
+      "analyzer": "Portfolio Analyzer"
+    },
+    "generator": {
+      "title": "Generate Portfolio",
+      "budget": "Investment Budget",
+      "budgetHint": "Min. 100€ - Max. 10,000,000€",
+      "riskLevel": "Risk Profile",
+      "conservative": "Conservative",
+      "lowRisk": "Low Risk",
+      "conservativeDesc": "Focus on established coins (BTC, ETH). Lower returns, higher security.",
+      "balanced": "Balanced",
+      "mediumRisk": "Medium Risk",
+      "balancedDesc": "Mix of blue chips and growth assets. Balanced risk-reward.",
+      "aggressive": "Aggressive",
+      "highRisk": "High Risk",
+      "aggressiveDesc": "Higher allocation to altcoins and KRC-20. Maximum growth potential.",
+      "generate": "Generate Portfolio",
+      "analyzing": "AI is analyzing...",
+      "aiWorking": "AI is working",
+      "aiWorkingDesc": "Analyzing current market conditions and generating optimal portfolio..."
+    },
+    "analyzer": {
+      "title": "Analyze Your Portfolio",
+      "inputLabel": "Your Current Holdings",
+      "placeholder": "Enter your holdings, e.g.: 0.5 BTC, 2 ETH, 5000 KAS",
+      "inputHint": "Max. 15 coins per analysis. All crypto coins supported.",
+      "usageThisMonth": "Analyses this month",
+      "analyze": "Analyze Portfolio",
+      "analyzing": "Analyzing...",
+      "exampleTitle": "Example Format",
+      "aiWorking": "AI is analyzing",
+      "aiWorkingDesc": "Evaluating your portfolio and generating recommendations..."
+    },
+    "disclaimer": {
+      "title": "Important Disclaimer",
+      "text": "This is not financial advice. AI-generated recommendations are for educational purposes only. Always do your own research. Only invest what you can afford to lose."
+    }
   },
   "team": {
     "title": "Our Team",

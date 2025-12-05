@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { Krc20Switchbar } from '@/components/krc20/Krc20Switchbar';
 import { TokenGrid } from '@/components/tokens/TokenGrid';
 import { TokenSearch } from '@/components/tokens/TokenSearch';
 import { TokenSort, SortOption } from '@/components/tokens/TokenSort';
@@ -128,6 +129,9 @@ export default function TokensPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-start)]/60 to-transparent" />
       </div>
+
+      {/* KRC-20 Switchbar */}
+      <Krc20Switchbar />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">

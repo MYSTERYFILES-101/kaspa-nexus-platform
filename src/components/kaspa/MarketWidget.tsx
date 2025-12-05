@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
 import { Skeleton } from '@/components/ui/Skeleton';
@@ -58,8 +59,14 @@ export function MarketWidget({ className, compact = false }: MarketWidgetProps) 
     return (
       <GlassCard glow className={`p-4 ${className}`}>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg">
-            <span className="text-lg font-bold text-white">K</span>
+          <div className="w-10 h-10 rounded-full overflow-hidden shadow-lg">
+            <Image
+              src="/images/logos/kaspa-logo.svg"
+              alt="Kaspa"
+              width={40}
+              height={40}
+              className="w-full h-full"
+            />
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-2">
@@ -84,8 +91,14 @@ export function MarketWidget({ className, compact = false }: MarketWidgetProps) 
   return (
     <GlassCard glow className={`p-6 ${className}`}>
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg">
-          <span className="text-2xl font-bold text-white">K</span>
+        <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
+          <Image
+            src="/images/logos/kaspa-logo.svg"
+            alt="Kaspa"
+            width={56}
+            height={56}
+            className="w-full h-full"
+          />
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">

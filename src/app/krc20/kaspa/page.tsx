@@ -6,6 +6,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PriceChange } from '@/components/ui/PriceChange';
+import { Krc20Switchbar } from '@/components/krc20/Krc20Switchbar';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { formatCurrency, formatCompact } from '@/lib/utils';
 import type { KaspaPrice } from '@/types';
@@ -78,8 +79,8 @@ export default function KaspaPage() {
       {/* Banner - nur Bild */}
       <div className="relative w-full aspect-[21/9] mb-6 rounded-2xl overflow-hidden">
         <Image
-          src="/images/banners/kaspa-banner.png"
-          alt="Kaspa"
+          src="/images/banners/krc20-network.png"
+          alt="KRC-20 Network"
           fill
           className="object-cover"
           priority
@@ -87,11 +88,20 @@ export default function KaspaPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-start)]/30 to-transparent" />
       </div>
 
+      {/* KRC-20 Switchbar */}
+      <Krc20Switchbar />
+
       {/* Token Header - unter dem Banner */}
       <GlassCard className="p-4 md:p-6 mb-6">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg flex-shrink-0">
-            <span className="text-2xl md:text-3xl font-bold text-white">K</span>
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg flex-shrink-0">
+            <Image
+              src="/images/logos/kaspa-logo.svg"
+              alt="Kaspa"
+              width={64}
+              height={64}
+              className="w-full h-full"
+            />
           </div>
           <div>
             <h1 className="text-2xl md:text-4xl font-bold">KASPA</h1>
@@ -155,8 +165,14 @@ export default function KaspaPage() {
               {/* Price Header */}
               <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#49EACB] to-[#00A884] flex items-center justify-center shadow-lg">
-                    <span className="text-2xl font-bold text-white">K</span>
+                  <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg">
+                    <Image
+                      src="/images/logos/kaspa-logo.svg"
+                      alt="Kaspa"
+                      width={64}
+                      height={64}
+                      className="w-full h-full"
+                    />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">

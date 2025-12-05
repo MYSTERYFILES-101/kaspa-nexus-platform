@@ -1,4 +1,90 @@
 {
+  "krc20Switchbar": {
+    "kaspa": "Kaspa",
+    "tokens": "Tokens",
+    "dex": "DEX",
+    "defi": "DeFi",
+    "infrastructure": "Infrastructure"
+  },
+  "signalsSwitchbar": {
+    "board": "Board",
+    "pro": "Signale",
+    "bot": "Trading Bot"
+  },
+  "investmentSwitchbar": {
+    "board": "Board",
+    "portfolio": "Portfolio",
+    "tracker": "Tracker"
+  },
+  "tracker": {
+    "title": "Portfolio Tracker",
+    "subtitle": "Verfolge deine Investments in Echtzeit",
+    "addPosition": "Position hinzufuegen",
+    "stats": {
+      "totalValue": "Gesamtwert",
+      "invested": "Investiert",
+      "profitLoss": "Gewinn/Verlust",
+      "profitLossPercent": "Rendite"
+    },
+    "chart": {
+      "title": "Wertentwicklung",
+      "empty": "Fuege Positionen hinzu um die Wertentwicklung zu sehen",
+      "placeholder": "Chart wird mit Echtzeitdaten geladen..."
+    },
+    "positions": {
+      "title": "Meine Positionen",
+      "count": "Positionen",
+      "empty": {
+        "title": "Noch keine Positionen",
+        "description": "Fuege deine erste Position hinzu, um dein Portfolio zu tracken.",
+        "cta": "Erste Position hinzufuegen"
+      }
+    },
+    "table": {
+      "coin": "Coin",
+      "amount": "Menge",
+      "avgPrice": "Ø Preis",
+      "currentPrice": "Aktuell",
+      "value": "Wert",
+      "profitLoss": "+/-",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "addPurchase": "Nachkauf",
+      "edit": "Bearbeiten",
+      "delete": "Loeschen"
+    },
+    "history": {
+      "title": "Letzte Transaktionen",
+      "bought": "Gekauft:",
+      "perCoin": "pro Coin"
+    },
+    "modal": {
+      "addPosition": {
+        "title": "Position hinzufuegen"
+      },
+      "addPurchase": {
+        "title": "Nachkauf hinzufuegen",
+        "confirm": "Nachkauf speichern"
+      },
+      "coinName": "Coin Name",
+      "symbol": "Symbol",
+      "amount": "Menge",
+      "buyPrice": "Kaufpreis",
+      "buyDate": "Kaufdatum",
+      "cancel": "Abbrechen",
+      "add": "Hinzufuegen",
+      "currentAmount": "Aktuelle Menge",
+      "currentAvgPrice": "Aktueller Ø Preis",
+      "preview": "Vorschau nach Nachkauf",
+      "newAmount": "Neue Menge",
+      "newAvgPrice": "Neuer Ø Preis"
+    },
+    "info": {
+      "title": "Lokale Speicherung",
+      "description": "Deine Portfolio-Daten werden derzeit lokal in deinem Browser gespeichert. Mit einem Pro-Account werden sie sicher in der Cloud gespeichert und sind auf allen Geraeten verfuegbar."
+    }
+  },
   "common": {
     "loading": "Laden...",
     "error": "Fehler beim Laden der Daten",
@@ -38,6 +124,7 @@
       "tradingBot": "Trading Bot",
       "investmentBoard": "Board",
       "portfolio": "Portfolio",
+      "tracker": "Tracker",
       "teamMembers": "Team",
       "sponsors": "Sponsors",
       "login": "Login",
@@ -117,7 +204,7 @@
     "title": "Kaspa",
     "live": "LIVE",
     "rank": "Rang",
-    "marketCap": "Marktkapitalisierung",
+    "marketCap": "Market Cap",
     "volume24h": "24h Volumen",
     "circulatingSupply": "Umlaufmenge",
     "maxSupply": "Max. Menge"
@@ -173,7 +260,7 @@
     "tokenNotFoundDesc": "Der Token {ticker} konnte nicht gefunden werden.",
     "updated": "Aktualisiert",
     "marketStats": "Markt Statistiken",
-    "marketCap": "Marktkapitalisierung",
+    "marketCap": "Market Cap",
     "volume24h": "24h Volumen",
     "holders": "Halter",
     "circulatingSupply": "Umlaufmenge",
@@ -446,6 +533,169 @@
       "alertsDesc": "Sofortige Alerts per App und E-Mail"
     }
   },
+  "signalsPro": {
+    "title": "AI Signals",
+    "subtitle": "KI-validierte Trading-Signale fuer BTC, ETH & KAS",
+    "btcStatus": {
+      "normal": "BTC stabil - Signale aktiv",
+      "warning": "BTC volatil - Vorsicht",
+      "paused": "BTC -5% - Signale pausiert"
+    },
+    "coinBox": {
+      "signals": "Signale",
+      "winRate": "Win Rate",
+      "wins": "Wins",
+      "losses": "Losses",
+      "avgProfit": "Ø Profit",
+      "clickToView": "Klicken fuer alle Signale"
+    },
+    "timeFilter": {
+      "label": "Zeitraum",
+      "week": "7 Tage",
+      "month": "30 Tage",
+      "total": "Gesamt"
+    },
+    "totalStats": {
+      "signals": "Signale",
+      "winRate": "Win Rate",
+      "avgProfit": "Ø Profit"
+    },
+    "coinSignals": {
+      "title": "Signale",
+      "total": "Signale total"
+    },
+    "activeSignals": {
+      "title": "Aktive Signale",
+      "active": "Aktiv",
+      "noActive": "Keine aktiven Signale"
+    },
+    "stats": {
+      "totalSignals": "Signale gesamt",
+      "winRate": "Win Rate",
+      "avgProfit": "Ø Profit",
+      "currentStreak": "Aktuelle Serie"
+    },
+    "performance": {
+      "title": "Meine Performance",
+      "coin": "Coin",
+      "signals": "Signale",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "Win Rate",
+      "avgProfit": "Ø Profit",
+      "total": "GESAMT",
+      "bestStreak": "Beste Serie",
+      "currentStreak": "Aktuelle Serie"
+    },
+    "signals": {
+      "title": "Signal-Uebersicht",
+      "all": "Alle",
+      "active": "Aktiv",
+      "closed": "Geschlossen",
+      "live": "LIVE",
+      "entry": "Entry",
+      "current": "Aktuell",
+      "stopLoss": "Stop Loss",
+      "tpProgress": "Fortschritt",
+      "confidence": "Konfidenz",
+      "unrealized": "unrealisiert",
+      "win": "WIN",
+      "loss": "LOSS",
+      "trailingHistory": "Trailing-Historie",
+      "hitAt": "erreicht bei",
+      "movedFrom": "verschoben von",
+      "closedAt": "geschlossen bei"
+    },
+    "tpLevels": {
+      "title": "Take Profit Levels",
+      "action1": "SL auf Entry",
+      "action2": "SL auf TP1",
+      "action3": "SL auf TP2",
+      "action4": "SL auf TP3",
+      "action5": "SL auf TP4"
+    },
+    "info": {
+      "title": "OpenRouter KI-Integration",
+      "description": "Unsere Signale werden von mehreren KI-Modellen ueber OpenRouter validiert. Alle 3 muessen uebereinstimmen bevor ein Signal ausgegeben wird. Dies sorgt fuer hoechste Qualitaet und minimiert Fehlsignale."
+    }
+  },
+  "tradingBot": {
+    "title": "Trading Bot",
+    "subtitle": "Automatisierte Ausfuehrung deiner AI-Signale",
+    "unlockBot": "Schalte automatisches Trading mit Pro+ frei",
+    "supportedCoins": "Unterstuetzte Coins",
+    "howItWorks": {
+      "title": "So funktioniert der Bot",
+      "step1": {
+        "title": "Signal empfangen",
+        "desc": "KI generiert BUY/SELL Signal"
+      },
+      "step2": {
+        "title": "Entry ausfuehren",
+        "desc": "Bot oeffnet Position automatisch"
+      },
+      "step3": {
+        "title": "Trade managen",
+        "desc": "Take Profits & Stop Loss anpassen"
+      },
+      "step4": {
+        "title": "Exit ausfuehren",
+        "desc": "Position automatisch schliessen"
+      }
+    },
+    "apiConnection": {
+      "title": "Exchange Verbindung",
+      "recommended": "Empfohlen",
+      "notConnected": "Nicht verbunden",
+      "connected": "Verbunden",
+      "connectApi": "API Key verbinden",
+      "security": {
+        "title": "Sicherheit",
+        "desc": "Dein Geld bleibt auf CoinEx. Wir benoetigen nur Trade-Berechtigung, keine Auszahlung."
+      }
+    },
+    "settings": {
+      "title": "Bot Einstellungen",
+      "tradeAmount": "Einsatz pro Trade",
+      "leverage": "Hebel",
+      "onlyKas": "nur KAS",
+      "maxTrades": "Max. offene Trades",
+      "autoTp": "Auto Take-Profit",
+      "trailingSl": "Trailing Stop-Loss",
+      "dailyLossLimit": "Taegliches Verlustlimit"
+    },
+    "status": {
+      "title": "Bot Status",
+      "botStatus": "Status",
+      "offline": "Offline",
+      "online": "Online",
+      "activeTrades": "Aktive Trades",
+      "todayTrades": "Trades heute",
+      "todayProfit": "Profit heute",
+      "startBot": "Bot starten",
+      "stopBot": "Bot stoppen",
+      "killSwitch": "Notfall-Stopp",
+      "killSwitchDesc": "Alle Positionen sofort schliessen",
+      "stopAll": "Alles stoppen"
+    },
+    "history": {
+      "title": "Trade Historie",
+      "signal": "Signal",
+      "coin": "Coin",
+      "type": "Typ",
+      "entry": "Entry",
+      "exit": "Exit",
+      "tpHit": "TP erreicht",
+      "profit": "Profit",
+      "status": "Status",
+      "active": "Aktiv",
+      "closed": "Geschlossen"
+    },
+    "comingSoon": {
+      "title": "Demnaechst verfuegbar",
+      "desc": "Der Trading Bot befindet sich in Entwicklung. Er wird automatisch die Signals PRO ausfuehren - Entry, Take Profits und Stop Loss werden automatisch auf CoinEx gehandelt."
+    }
+  },
   "account": {
     "profile": {
       "title": "Mein Profil",
@@ -493,8 +743,45 @@
   },
   "investment": {
     "board": {
-      "title": "Investment Board",
-      "description": "Ueberblick ueber Investment-Moeglichkeiten im Kaspa-Oekosystem"
+      "title": "Investment Hub",
+      "subtitle": "KI-gestuetzte Portfolio-Tools fuer intelligente Investments",
+      "intro": "Willkommen im Investment Hub von KASPA-NEXUS. Hier findest du unsere KI-gestuetzten Tools, die dir helfen, fundierte Investment-Entscheidungen zu treffen. Ob du ein neues Portfolio aufbauen oder dein bestehendes analysieren moechtest - unsere kuenstliche Intelligenz unterstuetzt dich mit Echtzeit-Marktdaten und professionellen Empfehlungen.",
+      "generator": {
+        "title": "Portfolio Generator",
+        "description": "Lass dir von unserer KI ein massgeschneidertes Krypto-Portfolio erstellen. Basierend auf deinem Budget und deiner Risikobereitschaft analysiert die KI den aktuellen Markt und empfiehlt die optimale Verteilung.",
+        "feature1": "Budget von 100€ bis 10.000.000€",
+        "feature2": "3 Risiko-Level (Konservativ bis Aggressiv)",
+        "feature3": "Konkrete % Verteilung pro Coin",
+        "feature4": "3 Szenarien: Best Case, Wahrscheinlich, Worst Case"
+      },
+      "analyzer": {
+        "title": "Portfolio Analyzer",
+        "description": "Hast du bereits Krypto-Bestaende? Lass dein Portfolio von unserer KI analysieren. Du erhaeltst eine professionelle Bewertung mit Staerken, Schwaechen und Optimierungsvorschlaegen.",
+        "feature1": "Analyse von bis zu 15 verschiedenen Coins",
+        "feature2": "Bewertung der Risikoverteilung",
+        "feature3": "Identifikation von Staerken und Schwaechen",
+        "feature4": "Konkrete Optimierungsvorschlaege"
+      },
+      "howItWorks": {
+        "title": "So funktioniert's",
+        "step1": {
+          "title": "Daten eingeben",
+          "desc": "Gib dein Budget und Risiko-Level ein oder liste deine aktuellen Bestaende auf."
+        },
+        "step2": {
+          "title": "KI analysiert",
+          "desc": "Unsere KI prueft aktuelle Marktdaten, Trends und Risikofaktoren in Echtzeit."
+        },
+        "step3": {
+          "title": "Ergebnis erhalten",
+          "desc": "Du erhaeltst eine detaillierte Empfehlung mit Begruendung und Prognosen."
+        }
+      },
+      "aiPowered": {
+        "title": "Powered by AI",
+        "description": "Unsere Portfolio-Tools nutzen mehrere KI-Systeme, die aktuelle Marktdaten von CoinGecko und anderen Quellen analysieren. Jede Empfehlung basiert auf Echtzeitdaten - keine Mock-Daten, keine veralteten Informationen. Die KI beruecksichtigt BTC-Dominanz, Fear & Greed Index, Marktkapitalisierung und aktuelle Trends."
+      },
+      "cta": "Jetzt Portfolio erstellen"
     },
     "stats": {
       "avgReturn": "Durchschn. Rendite",
@@ -550,6 +837,50 @@
     "upgradeToPro": "Auf Pro upgraden",
     "comingSoon": "Demnaechst",
     "comingSoonDesc": "Diese Funktion wird bald freigeschaltet. Wir arbeiten an erweiterten Investment-Tools."
+  },
+  "portfolio": {
+    "title": "AI Portfolio",
+    "description": "KI-gestuetzter Portfolio-Generator und Analysetool",
+    "unlockFeatures": "Schalte AI-Portfolio Funktionen frei",
+    "tabs": {
+      "generator": "Portfolio Generator",
+      "analyzer": "Portfolio Analyse"
+    },
+    "generator": {
+      "title": "Portfolio generieren",
+      "budget": "Investitionsbudget",
+      "budgetHint": "Min. 100€ - Max. 10.000.000€",
+      "riskLevel": "Risikoprofil",
+      "conservative": "Konservativ",
+      "lowRisk": "Niedriges Risiko",
+      "conservativeDesc": "Fokus auf etablierte Coins (BTC, ETH). Geringere Rendite, hoehere Sicherheit.",
+      "balanced": "Ausgewogen",
+      "mediumRisk": "Mittleres Risiko",
+      "balancedDesc": "Mix aus Blue Chips und Wachstums-Assets. Ausgeglichenes Risiko-Rendite-Verhaeltnis.",
+      "aggressive": "Aggressiv",
+      "highRisk": "Hohes Risiko",
+      "aggressiveDesc": "Hoeherer Anteil Altcoins und KRC-20. Maximales Wachstumspotenzial.",
+      "generate": "Portfolio generieren",
+      "analyzing": "KI analysiert...",
+      "aiWorking": "KI arbeitet",
+      "aiWorkingDesc": "Analysiert aktuelle Marktbedingungen und erstellt optimales Portfolio..."
+    },
+    "analyzer": {
+      "title": "Dein Portfolio analysieren",
+      "inputLabel": "Deine aktuellen Bestände",
+      "placeholder": "Gib deine Bestände ein, z.B.: 0.5 BTC, 2 ETH, 5000 KAS",
+      "inputHint": "Max. 15 Coins pro Analyse. Alle Krypto-Coins werden unterstuetzt.",
+      "usageThisMonth": "Analysen diesen Monat",
+      "analyze": "Portfolio analysieren",
+      "analyzing": "Analysiere...",
+      "exampleTitle": "Beispielformat",
+      "aiWorking": "KI analysiert",
+      "aiWorkingDesc": "Bewertet dein Portfolio und erstellt Empfehlungen..."
+    },
+    "disclaimer": {
+      "title": "Wichtiger Hinweis",
+      "text": "Dies ist keine Finanzberatung. KI-generierte Empfehlungen dienen nur Bildungszwecken. Mach immer eigene Recherchen. Investiere nur, was du verlieren kannst."
+    }
   },
   "team": {
     "title": "Unser Team",

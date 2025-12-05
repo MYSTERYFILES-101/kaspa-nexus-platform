@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { Krc20Switchbar } from '@/components/krc20/Krc20Switchbar';
 
 // Infrastructure Item type
 interface InfraItem {
@@ -118,6 +119,21 @@ export default function InfrastructurePage() {
 
   return (
     <div className="py-4 md:py-6 lg:py-8">
+      {/* KRC-20 Network Banner */}
+      <div className="relative w-full aspect-[21/9] mb-6 rounded-2xl overflow-hidden">
+        <Image
+          src="/images/banners/krc20-network.png"
+          alt="KRC-20 Network"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-start)]/30 to-transparent" />
+      </div>
+
+      {/* KRC-20 Switchbar */}
+      <Krc20Switchbar />
+
       {/* Page Header */}
       <GlassCard className="p-4 md:p-6 mb-6">
         <div className="flex items-center gap-4">

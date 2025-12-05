@@ -419,16 +419,68 @@ sudo -u kaspa pm2 restart kaspa-nexus-api
 | 2025-12-04 | **DB Dump Loesung** von supertypo hinzugefuegt (besser als rsync!) |
 | 2025-12-04 | Kontaktliste erweitert (supertypo, IzioDev, PeWMaXi, Callidon) |
 | 2025-12-04 | https://db-dl.kaspa.org/ als Hauptquelle dokumentiert |
+| 2025-12-05 | **DB Dump Download gestartet** (kaspa-db_all_2025-12-04) |
 
 ---
 
 ## OFFENE AUFGABEN
 
 - [x] ~~Archival Node: Helix auf Discord kontaktieren fuer rsync~~ (DB Dump ist bessere Loesung!)
-- [ ] **DB Dump herunterladen** von https://db-dl.kaspa.org/ (supertypo erstellt neuen, 12-24h)
+- [x] ~~DB Dump herunterladen von https://db-dl.kaspa.org/~~ **LAEUFT! (screen: kaspa-dump)**
+- [ ] DB Dump entpacken und in PostgreSQL importieren
 - [ ] KRC-20 Indexer mit DB Dump Daten aufbauen
 - [ ] Storage erweitern auf 2.5+ TB (falls Archival Node doch noetig)
 - [ ] Chainge Finance URL-Erreichbarkeit weiter beobachten
+
+---
+
+## DB DUMP STATUS (2025-12-05)
+
+**Download: ABGESCHLOSSEN (373 GB)**
+
+```
+Datei:    kaspa-db_all_2025-12-04T19:31:29Z.pgdump.zst
+Pfad:     /data/kaspa-dump/
+Groesse:  373 GB (komprimiert)
+```
+
+### PROBLEM: SPEICHERPLATZ NICHT AUSREICHEND!
+
+| Info | Wert |
+|------|------|
+| Komprimiert | 373 GB |
+| Entpackt (geschaetzt) | 1.5-2 TB |
+| Verfuegbar | 1.2 TB |
+| Ergebnis | Entpackung abgebrochen bei 1.3 TB |
+
+### LOESUNG: STREAM-IMPORT (ohne Entpacken auf Disk!)
+
+```bash
+# Datenbank erstellen:
+sudo -u postgres createdb kaspa_data
+
+# Stream-Import direkt in PostgreSQL:
+zstd -d /data/kaspa-dump/kaspa-db_all_2025-12-04T19:31:29Z.pgdump.zst -c | \
+  pg_restore -d kaspa_data --no-owner --no-privileges
+
+# Hinweis: Dauert mehrere Stunden!
+```
+
+### ALTERNATIVE: MEHR STORAGE
+
+Falls Stream-Import nicht funktioniert:
+- **Min. 2 TB SSD** fuer entpackten Dump + PostgreSQL Daten
+- HDD NICHT geeignet (zu langsam fuer Real-Time Queries)
+
+### HDD vs SSD Entscheidung
+
+| Verwendung | HDD (22 TB) | SSD |
+|------------|-------------|-----|
+| Kaspa Archival Node | NEIN (crashed beim Start!) | JA (PFLICHT) |
+| PostgreSQL Live-DB | NEIN (zu langsam) | JA (empfohlen) |
+| Backup/Cold Storage | JA (ideal) | Uebertrieben |
+
+**Fazit:** HDD nur fuer Backups kaufen, nicht fuer Live-Betrieb!
 
 ---
 
