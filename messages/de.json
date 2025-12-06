@@ -882,6 +882,89 @@
       "text": "Dies ist keine Finanzberatung. KI-generierte Empfehlungen dienen nur Bildungszwecken. Mach immer eigene Recherchen. Investiere nur, was du verlieren kannst."
     }
   },
+  "signalsBoard": {
+    "title": "AI Trading Signals",
+    "subtitle": "KI-validierte Trading-Signale mit 3-facher Validierung fuer maximale Qualitaet",
+    "whatAreSignals": {
+      "title": "Was sind Trading-Signale?",
+      "description": "Trading-Signale sind professionelle Kauf- und Verkaufsempfehlungen, die von unserer KI analysiert und generiert werden. Jedes Signal enthaelt einen optimalen Einstiegspunkt, Stop-Loss zur Risikobegrenzung und bis zu 5 Take-Profit-Ziele. Unsere Signale werden erst ausgegeben, wenn alle 3 KI-Modelle uebereinstimmen.",
+      "example": "Beispiel eines Signals:"
+    },
+    "tripleAi": {
+      "title": "3-KI Validierung",
+      "description": "Unser einzigartiges System nutzt drei unabhaengige KI-Modelle, die jedes potenzielle Signal analysieren. Nur wenn alle drei Modelle uebereinstimmen, wird das Signal an unsere Nutzer weitergegeben. Dies minimiert Fehlsignale und maximiert die Qualitaet.",
+      "ai1": "Spezialisiert auf komplexe Marktanalyse",
+      "ai2": "Fokus auf Mustererkennung und Trends",
+      "ai3": "Technische Analyse und Indikatoren",
+      "rule": "3/3 Regel: Alle muessen zustimmen",
+      "ruleDesc": "Ein Signal wird nur ausgegeben, wenn alle 3 KI-Modelle uebereinstimmen. Bei nur 2 von 3 wird das Signal verworfen."
+    },
+    "supportedCoins": {
+      "title": "Unterstuetzte Coins",
+      "description": "Wir konzentrieren uns auf ausgewaehlte Coins mit hoher Liquiditaet und Marktkapitalisierung, um die beste Signalqualitaet zu gewaehrleisten.",
+      "kas": "Fokus-Coin - Unsere Spezialitaet im Kaspa-Oekosystem",
+      "btc": "Market Leader - Fuer stabile, weniger volatile Signale",
+      "eth": "Smart Contracts - Altcoin-Leader mit starker Korrelation"
+    },
+    "signalStructure": {
+      "title": "Aufbau eines Signals",
+      "description": "Jedes Signal ist strukturiert aufgebaut und enthaelt alle Informationen, die du fuer einen Trade benoetigst:",
+      "entry": "Entry (Einstieg)",
+      "entryDesc": "Der optimale Kaufpreis. Wir empfehlen, nahe diesem Preis einzusteigen.",
+      "stopLoss": "Stop-Loss (SL)",
+      "stopLossDesc": "Automatischer Verkauf zur Verlustbegrenzung. Typisch 8-12% unter Entry.",
+      "takeProfit": "Take-Profit (TP1-TP5)",
+      "takeProfitDesc": "Bis zu 5 Gewinnziele mit steigenden Prozentsaetzen. Teilverkaeufe empfohlen.",
+      "confidence": "Konfidenz",
+      "confidenceDesc": "Staerke des Signals (60-100%). Hoeherer Wert = staerkere Uebereinstimmung der KIs."
+    },
+    "trailingSystem": {
+      "title": "Trailing Stop-Loss System",
+      "description": "Unser intelligentes Trailing-System sichert automatisch Gewinne ab, sobald Take-Profit-Ziele erreicht werden:",
+      "reached": "erreicht",
+      "previousTp": "vorheriges TP",
+      "benefit": "Vorteil: Sobald TP1 erreicht ist, kannst du nicht mehr verlieren - der SL liegt auf deinem Einstiegspreis!"
+    },
+    "btcWatching": {
+      "title": "BTC-Watching Sicherheitssystem",
+      "description": "Bitcoin bestimmt den Kryptomarkt. Bei starken BTC-Bewegungen pausieren wir Signale automatisch, um dich zu schuetzen:",
+      "movement": "BTC-Bewegung",
+      "action": "Unsere Aktion",
+      "action1": "Warnung im Signal-Feed",
+      "action2": "Keine neuen Signale fuer Altcoins",
+      "action3": "Alle Signale pausiert",
+      "action4": "Notfall-Warnung an alle Nutzer"
+    },
+    "quality": {
+      "title": "Qualitaet vor Quantitaet",
+      "description": "Wir wollen, dass du wirklich gewinnst. Deshalb setzen wir auf weniger, aber bessere Signale statt auf Masse.",
+      "notUs": "Was wir NICHT machen",
+      "not1": "20+ Signale pro Tag ohne Qualitaetspruefung",
+      "not2": "Signale fuer jede kleine Preisbewegung",
+      "not3": "Unrealistische Gewinnversprechen",
+      "ourApproach": "Unser Ansatz",
+      "our1": "2-5 hochqualitative Signale pro Tag",
+      "our2": "3-fache KI-Validierung bei jedem Signal",
+      "our3": "Transparente Win-Rate Statistiken"
+    },
+    "tiers": {
+      "title": "Abonnement-Stufen",
+      "pro1": "Alle AI Trading-Signale",
+      "pro2": "3-KI validierte Empfehlungen",
+      "pro3": "BTC, ETH & KAS Signale",
+      "pro4": "Echtzeit Push-Benachrichtigungen",
+      "getPro": "Pro holen",
+      "proPlus1": "Alles aus Pro inklusive",
+      "proPlus2": "Automatischer Trading Bot",
+      "proPlus3": "CoinEx API-Integration",
+      "proPlus4": "Prioritaets-Support",
+      "getProPlus": "Pro+ holen"
+    },
+    "disclaimer": {
+      "title": "Risikohinweis",
+      "text": "Trading mit Kryptowaehrungen ist hochriskant. Die hier bereitgestellten Signale sind keine Finanzberatung. Investiere nur Geld, dessen Verlust du verkraften kannst. Vergangene Performance garantiert keine zukuenftigen Ergebnisse. DYOR - Do Your Own Research."
+    }
+  },
   "team": {
     "title": "Unser Team",
     "subtitle": "Die Menschen hinter KASPA-NEXUS",

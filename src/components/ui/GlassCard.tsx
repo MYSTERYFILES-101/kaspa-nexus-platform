@@ -6,6 +6,7 @@ interface GlassCardProps {
   glow?: boolean;
   hover?: boolean;
   padding?: 'none' | 'sm' | 'md' | 'lg';
+  onClick?: () => void;
 }
 
 export function GlassCard({
@@ -14,6 +15,7 @@ export function GlassCard({
   glow = false,
   hover = true,
   padding = 'md',
+  onClick,
 }: GlassCardProps) {
   const paddingClasses = {
     none: '',
@@ -26,7 +28,10 @@ export function GlassCard({
   const hoverClass = hover && !glow ? 'hover:border-primary/30 hover:shadow-glass-glow transition-all duration-300' : '';
 
   return (
-    <div className={`${baseClass} ${paddingClasses[padding]} ${hoverClass} ${className}`}>
+    <div
+      className={`${baseClass} ${paddingClasses[padding]} ${hoverClass} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
+    >
       {children}
     </div>
   );
