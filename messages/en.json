@@ -968,11 +968,20 @@
   "team": {
     "title": "Our Team",
     "subtitle": "The people behind KASPA-NEXUS",
+    "comingSoon": "Coming Soon",
+    "teamMember": {
+      "role": "Team Member",
+      "joiningSoon": "Will be joining the team soon"
+    },
     "founder": {
       "title": "Founder",
       "name": "Peter Wittner",
       "role": "Founder & Lead Developer",
       "bio": "Passionate blockchain enthusiast and full-stack developer focused on the Kaspa ecosystem. Founder of KASPA-NEXUS with the vision of creating the most accurate and reliable KRC-20 data platform."
+    },
+    "hiring": {
+      "title": "We're Hiring!",
+      "description": "We're expanding our team! If you have a passion for blockchain, KRC-20, and innovative technologies, we'd love to hear from you."
     },
     "vision": {
       "title": "Our Vision",
@@ -1029,5 +1038,43 @@
       }
     },
     "comingSoonDesc": "More team information and news will be published soon."
+  },
+  "sponsors": {
+    "title": "Supporters & Partners",
+    "subtitle": "Together we build the future of the Kaspa ecosystem",
+    "whatWeNeed": {
+      "title": "What We Need",
+      "description": "KASPA-NEXUS is a community project. We don't ask for money donations, but support in the form of resources:",
+      "server": "Server & Hosting",
+      "serverDesc": "Dedicated servers, cloud resources, VPS",
+      "infrastructure": "Infrastructure",
+      "infrastructureDesc": "Databases, CDN, load balancers",
+      "services": "Services & APIs",
+      "servicesDesc": "API access, SaaS tools, licenses",
+      "other": "Other Resources",
+      "otherDesc": "Hardware, domains, SSL certificates"
+    },
+    "currentSponsors": {
+      "title": "Current Supporters",
+      "noSponsors": "No supporters yet",
+      "beFirst": "Be the first to support the project!"
+    },
+    "benefits": {
+      "title": "What Supporters Get",
+      "logo": "Logo Placement",
+      "logoDesc": "Your logo on our website and in the app",
+      "mention": "Mention",
+      "mentionDesc": "Recognition on our social media channels",
+      "access": "Early Access",
+      "accessDesc": "Beta access to new features",
+      "community": "Community Status",
+      "communityDesc": "Special role in our Discord"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "description": "Want to support the project? Contact us!",
+      "email": "Send Email"
+    },
+    "communityNote": "KASPA-NEXUS is a community-driven open-source project. Every bit of support helps us continue developing the platform and keep it free for everyone."
   }
 }
