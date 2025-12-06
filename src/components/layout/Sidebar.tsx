@@ -98,22 +98,17 @@ const ProfileIcon = () => (
   </svg>
 );
 
-// Icons für später (wenn Auth implementiert ist):
-// const UpgradeIcon = () => (
-//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-//   </svg>
-// );
-// const ApiIcon = () => (
-//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-//   </svg>
-// );
-// const LogoutIcon = () => (
-//   <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-//   </svg>
-// );
+const UpgradeIcon = () => (
+  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+  </svg>
+);
+
+const ApiIcon = () => (
+  <svg className="nav-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+  </svg>
+);
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
   <svg
@@ -212,10 +207,9 @@ const navigation: NavCategory[] = [
     labelKey: 'account',
     defaultOpen: false,
     items: [
-      // Ohne Auth: nur Login und Register anzeigen
-      // Später mit Auth: dynamisch umschalten zu Profile, Upgrade, API, Logout
       { labelKey: 'login', href: '/auth/login', icon: LoginIcon },
-      { labelKey: 'register', href: '/auth/register', icon: RegisterIcon },
+      { labelKey: 'buyPro', href: '/account/upgrade', icon: UpgradeIcon, badge: 'upgrade' },
+      { labelKey: 'buyApi', href: '/account/api', icon: ApiIcon, badge: 'upgrade' },
     ],
   },
 ];
